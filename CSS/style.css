@@ -1,0 +1,231 @@
+body {
+    margin: 0;
+    background-color: #F6F7F8;
+    font-family: 'Inter';
+}
+
+/* Style scorllbar */
+::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+::-webkit-scrollbar-track-piece  { 
+    background-color: white;
+    border-bottom: none;
+    border-top: none; 
+}
+::-webkit-scrollbar-thumb:vertical {
+    height: 30px;
+    background-color: #A8A8A8;
+    border-radius: 22px;
+}
+
+a { text-decoration: none; }
+
+/* Pseudo classes */
+.flex { display: flex; }
+
+.x-center { justify-content: center; }
+
+.x-space-betw { justify-content: space-between; }
+
+.x-space-around { justify-content: space-around; }
+
+.x-start { justify-content: flex-start; }
+
+.x-end { justify-content: flex-end;}
+
+.y-center { align-items: center; }
+
+.y-start { align-items: flex-start; }
+
+.flex-column { flex-direction: column; }
+
+.flex-row { flex-direction: row; }
+
+.mb-5px { margin-bottom: 5px; }
+
+.mb-8px { margin-bottom: 8px; }
+
+.mb-12px { margin-bottom: 12px; }
+
+.mb-16px { margin-bottom: 16px; }
+
+.mb-24px { margin-bottom: 24px; }
+
+.mb-28px { margin-bottom: 28px;}
+
+.mb-32px { margin-bottom: 32px; }
+
+.mb-48px { margin-bottom: 48px; }
+
+.mb-64px { margin-bottom: 64px; }
+
+.mb-128px { margin-bottom: 128px; }
+
+.mb--128px { margin-bottom: -128px; }
+
+.ml-39px { margin-left: 39px; }
+
+.mr-16px { margin-right: 16px; }
+
+.mt-24px { margin-top: 24px; }
+
+.mr-32px { margin-right: 32px; }
+
+.mr-35px { margin-right: 35px; }
+
+.mt-48px { margin-top: 48px; }
+
+.mt-64px { margin-top: 64px; }
+
+.p-btn { padding: 15px 16px !important; }
+
+.p-4px { padding: 4px; }
+
+.p-8px { padding: 8px; }
+
+.p-12px { padding: 12px; }
+
+.p-16px { padding: 16px; }
+
+.gap-4px { gap: 4px; }
+
+.gap-8px { gap: 8px; }
+
+.gap-16px { gap: 16px; }
+
+.gap-26px { gap: 26px; }
+
+.gap-32px { gap: 32px; }
+
+.gap-35px { gap: 35px; }
+
+.fs-16px { font-size: 16px; }
+
+.fs-20px { font-size: 20px; }
+
+.fs-21px { font-size: 21px; }
+
+.fs-27px { font-size: 27px; }
+
+.fs-47px { font-size: 47px; }
+
+.fs-61px { font-size: 61px; }
+
+.fw-400 { font-weight: 400; }
+
+.fw-500 { font-weight: 500; }
+
+.fw-700 { font-weight: 700; }
+
+.col-white { color: #FFFFFF; }
+
+.col-black { color: #000000; }
+
+.col-light-blue { color: #29abe2; }
+
+.dark-blue { color: #2A3647; }
+
+.bg-dark-blue { background: #2A3647; }
+
+.w-100 { width: 100%; }
+
+.ft-general {
+    font-style: normal;
+    line-height: 120%;
+}
+
+.d-none { display: none; }
+
+.z-ind--1 { z-index: -1; }
+
+.z-ind-0 { z-index: 0; }
+
+.z-ind-1 { z-index: 1; }
+
+.opacity { opacity: 0.1; }
+
+.border-round { border-radius: 50%; }
+/* ------------------------------------- */
+
+/* Classes for input fields */
+.input-icon-pos {
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-size: 24px;
+}
+
+.login-input {
+    border-radius: 10px;
+    width: 422px;
+    border: 1px solid var(--Style, #D1D1D1);
+    padding: 12px 21px;
+    cursor: pointer;
+    font-family: 'Inter';
+}
+
+input {
+    gap: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.icon-email { 
+    background-image: url(/assets/img/mail.png); 
+    background-repeat: no-repeat;
+}
+
+/* Classes for buttons */
+.btn-light {
+    border-radius: 8px;
+    border: 2px solid var(--version-2-main-color, #2A3647);
+    background: var(--white, #FFF);
+    color: var(--version-2-main-color, #2A3647);
+    padding: 15px 24px;
+}
+
+.btn-light:hover {
+    border: 2px solid #29abe2; 
+    box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+ .guestLogIn-btn {
+    border-radius: 8px;
+    border: 1px solid var(--version-2-main-color, #2A3647);
+    background: var(--white, #FFF);
+ }
+
+.btn-dark { 
+    border-radius: 8px;
+    background: #2A3647;
+    color: #FFF;
+    padding: 15px 24px;
+    border: none;
+}
+
+.btn-dark:hover { 
+    background-color: #29abe2;
+    box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+button,
+.close-cross { cursor: pointer; }
+
+.close-cross { padding: 21px; }
+
+.close-cross > img:hover,
+.arrow-back:hover,
+.go-back:hover {
+    background-color: grey; 
+    border-radius: 50%;
+    background-color:  var(--Style, #D1D1D1);
+}
+
+.go-back { cursor: pointer; }
+
+/* Classses for blue seperators */
+.vertical-bl-line { padding: 0 30px; }
+
+.vertical-gr-line { padding: 0 61px; }

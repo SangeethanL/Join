@@ -1,0 +1,335 @@
+@media (max-width: 1350px) {
+    .addTaskCSS {
+        width: 65vw;
+        height: 80vh;
+    }
+
+    .show_form1 {
+        transform: translateX(17.5vw);
+    }
+
+    #aTContent {
+        padding: 40px;
+    }
+
+
+    #aTContent td div {
+        margin-bottom: 6px;
+    }
+
+    #createTaskForm input {
+        height: 20px;
+    }
+
+    #createTaskForm select {
+        height: 20px;
+    }
+
+    #aTContentTitle {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .priority {
+        width: 80%;
+    }
+
+    .prio-button {
+        font-size: 12px;
+    }
+
+    #displaySubtasks {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .buttonsAtEnd {
+        margin-top: 150px;
+    }
+
+    .buttonsAtEnd button {
+        width: fit-content;
+        height: fit-content;
+    }
+
+    .button-clear {
+        font-size: 14px;
+    }
+
+    .button-create-task {
+        font-size: 14px;
+    }
+
+    /*------------------------------------Show Task Form------------------------------------*/
+
+    .showTaskCSS {
+        width: 35vw;
+        height: 90vh;
+    }
+
+    .show_form2 {
+        transform: translateX(32.5vw);
+    }
+
+    #showTaskContent {
+        height: 90%;
+        padding: 12px;
+    }
+
+    #showTaskContent div input {
+        width: 300px;
+    }
+
+    #container3 div input {
+        width: 13px;
+        height: 13px;
+    }
+
+    /*--------------------------------------Head Bereich--------------------------------------*/
+
+    #body_area {
+        width: 79vw;
+    }
+
+    #title {
+        width: 79vw;
+    }
+
+    #title h1 {
+        font-size: 40px;
+    }
+
+    /*-----------------------------------------Bord-----------------------------------------*/
+
+    #board {
+        margin-top: 100px;
+    }
+
+    #board th {
+        font-size: 16px;
+    }
+
+    #board td {
+        margin-top: 15px;
+    }
+
+    .taskBox {
+        width: 200px;
+        padding: 7px;
+    }
+
+    #taskCategory {
+        font-size: 16px;
+        margin-bottom: 11px;
+        padding: 2px;
+    }
+
+    .taskTitle {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 1150px) {
+
+    .show_form1 {
+        transform: translateX(17.5vw);
+    }
+
+    #aTContent {
+        padding: 30px;
+    }
+
+    #createTaskForm input {
+        height: 17px;
+    }
+
+    #createTaskForm select {
+        height: 19px;
+    }
+
+    .priority {
+        width: 100%;
+    }
+
+    /*------------------------------------Show Task Form------------------------------------*/
+    .show_form2 {
+        transform: translateX(32.5vw);
+    }
+
+
+    #showTaskContent div input {
+        height: 15px;
+    }
+
+    #title2 {
+        font-size: 30px;
+    }
+
+    /*------------------------------------Edit Task Form------------------------------------*/
+
+    .elementStyling {
+        font-size: 14px;
+    }
+
+    /*--------------------------------------Head Bereich--------------------------------------*/
+
+    #body_area {
+        width: 75vw;
+    }
+
+    #title {
+        width: 75vw;
+    }
+
+    #title h1 {
+        font-size: 32px;
+    }
+
+    .addTaskButton {
+        width: 120px;
+        height: 35px;
+    }
+
+    /*-----------------------------------------Bord-----------------------------------------*/
+
+    #board {
+        margin-top: 80px;
+    }
+
+    #board td {
+        margin-top: 12px;
+    }
+
+    .taskBox {
+        width: 160px;
+        padding: 3px;
+    }
+
+    #taskCategory {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .taskTitle {
+        font-size: 13px;
+    }
+
+    .taskDescription {
+        font-size: 12px;
+    }
+
+    .taskNumberOfSubtasks {
+        font-size: 12px;
+    }
+
+    .taskEnd img {
+        width: 20px;
+        height: 16px;
+    }
+
+    .taskContactIcon {
+        max-width: 16px;
+        max-height: 16px;
+    }
+}
+
+@media (max-width: 950px) {
+    .addTaskCSS {
+        width: 70vw;
+        height: 80vh;
+    }
+
+    .show_form1 {
+        transform: translateX(15vw);
+    }
+
+    #aTContent {
+        padding: 15px;
+    }
+
+    .priority {
+        width: 100%;
+    }
+
+    /*------------------------------------Show Task Form------------------------------------*/
+
+    .showTaskCSS {
+        width: 50vw;
+    }
+
+    .show_form2 {
+        transform: translateX(25vw);
+    }
+
+    #showTaskContent div input {
+        width: 240px;
+        height: 15px;
+    }
+
+    #title2 {
+        font-size: 25px;
+    }
+
+    /*------------------------------------Edit Task Form------------------------------------*/
+
+    .elementStyling {
+        font-size: 13px;
+    }
+
+    /*--------------------------------------Head Bereich--------------------------------------*/
+
+    #body_area {
+        width: 70vw;
+    }
+
+    #title {
+        width: 70vw;
+    }
+
+    #title h1 {
+        font-size: 20px;
+    }
+
+    .addTaskButton {
+        width: 100px;
+        height: 30px;
+    }
+
+    /*-----------------------------------------Bord-----------------------------------------*/
+
+    #board {
+        margin-top: 60px;
+    }
+
+    .taskBox {
+        width: 135px;
+        padding: 2px;
+    }
+
+    #taskCategory {
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
+
+    .taskTitle {
+        font-size: 12px;
+    }
+
+    .taskDescription {
+        font-size: 11px;
+    }
+
+    .taskNumberOfSubtasks {
+        font-size: 11px;
+    }
+
+    .taskEnd img {
+        width: 18px;
+        height: 14px;
+    }
+
+    .taskContactIcon {
+        max-width: 14px;
+        max-height: 14px;
+    }
+}

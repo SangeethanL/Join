@@ -1,0 +1,39 @@
+.main-div-help {
+    position: absolute;
+    top: 80px;
+    left: 300px;
+    height:150vh;
+    margin-right: 100px;
+    
+ 
+}
+
+.enjoy{
+    margin-bottom: 100px;
+}
+
+ol { padding-left: 24px; }
+
+ol > li::marker {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 800px) {
+
+    .main-div-help {
+        margin-right: 50px;
+        margin-left: 50px;
+        left:0;
+    }
+  
+       
+
+
+   
+}
+
+@media only screen and (max-width: 500px) {
+
+    
+}

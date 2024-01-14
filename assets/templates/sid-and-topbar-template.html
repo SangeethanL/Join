@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/JS/script.js"></script>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/side-and-topbar-template.css">
+    <link rel="stylesheet" href="/CSS/fonts_inter.css">
+</head>
+
+<body>
+    <div class="side-topbar-template">
+        <!-- Top bar -->
+        <div class="topbar flex x-space-betw y-center">
+            <img class="topbar-join-logo" src="assets/img/topbar-join-logo.svg">
+            <span class="ft-general fs-20px fw-400 set-span">Kanban Project Management Tool</span>
+            <div class="flex y-center sign-up">
+                <img class="help-icon" onclick="goToHelp()" class="mr-16px" src="/assets/img/help.png" alt="help">
+                <div onclick="openLogoutMenu()" class="login p-4px">
+                    <span id="token">SB</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout menu -->
+        <div id="log-out" class="flex flex-column x-space-betw d-none ft-general fs-16px fw-400 bg-dark-blue">
+            <a href="/legal_notice.html">Legal Notice</a>
+            <a href="/privacy_policy.html">Privacy Policy</a>
+            <a href="/login.html">Log out</a>
+        </div>
+
+        <!-- Side bar -->
+        <div class="sidebar flex flex-column x-space-around y-center">
+            <img class="join-logo" src="/assets/img/Capa_2_light.png" alt="Join Logo">
+
+            <div class="main-categorys" id="sidebar" class="ft-general fs-16px fw-400 w-100">
+                <a class="link-col flex y-center gap-8px mb-16px menu-choose" href="/summary.html">
+                    <img class="nav-icon" src="/assets/img/summary.png" alt="summary">
+                    <span class="main-nav-typo">Summary</span>
+                </a>
+                <a class="link-col flex y-center gap-8px mb-16px menu-choose" href="/add_task.html">
+                    <img class="nav-icon" src="/assets/img/add_task.png" alt="add task">
+                    <span class="main-nav-typo">Add Task</span>
+                </a>
+                <a class="link-col flex y-center gap-8px mb-16px menu-choose" href="/board.html">
+                    <img class="nav-icon" src="/assets/img/board.png" alt="board">
+                    <span class="main-nav-typo">Board</span>
+                </a>
+                <a class="link-col flex y-center gap-8px mb-16px menu-choose" href="/contacts.html">
+                    <img class="nav-icon" src="/assets/img/contacts.png" alt="contacts">
+                    <span class="main-nav-typo">Contacts</span>
+                </a>
+            </div>
+
+            <!-- Go to Privacy Policy or Legal Notice -->
+            <div id="legal-notice" class="flex flex-column fs-16px">
+                <div class="p-8px">
+                    <a class="ft-general fs-16px fw-400 link-col" target="_blank" href="/privacy_policy.html">Privacy
+                        Policy</a>
+                </div>
+                <div class="p-8px">
+                    <a class="ft-general fs-16px fw-400 link-col" target="_blank" href="/legal_notice.html">Legal
+                        Notice</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+.side-topbar-template { height: 100vh; }
+
+.sidebar {
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+    flex-shrink: 0;
+    height: 10%;
+    width: 100%;
+}
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    padding: 20px 0;
+    background-color: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+.set-span { margin-left: 348px; }
+
+.side-topbar-template > .topbar img { cursor: pointer; }
+
+div.topbar > div.sign-up > img:hover { scale: 1.1; }
+
+#legal-notice > div > a:hover,
+#lega-notice > div > span:hover
+{ color: #29ABE2; }
+
+.sign-up { margin-right: 40px; }
+
+.menu-choose {  
+    cursor: pointer;
+}
+
+.menu-choose:hover,
+#log-out > a:hover
+ { background-color: rgb(39, 58, 88); }
+
+.sidebar > div > a:active { background-color: #091931; }
+
+.link-col { 
+color: #CDCDCD; 
+display:flex;
+flex-direction: column;}
+
+.profil-icon {
+    position: absolute;
+    right: 54px;
+}
+
+#log-out {
+    z-index: 1;
+    position: fixed;
+    top: 104px;
+    right: 20px;
+    height: 138px;
+    cursor: pointer;
+    width: fit-content;
+    padding: 10px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#log-out a {
+    padding: 8px 16px;
+    color: #CDCDCD;
+}
+
+.login { position: relative;
+    width: 56px;
+    height: 56px; 
+}
+
+.login span {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+}
+
+.login img { position: absolute; }
+
+.join-logo{
+    display:none;
+}
+
+#legal-notice{
+    display: none;
+}
+
+#sidebar{
+    display: flex;
+    justify-content: space-evenly;
+}

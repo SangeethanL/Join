@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon-32x32.png">
+    <script src="js/board/arrays_tasks-contacts.js"></script>
+    <script src="js/contacts.js"></script>
+    <script src="js/includeHTML.js"></script>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/contacts.css">
+    <link rel="stylesheet" href="CSS/fonts_inter.css">
+</head>
+
+<body id="body-contacts" onload="init();setContacts();">
+    <div id="side-and-topbar-contacts" w3-include-html="assets/templates/sid-and-topbar-template.html"></div>
+
+    <!-- Main contacts overview -->
+    <div id="contacts" class="main-div-contacts">
+        <div class="sub-div-contacts flex flex-row">
+            <div class="contacts-div flex flex-column y-center">
+                <div class="mb-32px">
+                    <button onclick="openContactsOverlay()"
+                        class="flex x-center y-center gap-16px btn-dark add-contacts-btn ft-general fs-21px fw-700">Add
+                        new Contact
+                        <img src="/assets/img/person_add.png" alt="add person"></button>
+                        
+                </div>
+
+                <!-- Contact book to render in contacts -->
+                <div>
+                    <table>
+                        <tbody id="contact-book">
+                            <td id="A-Title" class="d-none separator"><span>A</span></td>
+                            <tr id="A" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="B-Title" class="d-none separator"><span>B</span></td>
+                            <tr id="B" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="C-Title" class="d-none separator"><span>C</span></td>
+                            <tr id="C" class="flex flex-column margintLetter">
+                            </tr>
+
+                            <td id="D-Title" class="d-none separator"><span>D</span></td>
+                            <tr id="D" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="E-Title" class="d-none separator"><span>E</span></td>
+                            <tr id="E" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="F-Title" class="d-none separator"><span>F</span></td>
+                            <tr id="F" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="G-Title" class="d-none separator"><span>G</span></td>
+                            <tr id="G" class="flex flex-column marginLetter">
+                            </tr>
+                            
+                            <td id="H-Title" class="d-none separator"><span>H</span></td>
+                            <tr id="H" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="I-Title" class="d-none separator"><span>I</span></td>
+                            <tr id="I" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="J-Title" class="d-none separator"><span>J</span></td>
+                            <tr id="J" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="K-Title" class="d-none separator"><span>K</span></td>
+                            <tr id="K" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="L-Title" class="d-none separator"><span>L</span></td>
+                            <tr id="L" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="M-Title" class="d-none separator"><span>M</span></td>
+                            <tr id="M" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="N-Title" class="d-none separator"><span>N</span></td>
+                            <tr id="N" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="O-Title" class="d-none separator"><span>O</span></td>
+                            <tr id="O" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="P-Title" class="d-none separator"><span>P</span></td>
+                            <tr id="P" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="Q-Title" class="d-none separator"><span>Q</span></td>
+                            <tr id="Q" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="R-Title" class="d-none separator"><span>R</span></td>
+                            <tr id="R" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="S-Title" class="d-none separator"><span>S</span></td>
+                            <tr id="S" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="T-Title" class="d-none separator"><span>T</span></td>
+                            <tr id="T" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="U-Title" class="d-none separator"><span>U</span></td>
+                            <tr id="U" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="V-Title" class="d-none separator"><span>V</span></td>
+                            <tr id="V" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="W-Title" class="d-none separator"><span>W</span></td>
+                            <tr id="W" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="X-Title" class="d-none separator"><span>X</span></td>
+                            <tr id="X" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="Y-Title" class="d-none separator"><span>Y</span></td>
+                            <tr id="Y" class="flex flex-column marginLetter">
+                            </tr>
+
+                            <td id="Z-Title" class="d-none separator"><span>Z</span></td>
+                            <tr id="Z" class="flex flex-column marginLetter">
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <button onclick="openContactsOverlay()"
+                        class="flex x-center y-center  btn-dark add-contacts-btn-resp ft-general fs-21px fw-700">
+                        <img src="/assets/img/person_add.png" alt="add person"></button>
+
+            <div class="team-slogan">
+                <div class="flex x-start y-center mb-48px">
+                    <span class="ft-general fs-61px fw-700">Contacts</span>
+                    <img class="vertical-bl-line" src="assets/img/Vector_blue_vertical.png" alt="vertical blue line">
+                    <span class="ft-general fs-27px fw-400">Better with a Team!</span>
+                </div>
+                <div id="contact-details">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay contacts menu -->
+    <div id="overlay-contacts" class="contacts-overlay d-none z-ind-1 flex">
+        <div class="bg-dark-blue flex flex-column x-center y-start">
+            <img src="assets/img/Capa_2_light.png" alt="Join logo" class="join-logo-small mb-16px">
+            <span class="ft-general fs-61px fw-700 mb-8px">Add contact</span>
+            <span class="ft-general fs-27px fw-400 mb-16px">Tasks are better with a team!</span>
+            <img src="assets/img/Vector 5.png" alt="blue horizontal line">
+        </div>
+
+        <div class="flex flex-row w-100 overlay-forms">
+            <div class="flex y-center">
+                <img src="assets/img/contact_person.png" alt="avatar">
+            </div>
+            <div class="flex flex-column x-center y-center w-100">
+                <div class="flex w-100 x-end close-cross mb-48px"><img onclick="closeContactOverlay()" class="p-8px"
+                        src="assets/img/close.png" alt="close"></div>
+
+                <form onsubmit="createNewContact(); return false;" class="flex flex-column" id="newContactForm">
+                    <div class="login-input mb-32px flex x-space-betw y-center">
+                        <input class="ft-general fs-20px fw-400 input-icon-pos icon-name w-100" id="first-name"
+                            placeholder="First-Name" type="text" required>
+                    </div>
+                    <div class="login-input mb-32px flex x-space-betw y-center">
+                        <input class="ft-general fs-20px fw-400 input-icon-pos icon-name w-100" id="last-name"
+                            placeholder="Last-Name" type="text" required>
+                    </div>
+                    <div class="login-input mb-32px flex x-space-betw y-center">
+                        <input class="ft-general fs-20px fw-400 input-icon-pos icon-email w-100" id="email"
+                            placeholder="Email" type="email" required>
+                    </div>
+                    <div class="login-input mb-32px flex x-space-betw y-center">
+                        <input type="numbers" class="ft-general fs-20px fw-400 input-icon-pos icon-phone w-100"
+                            id="telephoneNumber" placeholder="Phone" required>
+                    </div>
+                    <div class="flex x-start gap-35px">
+                        <button onclick="closeContactOverlay()"
+                            class="btn-light ft-general fs-21px fw-700 flex y-center gap-4px">Cancel
+                            <img src="assets/img/close.png" alt="cancel"></button>
+                        <button class="btn-dark ft-general fs-21px fw-700 flex y-center gap-4px">Create contact
+                            <img src="assets/img/check.png" alt="add"></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit contact form -->
+    <div id="edit-contacts" class="contacts-overlay d-none z-ind-1 flex">
+        <div class="bg-dark-blue flex flex-column x-center y-start">
+            <img src="assets/img/Capa_2_light.png" alt="Join logo" class="join-logo-small mb-16px">
+            <span class="ft-general fs-61px fw-700 mb-8px">Edit contact</span>
+            <img src="assets/img/Vector 5.png" alt="blue horizontal line">
+        </div>
+        <div class="flex flex-row w-100 overlay-forms">
+            <div id="edit-Overlay-Menu-Avatar" class="flex y-center"></div>
+            <!-- <div class="flex y-center">
+                <img src="assets/img/contact_person.png" alt="avatar">
+            </div> -->
+            <div class="flex flex-column x-center y-center w-100">
+                <div class="flex w-100 x-end close-cross mb-48px"><img onclick="closeEditContactForm()" class="p-8px"
+                        src="assets/img/close.png" alt="close"></div>
+
+                <form onsubmit="saveChanges(); return false;" class="flex flex-column">
+                    <div class="login-input mb-32px flex x-space-betw y-center">
+                        <input contenteditable="true" class="ft-general fs-20px fw-400 input-icon-pos icon-name w-100"
+                            id="edit-fist-name" placeholder="First-Name" type="text" value="" required>
+                    </div>
+                    <div class="login-input mb-32px flex x-space-betw y-center">
+                        <input contenteditable="true" class="ft-general fs-20px fw-400 input-icon-pos icon-name w-100"
+                            id="edit-last-name" placeholder="Last-Name" type="text" required>
+                    </div>
+                    <div class="login-input mb-32px flex x-space-betw y-center">
+                        <input contenteditable="true" class="ft-general fs-20px fw-400 input-icon-pos icon-email w-100"
+                            id="edit-email" placeholder="Email" type="email" required>
+                    </div>
+                    <div class="login-input mb-32px flex x-space-betw y-center">
+                        <input type="numbers" contenteditable="true"
+                            class="ft-general fs-20px fw-400 input-icon-pos icon-phone w-100" id="edit-number"
+                            placeholder="Phone" required>
+                    </div>
+                    <div id="delete-part" class="flex x-start gap-35px">
+                        <button class="btn-light ft-general fs-21px fw-700 flex y-center gap-4px" onclick="deleteContact()" type="button">
+                            Delete <img src="assets/img/close.png" alt="cancel">
+                        </button>
+                        <button id="safe-btn" class="btn-dark ft-general fs-21px fw-700 flex y-center gap-4px"
+                            type="submit">
+                            Safe <img src="assets/img/check.png" alt="add">
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
