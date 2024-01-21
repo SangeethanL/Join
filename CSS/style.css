@@ -29,13 +29,15 @@ a { text-decoration: none; }
 
 .x-space-betw { justify-content: space-between; }
 
+.x-space-betw-full { display: flex; justify-content: space-between; }
+
 .x-space-around { justify-content: space-around; }
 
 .x-start { justify-content: flex-start; }
 
 .x-end { justify-content: flex-end;}
 
-.y-center { align-items: center; }
+.y-center { align-items: center;}
 
 .y-start { align-items: flex-start; }
 
@@ -229,3 +231,6 @@ button,
 .vertical-bl-line { padding: 0 30px; }
 
 .vertical-gr-line { padding: 0 61px; }
+
+
+.horizontal-bl-line { transform: rotate(90deg); margin-left: 30px;}

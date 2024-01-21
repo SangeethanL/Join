@@ -1,5 +1,6 @@
-/* Declare variables and arrays */
 let users = [];
+
+/* Declare variables and arrays */
 
 async function initLogin() {
     includeHTML();
@@ -36,7 +37,7 @@ function login() {
  * @param {attribute} location Has the old link from login.html in it which gets overwritte by summary.html
  */
 function loginAsGuest() {
-    location.href = "summary.html"
+    location.href = "summary.html";
 }
 
 /**

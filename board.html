@@ -63,9 +63,9 @@
                             <div class="priority">
                                 <button onclick="urgent();" type="button" id="urgent" class="prio-button">Urgent <img
                                         src="assets/img/add-task-img/prio-urgent.png"></button>
-                                <button onclick="medium()" type="button" id="medium" class="prio-button">Medium <img
+                                <button onclick="medium();" type="button" id="medium" class="prio-button">Medium <img
                                         src="assets/img/add-task-img/prio-medium.png"></button>
-                                <button onclick="low()" type="button" id="low" class="prio-button">Low <img
+                                <button onclick="low();" type="button" id="low" class="prio-button">Low <img
                                         src="assets/img/add-task-img/prio-low.png"></button>
                             </div>
                         </div>
@@ -184,21 +184,21 @@
         <table id="boardResponsive">
             <tr style="margin-top: 14vh;">
                 <th>
-                    <string>To do</string><button onclick="addTaskForm('TODO')"><img src="assets/img/plus button.png"
+                    <string>To do</string><button onclick="switchToAddTask()"><img src="assets/img/plus button.png"
                             style="cursor: pointer;"></button>
                 </th>
                 <td id="TODOresponsive" ondrop="moveTo('TODO')" ondragover="allowDrop(event)"></td>
             </tr>
             <tr>
                 <th>
-                    <string>In progress</string><button onclick="addTaskForm('INPROGRESS')"><img
+                    <string>In progress</string><button onclick="switchToAddTask()"><img
                             src="assets/img/plus button.png" style="cursor: pointer;"></button>
                 </th>
                 <td id="INPROGRESSresponsive" ondrop="moveTo('INPROGRESS')" ondragover="allowDrop(event)"></td>
             </tr>
             <tr>
                 <th>
-                    <string>Await feedback</string><button onclick="addTaskForm('AWAITFEEDBACK')"><img
+                    <string>Await feedback</string><button onclick="switchToAddTask()"><img
                             src="assets/img/plus button.png" style="cursor: pointer;"></button>
                 </th>
                 <td id="AWAITFEEDBACKresponsive" ondrop="moveTo('AWAITFEEDBACK')" ondragover="allowDrop(event)"></td>

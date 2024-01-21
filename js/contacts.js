@@ -127,6 +127,11 @@ function editContactForm(indexOfContact) {
     lastName.value = contacts[indexOfContact]['last-name'];
     eMail.value = contacts[indexOfContact]['E-Mail'];
     phoneNumber.value = contacts[indexOfContact]['Phone'];
+
+    let contactIcon = document.getElementById('contactIcon');
+    contactIcon.innerHTML = `<div style="border-radius: 100%; padding-top: 35px; padding-bottom: 35px; padding-left: 30px; padding-right: 30px; 
+    font-size: 40px; background-color: ${contacts[indexOfContact]['color']}">
+    ${firstName.value.charAt(0)}${lastName.value.charAt(0)}</div>`;
 }
 
 function saveChanges() {

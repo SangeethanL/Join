@@ -1,3 +1,7 @@
+let summaryVisits = [];
+getItemSummary();
+
+
 function loadSummary() {
     let toDoSummary = [];
     let doneSummary = [];
@@ -69,4 +73,35 @@ function refreshAwaitFeedbackLength(variable, array) {
         array.push('-');
     }
     document.getElementById('await-feedback').innerHTML = `${array.length}`;
+}
+
+
+
+function removeLoader() {
+    summaryVisits.push('1x');
+    setItemSummary();
+    let loaderContainer = document.getElementById('loaderContainer');
+    if (window.screen.width <= 800) {
+        if (summaryVisits.length == 1) {
+            loaderContainer.classList.remove('d-none');
+            setTimeout(() => {
+                let loader = document.getElementById('loader');
+
+                // hide the loader
+                loader.style = 'display: none !important;';
+            }, 1800);
+        }
+    }
+}
+
+function setItemSummary() {
+    let summaryVisitsToText = JSON.stringify(summaryVisits);
+    localStorage.setItem('summaryVisitsStorage', summaryVisitsToText);
+}
+
+function getItemSummary() {
+    let summaryVisitsToArray = localStorage.getItem('summaryVisitsStorage');
+    if (summaryVisitsToArray) {
+        summaryVisits = JSON.parse(summaryVisitsToArray);
+    }
 }
