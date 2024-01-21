@@ -131,6 +131,9 @@ function displayTaskResponsive(eachTask) {
     </div>`;
 }
 
+function switchToAddTask() {
+    location.href = "add_task.html";
+}
 /*--------------------------Tasks Draggen und Droppen--------------------------*/
 
 function startDragging(id) {

@@ -11,13 +11,13 @@
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
 }
 
-.spacing-to-do { 
+.spacing-to-do {
     padding: 38px 19px;
     width: 226px;
     height: 92px;
 }
 
-.spacing-done { 
+.spacing-done {
     padding: 38px 58px;
     width: 148px;
     height: 92px;
@@ -26,8 +26,7 @@
 .spacing-to-do:hover,
 .spacing-done:hover,
 #urgent-tasks:hover,
-#progress-overview div:hover
- {
+#progress-overview div:hover {
     color: white;
     background-color: #2A3647;
     transform: scale(1.1);
@@ -36,11 +35,17 @@
 }
 
 .spacing-to-do:hover circle,
-.spacing-done:hover circle { fill: white; }
+.spacing-done:hover circle {
+    fill: white;
+}
 
-.spacing-to-do:hover path { fill: #2A3647; }
+.spacing-to-do:hover path {
+    fill: #2A3647;
+}
 
-.spacing-done:hover path { stroke: #2A3647; }
+.spacing-done:hover path {
+    stroke: #2A3647;
+}
 
 .urgency-summary {
     width: 464px;
@@ -59,21 +64,33 @@
     height: 69px;
 }
 
+.loaderBackground {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeBackground 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    background: pink;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    overflow: hidden;
+}
+
+@keyframes fadeBackground {
+    from { background: pink;}
+    to { background: rgba(255, 192, 203, 0); 
+        opacity: 0;}
+  }
+
+  @keyframes fadeBackground {
+    from { opacity: 1; }
+    to {opacity: 0; }
+  }
+
 .font-color {
     color: black;
-}
-
-@media only screen and (max-width: 800px) {
-.greet{
-    display:none;
-}
-
-.summary-container{
-  
-    left: 0;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-}
-  
 }

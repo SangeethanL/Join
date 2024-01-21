@@ -12,34 +12,54 @@
     <!-- Include CSS and Script Sheets -->
     <script src="js/script.js"></script>
     <script src="js/includeHTML.js"></script>
+    <script src="js/login.js"></script>
     <script src="js/summary.js"></script>
     <script src="js/board/arrays_tasks-contacts.js"></script>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/summary.css">
+    <link rel="stylesheet" href="CSS/summary_responsive.css">
     <link rel="stylesheet" href="CSS/fonts_inter.css">
     <link rel="stylesheet" href="CSS/side-and-topbar-template.css">
 </head>
 
-<body onload="init(); loadSummary();">
+<body onload="init(); loadSummary(); removeLoader();">
+    <div id="loaderContainer" class="d-none">
+        <div id ="loader" class="loaderBackground">
+            <div class="ft-general fs-47px fw-500 dark-blue">Good Morning</div>
+            <span id="insert-name">Insert User Name</span>
+        </div>
+    </div>
+
     <div w3-include-html="assets/templates/sid-and-topbar-template.html"></div>
 
     <!-- Main div -->
     <div class="summary-container flex x-center y-center">
         <!-- Left div with project title and tasks overview -->
         <div>
-            <div class="flex y-center x-space-betw mb-48px">
+            <div class="flex y-center x-space-betw mb-48px" id="topic_webpage">
                 <span class="ft-general fs-61px fw-700">Join 360</span>
                 <img class="vertical-bl-line" src="assets/img/Vector_blue_vertical.png" alt="vertical blue line">
-                <span class=".dark-blue ft-general fs-27px">Key Metrics at a Glance</span>
+                <span class=".dark-blue ft-general fs-27px" id="key-matrics">Key Metrics at a Glance</span>
+            </div>
+
+            <div style="display: none;" id="topic_responsive">
+                <div style="display: flex; flex-direction: column; align-items: flex-start;" id="topic_responsive_content">
+                    <div style="display: flex; flex-direction: column; ">
+                        <span class="ft-general fs-61px fw-700">Join 360</span>
+                        <span class=".dark-blue ft-general fs-27px">Key Metrics at a Glance</span>
+                    </div>
+                    <img class="horizontal-bl-line" src="assets/img/Vector_blue_vertical.png">
+                </div>
             </div>
 
             <div class="flex y-center">
                 <div>
-                    <div class="flex y-center mb-28px">
+                    <div class="flex x-space-betw-full mb-28px">
+                        
                         <div class="flex x-center y-center mr-32px general-box-style spacing-to-do">
                             <div class="mr-16px">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="69" height="70" viewBox="0 0 69 70"
-                                    fill="none">
+                                    fill="none" id="toDoImg">
                                     <circle cx="34.5" cy="35" r="34.5" fill="#2A3647" />
                                     <mask id="mask0_97388_5997" style="mask-type:alpha" maskUnits="userSpaceOnUse"
                                         x="18" y="19" width="33" height="32">
@@ -54,14 +74,14 @@
                             </div>
                             <div class="flex flex-column x-center y-center">
                                 <div id="to-do" style="font-weight: bold; font-size: 45px;"></div>
-                                <div>To-do</div>
+                                <div id="to-do-Text">To-do</div>
                             </div>
                         </div>
 
                         <div class="flex x-center y-center general-box-style spacing-done">
                             <div class="mr-16px">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70"
-                                    fill="none">
+                                    fill="none" id="doneImg">
                                     <circle cx="35" cy="35" r="34.5" fill="#2A3647" />
                                     <path d="M20.0283 35.0001L31.2571 46.0662L49.9717 23.9341" stroke="white"
                                         stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
@@ -69,43 +89,45 @@
                             </div>
                             <div class="flex flex-column x-center y-center">
                                 <div id="done" style="font-weight: bold; font-size: 45px;"></div>
-                                <div>Done</div>
+                                <div id="done-Text">Done</div>
                             </div>
                         </div>
                     </div>
 
-                    <a id="urgent-tasks" class="flex x-space-betw mb-28px urgency-summary general-box-style font-color" href="board.html">
+                    <a id="urgent-tasks" class="flex x-space-betw mb-28px urgency-summary general-box-style font-color"
+                        href="board.html">
                         <div class="flex y-center">
                             <div>
-                                <img src="assets/img/Frame 59.png" alt="urgent">
+                                <img src="assets/img/Frame 59.png" alt="urgent" id="urgentImg">
                             </div>
-                            <div style="display: flex; flex-direction: column; align-items: center; width: 100px;">
+                            <div id="urgent-container" style="display: flex; flex-direction: column; align-items: center; width: 100px;">
                                 <string id="urgent" style="font-weight: bold; font-size: 45px;"></string>
-                                <string>Urgent</string>
+                                <string id="urgent-Text">Urgent</string>
                             </div>
                             <div>
                                 <img class="vertical-gr-line" src="assets/img/Vector_vertical.png"
                                     alt="vertical grey line">
                             </div>
                         </div>
-                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+                        <div
+                            style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; margin-right: 20px;">
                             <string id="urgentDate" style="font-weight: bold; font-size: 30px;"></string>
-                            <string>Upcoming Deadline</string>
+                            <string id="urgentDeadline">Upcoming Deadline</string>
                         </div>
                     </a>
 
                     <div id="progress-overview" class="flex x-space-betw">
                         <div class="flex-column flex x-center y-center progress-view general-box-style">
                             <span id="totalTasks" style="font-weight: bold; font-size: 45px;"></span>
-                            Tasks in Board
+                            <string>Tasks in Board</string>
                         </div>
                         <div class="flex-column flex x-center y-center progress-view general-box-style">
                             <span id="in-progress" style="font-weight: bold; font-size: 45px;"></span>
-                            Tasks in Progress
+                            <string>Tasks in Progress</string>
                         </div>
                         <div class="flex flex-column x-center y-center progress-view general-box-style">
                             <span id="await-feedback" style="font-weight: bold; font-size: 45px;"></span>
-                            Awaiting Feedback
+                            <string>Awaiting Feedback</string>
                         </div>
                     </div>
                 </div>
@@ -113,10 +135,12 @@
         </div>
 
         <!-- Right div with greeting text for user -->
-        <div class="greet">
-            <div class="ft-general fs-47px fw-500 dark-blue">Good Morning</div>
-            <span>Insert User Name</span>
+        <div class="greet" id="greet">
+            <div id="good-morning" class="ft-general fs-47px fw-500 dark-blue">Good Morning</div>
+            <span id="user-name">Insert User Name</span>
         </div>
+
+    </div>
     </div>
 </body>
 

@@ -1,0 +1,374 @@
+@media (max-width: 1150px) {
+    .fs-61px {
+        font-size: 40px !important;
+    }
+
+    .fs-27px {
+        font-size: 20px !important;
+    }
+
+    .summary-container {
+        padding-bottom: 0px !important;
+    }
+    
+    .spacing-to-do {
+        padding: 28px 14px; /*38px 19px*/
+        width: 156px; /*226px*/
+        height: 52px; /*92px*/
+    }
+
+    #toDoImg {
+        width: 59px;
+        height: 70px;
+    }
+
+    #to-do {
+        font-size: 38px !important;
+    }
+
+    #to-do-Text {
+        font-size: 14px !important;
+    }
+
+    .spacing-done {
+        padding: 28px 50px;
+        width: 118px;
+        height: 52px;
+    }
+
+    #doneImg {
+        width: 56px;
+        height: 65px;
+    }
+
+    #done {
+        font-size: 38px !important;
+    }
+
+    #done-Text {
+        font-size: 14px !important;
+    }
+    
+    .urgency-summary {
+        width: 404px;
+        height: 75px;
+        padding: 24px 40px;
+    }
+
+    #urgent-container {
+        width: 70px !important;
+    }
+
+    #urgentImg {
+        width: 56px;
+        height: 56px;
+    }
+    #urgent {
+        font-size: 38px !important;
+    }
+
+    #urgent-Text {
+        font-size: 14px !important;
+    }
+
+    #urgentDate {
+        font-size: 27px !important;
+    }
+
+    #urgentDeadline {
+        font-size: 15px;
+    }
+
+    
+    .progress-view {
+        width: 138px;
+        height: 78px;
+        padding: 20px 0;
+    }
+
+    .progress-view string {
+        font-size: 14px !important;
+    }
+
+    #totalTasks {
+        font-size: 38px !important;
+    }
+
+    #in-progress {
+        font-size: 38px !important;
+    }   
+
+    #await-feedback {
+        font-size: 38px !important;
+    }
+
+    .greet {
+        margin-left: 30px;
+    }
+
+    #good-morning {
+        font-size: 33px;
+    }
+
+    #user-name {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 990px) {
+    .summary-container {
+        top: 100px;
+        left: 270px;
+    }
+
+    .fs-61px {
+        font-size: 30px !important;
+    }
+
+    .fs-27px {
+        font-size: 18px !important;
+    }
+
+    #key-matrics {
+        margin-right: 30px;;
+    }
+
+    .summary-container {
+        padding-bottom: 0px;
+    }
+    
+    .spacing-to-do {
+        padding: 20px 12px;
+        width: 136px; 
+        height: 49px; 
+    }
+
+    #toDoImg {
+        width: 50px;
+        height: 61px;
+    }
+
+    #to-do {
+        font-size: 30px !important;
+    }
+
+    #to-do-Text {
+        font-size: 13px !important;
+    }
+
+    .spacing-done {
+        padding: 20px 42px;
+        width: 108px;
+        height: 49px;
+    }
+
+    #doneImg {
+        width: 50px;
+        height: 61px;
+    }
+
+    #done {
+        font-size: 30px !important;
+    }
+
+    #done-Text {
+        font-size: 13px !important;
+    }
+    
+    .urgency-summary {
+        width: 354px;
+        height: 70px;
+        padding: 20px 37px;
+    }
+
+    #urgent-container {
+        width: 50px !important;
+    }
+
+    #urgentImg {
+        width: 48px;
+        height: 48px;
+    }
+    #urgent {
+        font-size: 30px !important;
+    }
+
+    #urgent-Text {
+        font-size: 13px !important;
+    }
+
+    #urgentDate {
+        font-size: 22px !important;
+    }
+
+    #urgentDeadline {
+        font-size: 13px;
+    }
+
+    
+    .progress-view {
+        width: 118px;
+        height: 55px;
+        padding: 18px 0;
+    }
+
+    .progress-view string {
+        font-size: 13px !important;
+    }
+
+    #totalTasks {
+        font-size: 30px !important;
+    }
+
+    #in-progress {
+        font-size: 30px !important;
+    }   
+
+    #await-feedback {
+        font-size: 30px !important;
+    }
+
+    .greet {
+        margin-left: 25px;
+    }
+
+    #good-morning {
+        font-size: 20px;
+    }
+
+    #user-name {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .summary-container {
+        display: flex;
+        justify-content: center;
+        top: 100px;
+        left: 0;
+        width: 100vw;
+    }
+
+    .greet {
+        display: none;
+    }
+
+    #topic_webpage {
+        display: none;
+    }
+
+    #topic_responsive {
+        display: unset !important;
+    }
+}
+
+@media (max-width: 440px) {
+    .fs-61px {
+        font-size: 22px !important;
+    }
+
+    .fs-27px {
+        font-size: 14px !important;
+    }
+
+    #topic_responsive_content div {
+        margin-bottom: -15px;
+    }
+    
+    .spacing-to-do {
+        padding: 13px 7px;
+        width: 120px; 
+        height: 40px; 
+    }
+
+    #toDoImg {
+        width: 43px;
+        height: 55px;
+    }
+
+    #to-do {
+        font-size: 25px !important;
+    }
+
+    #to-do-Text {
+        font-size: 11px !important;
+    }
+
+    .spacing-done {
+        padding: 13px 35px;
+        width: 90px;
+        height: 41px;
+    }
+
+    #doneImg {
+        width: 43px;
+        height: 54px;
+    }
+
+    #done {
+        font-size: 25px !important;
+    }
+
+    #done-Text {
+        font-size: 11x !important;
+    }
+    
+    .urgency-summary {
+        width: 284px;
+        height: 70px;
+        padding: 13px 35px;
+        overflow: hidden;
+    }
+
+    #urgent-container {
+        width: 40px !important;
+    }
+
+    #urgentImg {
+        width: 36px;
+        height: 36px;
+    }
+    #urgent {
+        font-size: 25px !important;
+    }
+
+    #urgent-Text {
+        font-size: 11px !important;
+    }
+
+    .vertical-gr-line {
+        padding: 0 40px !important;
+    }
+
+    #urgentDate {
+        font-size: 17px !important;
+    }
+
+    #urgentDeadline {
+        font-size: 11px;
+    }
+
+    
+    .progress-view {
+        width: 103px;
+        height: 49px;
+        padding: 12px 0;
+    }
+
+    .progress-view string {
+        font-size: 10px !important;
+    }
+
+    #totalTasks {
+        font-size: 25px !important;
+    }
+
+    #in-progress {
+        font-size: 25px !important;
+    }   
+
+    #await-feedback {
+        font-size: 25px !important;
+    }
+}
