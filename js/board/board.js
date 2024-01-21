@@ -182,7 +182,6 @@ function showAmountOfFinishedSubtasks(eachTask) {
             numberOfSubtasksResponsive.innerHTML = `${eachTask['subtasks-true'].length}/${eachTask['subtasks'].length} Subtasks`;
         }
     }
-
 }
 
 function displayContactIcons(eachTask) {
@@ -225,9 +224,7 @@ function displayPriorityImg(eachTask) {
     }
 }
 
-
 /*--------------Subtasks Länge & Bilder anzeigen bei SEARCHED TASK--------------*/
-
 
 function loadSubtasksProgressbarSEARCHEDTASK(eachTask) {
     let subtasksProgressbar = document.getElementById(`subtasksProgressbarSEARCHED${eachTask['id']}`);
