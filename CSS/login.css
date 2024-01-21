@@ -1,6 +1,5 @@
 .login-main {
     height: 100vh;
-    overflow: hidden;
 }
 
 
@@ -112,13 +111,17 @@
 
 
 @media only screen and (max-width: 900px) {
-
+    
     
     
 }
 
 @media only screen and (max-width: 600px) {
 
+
+    .login-main {
+        overflow: hidden;
+    }
 
 
 
