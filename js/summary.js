@@ -1,4 +1,3 @@
-let summaryVisits = [];
 getItemSummary();
 
 
@@ -75,33 +74,42 @@ function refreshAwaitFeedbackLength(variable, array) {
     document.getElementById('await-feedback').innerHTML = `${array.length}`;
 }
 
-
-
 function removeLoader() {
-    summaryVisits.push('1x');
-    setItemSummary();
     let loaderContainer = document.getElementById('loaderContainer');
-    if (window.screen.width <= 800) {
-        if (summaryVisits.length == 1) {
-            loaderContainer.classList.remove('d-none');
+    if (window.screen.width <= 800 && currentUser.length == 1) {
+        loaderContainer.classList.remove('d-none');
             setTimeout(() => {
                 let loader = document.getElementById('loader');
 
                 // hide the loader
                 loader.style = 'display: none !important;';
             }, 1800);
-        }
+        document.getElementById('insert-name').innerHTML = `${currentUser[0]}`;
+        document.getElementById('user-name').innerHTML = `${currentUser[0]}`;
+        currentUser.push('1x');
     }
+    if(guestLogin.length == 1) {
+        document.getElementById('greet').classList.add('d-none');
+    }
+    setItemSummary();
 }
 
 function setItemSummary() {
-    let summaryVisitsToText = JSON.stringify(summaryVisits);
-    localStorage.setItem('summaryVisitsStorage', summaryVisitsToText);
+    let guestLoginToText = JSON.stringify(guestLogin);
+    localStorage.setItem('guestLoginStorage', guestLoginToText);
+
+    let currentUserToText = JSON.stringify(currentUser);
+    localStorage.setItem('currentUserStorage', currentUserToText);
 }
 
 function getItemSummary() {
-    let summaryVisitsToArray = localStorage.getItem('summaryVisitsStorage');
-    if (summaryVisitsToArray) {
-        summaryVisits = JSON.parse(summaryVisitsToArray);
+    let guestLoginToArray = localStorage.getItem('guestLoginStorage');
+    if (guestLoginToArray) {
+        guestLogin = JSON.parse(guestLoginToArray);
+    }
+
+    let currentUserToArray = localStorage.getItem('currentUserStorage');
+    if (currentUserToArray) {
+        currentUser = JSON.parse(currentUserToArray);
     }
 }

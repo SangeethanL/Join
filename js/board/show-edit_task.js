@@ -60,9 +60,9 @@ function editTask() {
     <input id="descriptionEdited" value="${tasks[currentDisplayedTask]['description']}"></div>`;
     document.getElementById('date2').innerHTML = `<input id="dateEdited" type="date" value="${tasks[currentDisplayedTask]['date']}">`;
     document.getElementById('priority2').innerHTML = `
-    <button onclick="urgent()">Urgent</button>
-    <button onclick="medium()">Medium</button>
-    <button onclick="low()">Low</button>`;
+    <button onclick="chooseUrgent()">Urgent</button>
+    <button onclick="chooseMedium()">Medium</button>
+    <button onclick="chooseLow()">Low</button>`;
     editContacts();
     editSubtasks002();
     displaySubtasks('2');

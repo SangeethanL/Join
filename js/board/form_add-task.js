@@ -1,6 +1,6 @@
 /*------------------------------------------------------Zwischen Arrays------------------------------------------------------*/
 
-let priorityStatus = '';
+let priorityStatus;
 let selectedContacts = [];
 let subtasks = [];
 
@@ -62,15 +62,15 @@ function saveContact(value) {
 
 /*-----------------Priority Status zwischenspeichern in Array-----------------*/
 
-function urgent() {
+function chooseUrgent() {
     priorityStatus = 'Urgent';
 }
 
-function medium() {
+function chooseMedium() {
     priorityStatus = 'Medium';
 }
 
-function low() {
+function chooseLow() {
     priorityStatus = 'Low';
 }
 
@@ -84,7 +84,7 @@ function createTask() {
     let addTaskTitle = document.getElementById('enterTitle').value;
     let addTaskDescription = document.getElementById('description').value;
     let addTaskDate = document.getElementById('date').value;
-    if (priorityStatus == '') { priorityStatus = 'Low' };
+    if (priorityStatus == null) { priorityStatus = 'Low' };
 
     tasks.push({
         'id': `${tasks.length}`,
