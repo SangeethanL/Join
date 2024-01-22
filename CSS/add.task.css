@@ -73,12 +73,19 @@ input:focus {
 }
 
 .title-text {
+    margin-bottom: 10px;
     display: flex;
-    font-size: 20px;
+    font-size: 15px;
     font-family: 'Inter', sans-serif;
 }
 
+.description{
+    display: flex;
+    flex-direction: column;
+}
+
 .description-text-area {
+    margin-top: 10px;
     width: 400px;
     resize: none;
     padding: 12px 21px;
@@ -98,6 +105,7 @@ input:focus {
 }
 
 .select-input {
+    margin-top: 10px;
     width: 440px;
     padding: 12px 21px;
     align-items: center;
@@ -123,15 +131,17 @@ input:focus {
 }
 
 .due-date-text {
+    margin-bottom: 10px;
     display: flex;
     font-family: 'Inter', sans-serif;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .category {
     display: flex;
     font-family: 'Inter', sans-serif;
-    font-size: 20px;
+    font-size: 15px;
+   
 }
 
 .prio-button {
@@ -168,6 +178,10 @@ input:focus {
     height: 30%;
 }
 
+.prioritisation span{
+    margin-bottom: 10px;
+}
+
 .input-subtasks {
     width:400px;
     padding: 12px 21px;
@@ -178,6 +192,12 @@ input:focus {
     background: #FFF;
     font-family: 'Inter', sans-serif;
     font-size: 20px;
+    margin-top: 10px;
+}
+
+.subtask{
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -258,7 +278,7 @@ p {
 
 #displaySubtasks {
     margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
     min-width: 60%;
     max-width: fit-content;
 }
@@ -286,17 +306,8 @@ p {
     display: flex;
     flex-direction: row !important;
     justify-content: space-between;
-    width: 100%;
+    width: 60%
 }
-
-.editDiv input {
-    border: 1px solid black !important;
-}
-
-.editDiv string {
-    cursor: pointer;
-}
-
 h1{
     color: #000;
 
@@ -305,6 +316,21 @@ font-size: 47px;
 font-style: normal;
 font-weight: 700;
 line-height: 120%; /* 56.4px */
+}
+
+.active-urgent{
+    color:white;
+    background-color: #FF3D00;
+}
+
+.active-medium{
+    color:white;
+    background-color: #FFA800;;
+}
+
+.active-low{
+    color:white;
+    background-color: #7AE229;
 }
 
 @media only screen and (max-width: 1300px) {
@@ -321,7 +347,7 @@ line-height: 120%; /* 56.4px */
 @media only screen and (max-width: 1250px) {
 
     .add-task-container{
-        left:240px;
+        left:440px;
     }
 
 
@@ -334,70 +360,19 @@ line-height: 120%; /* 56.4px */
     .add-task {
         flex-direction: column;
         align-items: center;
-        width:35%;
-        margin-right: 30px;
-    }
-
-    .add-task-left {
-        padding-right: 0px;
-        width: 100%;
-        border-right: none;
-    }
-
-    .add-task-right {
-        width: 100%;
-        padding-left: 0px;
-    }
-
-    .button-clear {
-        display: none;
-    }
-
-    .button-create-task {
-        padding: 11px;
-    }
-
-    .add-task-container{
-    
-        margin-left: 30px;
-    }
-
-    .prio-buttons-container{
-        flex-direction: column;
-    }
-
-    .prio-button{
-        width: 100%;
-    }
-
-    .bottom-section{
-        margin:0px;
-    }
-
-    .middle-line{
-        display:none;
-    }
-
-    
-}
-
-@media only screen and (max-width: 800px) {
-
-    .add-task {
-        flex-direction: column;
-        align-items: center;
         width:100%;
-        height: 160vh;
         margin-right: 30px;
     }
 
     .add-task-left {
+        align-items: center;
         padding-right: 0px;
         width: 100%;
         border-right: none;
     }
 
     .add-task-right {
+        align-items: center;
         width: 100%;
         padding-left: 0px;
     }
@@ -412,10 +387,91 @@ line-height: 120%; /* 56.4px */
 
     .add-task-container{
         width:unset;
-        height: unset;
         margin-left: 30px;
+    }
+
+    .prio-buttons-container{
+        margin-top: 10px;
+        flex-direction: column;
+    }
+
+    .prio-button{
+        width: 100%;
+    }
+
+    .bottom-section{
+        margin:0px;
+    }
+
+    .middle-line{
+        display:none;
+    }
+
+    .select-input {
+        margin-bottom: 15px;
+    }
+    
+}
+
+@media only screen and (max-width: 1100px) {
+
+    .bottom-section{
+        margin-top: 50px;
+        justify-content: space-between;
+        display: flex;
+    }
+
+    .add-task-container{
+        left:330px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .add-task-container{
+        left:300px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+
+    .add-task {
+        flex-direction: column;
+        align-items: center;
+        width:100%;
+        height: 160vh;
         margin-right: 30px;
-        left:0;
+    }
+
+    .add-task-left {
+        padding-right: 0px;
+        width: 100%;
+        border-right: none;
+        align-items: center;
+    }
+
+    .add-task-right {
+        width: 100%;
+        padding-left: 0px;
+    }
+
+    .button-clear {
+        display: none;
+    }
+
+    .button-create-task {
+        padding: 11px;
+    }
+
+    .add-task-container{
+        margin-left: 0px;
+        margin-right: 0px;
+        left:170px;
+    }
+
+    .add-task-container h1{
+        font-size: 2rem;
+        margin-left: 15px;
     }
 
     .prio-buttons-container{
@@ -434,5 +490,59 @@ line-height: 120%; /* 56.4px */
         display:none;
     }
 
-    
+    .bottom-section{
+        position: fixed;
+        bottom:80px;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        width:440px;
+    }
+
+    .create-task-text{
+        display: none;
+    } 
+}
+
+@media only screen and (max-width: 800px) {
+
+    .add-task-container{
+        margin-left: 0px;
+        margin-right: 0px;
+        left:140px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+
+    .add-task-container{
+        width:unset;
+        height: unset;
+        margin-left: 0px;
+        margin-right: 0px;
+        left:0;
+    }
+}
+
+    @media only screen and (max-width: 600px) {
+
+        .add-task-container{
+            width:unset;
+            height: unset;
+            margin-left: 30px;
+            margin-right: 0px;
+            left:0;
+        }
+
+        @media only screen and (max-width: 500px) {
+
+            .add-task-container{
+                width:unset;
+                height: unset;
+                margin-left: 0px;
+                margin-right: 0px;
+                left:0;
+            }
+
+        }
 }

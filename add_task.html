@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="CSS/add.task.css">
     <script src="js/templates.js"></script>
     <script src="js/add_task.js"></script>
+    <script src="js/board_main.js"></script>
     <script src="js/board/arrays_tasks-contacts.js"></script>
     <script src="js/board/form_add-task.js"></script>
-    <script src="js/board/show-edit_task.js"></script>
-    <script src="js/contacts.js"></script>
+    <script src="js/login.js"></script>
 </head>
 
 <body onload="init();loadContactsForAddTask();">
@@ -58,12 +58,18 @@
                     <div class="prioritisation">
                         <span>Prio</span>
                         <div class="prio-buttons-container">
-                            <button onclick="urgent();" id="urgent" type="button" class="prio-button active-urgent">Urgent <img
-                                    src="assets/img/add-task-img/prio-urgent.png"></button>
-                            <button onclick="medium();" id="medium" type="button" class="prio-button active-medium">Medium <img
-                                    src="assets/img/add-task-img/prio-medium.png"></button>
-                            <button onclick="low();" id="low" type="button" class="prio-button" active-low>Low <img
-                                    src="assets/img/add-task-img/prio-low.png"></button>
+                            <button onclick=" activeButtonUrgent(), urgent()" id="urgent" type="button" class="prio-button ">Urgent 
+                                <img id="urgent-black" src="assets/img/add-task-img/prio-urgent.png">
+                                <img id="urgent-white" class="d-none" src="assets/img/Prio alta.png">
+                            </button>
+                            <button onclick="activeButtonMedium(), medium()" id="medium" type="button" class="prio-button ">Medium 
+                                <img id="medium-black" src="assets/img/add-task-img/prio-medium.png">
+                                <img id="medium-white" class="d-none" src="assets/img/Prio_media_white.png">
+                            </button>
+                            <button onclick="activeButtonLow(), low()" id="low" type="button" class="prio-button" >Low 
+                                <img id="low-black" src="assets/img/add-task-img/prio-low.png">
+                                <img id="low-white" class="d-none" src="assets/img/Prio_baja_white.png">
+                            </button>
                         </div>
                     </div>
                     <div class="category-section ">
@@ -97,16 +103,16 @@
                 </div>
                 <div class="buttons">
                     <button class="button-clear" type="button" onclick="resetAddTaskBoard()"> Clear <img
-                            src="/assets/img/add-task-img/clear-x.png"></button>
-                    <button class="button-create-task" type="submit"> Create Task <img
-                            src="/assets/img/add-task-img/create-task-check.png"></button>
+                            src="assets/img/add-task-img/clear-x.png"></button>
+                    <button onclick="resetActiveButtonBySubmit()" class="button-create-task" type="submit"> <p class="create-task-text">Create Task</p> <img
+                            src="assets/img/add-task-img/create-task-check.png"></button>
                 </div>
             </div>
         </div>
         
     </form>
 
-
+   
 </body>
 
 </html>
