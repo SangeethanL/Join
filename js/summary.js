@@ -97,22 +97,23 @@ function removeLoader() {
     setItemSummary();
 }
 
+
 function setItemSummary() {
     let guestLoginToText = JSON.stringify(guestLogin);
     localStorage.setItem('guestLoginStorage', guestLoginToText);
-
+  
     let currentUserToText = JSON.stringify(currentUser);
     localStorage.setItem('currentUserStorage', currentUserToText);
-}
-
-function getItemSummary() {
+  }
+  
+  function getItemSummary() {
     let guestLoginToArray = localStorage.getItem('guestLoginStorage');
     if (guestLoginToArray) {
         guestLogin = JSON.parse(guestLoginToArray);
     }
-
+  
     let currentUserToArray = localStorage.getItem('currentUserStorage');
     if (currentUserToArray) {
         currentUser = JSON.parse(currentUserToArray);
     }
-}
+  }

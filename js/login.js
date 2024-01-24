@@ -1,7 +1,10 @@
 let users = [];
 let currentUser = [];
 let guestLogin = [];
-getItemSummary();
+
+if(window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('summary.html')){
+  getItemSummary();
+}
 
 /* Declare variables and arrays */
 
