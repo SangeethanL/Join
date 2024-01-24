@@ -11,6 +11,7 @@
     <script src="js/includeHTML.js"></script>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/contacts.css">
+    <link rel="stylesheet" href="CSS/contacts_responsive.css">
     <link rel="stylesheet" href="CSS/fonts_inter.css">
 </head>
 
@@ -19,121 +20,121 @@
 
     <!-- Main contacts overview -->
     <div id="contacts" class="main-div-contacts">
-        <div class="sub-div-contacts flex flex-row">
+        <div class="sub-div-contacts flex flex-row" id="Webversion">
             <div class="contacts-div flex flex-column y-center">
                 <div class="mb-32px">
                     <button onclick="openContactsOverlay()"
                         class="flex x-center y-center gap-16px btn-dark add-contacts-btn ft-general fs-21px fw-700">Add
                         new Contact
                         <img src="/assets/img/person_add.png" alt="add person"></button>
-                        
+
                 </div>
 
                 <!-- Contact book to render in contacts -->
                 <div>
                     <table>
                         <tbody id="contact-book">
-                            <td id="A-Title" class="d-none separator"><span>A</span></td>
+                            <td id="A-Title" class="separator" style="display: none;"><span>A</span></td>
                             <tr id="A" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="B-Title" class="d-none separator"><span>B</span></td>
+                            <td id="B-Title" class="separator" style="display: none;"><span>B</span></td>
                             <tr id="B" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="C-Title" class="d-none separator"><span>C</span></td>
+                            <td id="C-Title" class="separator" style="display: none;"><span>C</span></td>
                             <tr id="C" class="flex flex-column margintLetter">
                             </tr>
 
-                            <td id="D-Title" class="d-none separator"><span>D</span></td>
+                            <td id="D-Title" class="separator" style="display: none;"><span>D</span></td>
                             <tr id="D" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="E-Title" class="d-none separator"><span>E</span></td>
+                            <td id="E-Title" class="separator" style="display: none;"><span>E</span></td>
                             <tr id="E" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="F-Title" class="d-none separator"><span>F</span></td>
+                            <td id="F-Title" class="separator" style="display: none;"><span>F</span></td>
                             <tr id="F" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="G-Title" class="d-none separator"><span>G</span></td>
+                            <td id="G-Title" class="separator" style="display: none;"><span>G</span></td>
                             <tr id="G" class="flex flex-column marginLetter">
                             </tr>
-                            
-                            <td id="H-Title" class="d-none separator"><span>H</span></td>
+
+                            <td id="H-Title" class="separator" style="display: none;"><span>H</span></td>
                             <tr id="H" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="I-Title" class="d-none separator"><span>I</span></td>
+                            <td id="I-Title" class="separator" style="display: none;"><span>I</span></td>
                             <tr id="I" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="J-Title" class="d-none separator"><span>J</span></td>
+                            <td id="J-Title" class="separator" style="display: none;"><span>J</span></td>
                             <tr id="J" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="K-Title" class="d-none separator"><span>K</span></td>
+                            <td id="K-Title" class="separator" style="display: none;"><span>K</span></td>
                             <tr id="K" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="L-Title" class="d-none separator"><span>L</span></td>
+                            <td id="L-Title" class="separator" style="display: none;"><span>L</span></td>
                             <tr id="L" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="M-Title" class="d-none separator"><span>M</span></td>
+                            <td id="M-Title" class="separator" style="display: none;"><span>M</span></td>
                             <tr id="M" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="N-Title" class="d-none separator"><span>N</span></td>
+                            <td id="N-Title" class="separator" style="display: none;"><span>N</span></td>
                             <tr id="N" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="O-Title" class="d-none separator"><span>O</span></td>
+                            <td id="O-Title" class="separator" style="display: none;"><span>O</span></td>
                             <tr id="O" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="P-Title" class="d-none separator"><span>P</span></td>
+                            <td id="P-Title" class="separator" style="display: none;"><span>P</span></td>
                             <tr id="P" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="Q-Title" class="d-none separator"><span>Q</span></td>
+                            <td id="Q-Title" class="separator" style="display: none;"><span>Q</span></td>
                             <tr id="Q" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="R-Title" class="d-none separator"><span>R</span></td>
+                            <td id="R-Title" class="separator" style="display: none;"><span>R</span></td>
                             <tr id="R" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="S-Title" class="d-none separator"><span>S</span></td>
+                            <td id="S-Title" class="separator" style="display: none;"><span>S</span></td>
                             <tr id="S" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="T-Title" class="d-none separator"><span>T</span></td>
+                            <td id="T-Title" class="separator" style="display: none;"><span>T</span></td>
                             <tr id="T" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="U-Title" class="d-none separator"><span>U</span></td>
+                            <td id="U-Title" class="separator" style="display: none;"><span>U</span></td>
                             <tr id="U" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="V-Title" class="d-none separator"><span>V</span></td>
+                            <td id="V-Title" class="separator" style="display: none;"><span>V</span></td>
                             <tr id="V" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="W-Title" class="d-none separator"><span>W</span></td>
+                            <td id="W-Title" class="separator" style="display: none;"><span>W</span></td>
                             <tr id="W" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="X-Title" class="d-none separator"><span>X</span></td>
+                            <td id="X-Title" class="separator" style="display: none;"><span>X</span></td>
                             <tr id="X" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="Y-Title" class="d-none separator"><span>Y</span></td>
+                            <td id="Y-Title" class="separator" style="display: none;"><span>Y</span></td>
                             <tr id="Y" class="flex flex-column marginLetter">
                             </tr>
 
-                            <td id="Z-Title" class="d-none separator"><span>Z</span></td>
+                            <td id="Z-Title" class="separator" style="display: none;"><span>Z</span></td>
                             <tr id="Z" class="flex flex-column marginLetter">
                             </tr>
                         </tbody>
@@ -142,8 +143,8 @@
             </div>
 
             <button onclick="openContactsOverlay()"
-                        class="flex x-center y-center  btn-dark add-contacts-btn-resp ft-general fs-21px fw-700">
-                        <img src="/assets/img/person_add.png" alt="add person"></button>
+                class="flex x-center y-center  btn-dark add-contacts-btn-resp ft-general fs-21px fw-700">
+                <img src="/assets/img/person_add.png" alt="add person"></button>
 
             <div class="team-slogan">
                 <div class="flex x-start y-center mb-48px">
@@ -156,7 +157,27 @@
                 </div>
             </div>
         </div>
+
+        <div class="displayContactResponsive d-none" id="ResponsiveVersion">
+            <div class="team-slogan.Resp">
+                <div class="flex flex-column y-start mb-48px">
+                    <div class="flex flex-row x-space-betw" style="width: 100%;">
+                        <span class="ft-general fs-47px fw-700">Contacts</span>
+                        <img src="assets/img/arrow-left-line.png" class="go-back go-back-size"
+                            onclick="goBack()" alt="back">
+                    </div>
+                    <span class="ft-general fs-20px fw-400">Better with a Team!</span>
+                    <img class="horizontal-bl-line" src="assets/img/Vector_blue_vertical.png" alt="vertical blue line">
+                </div>
+                <div id="contact-detailsResponsive">
+    
+                </div>
+            </div>
+        </div>
+    
     </div>
+
+
 
     <!-- Overlay contacts menu -->
     <div id="overlay-contacts" class="contacts-overlay d-none z-ind-1 flex">
@@ -212,11 +233,12 @@
             <img src="assets/img/Vector 5.png" alt="blue horizontal line">
         </div>
         <div class="flex flex-row w-100 overlay-forms">
-            <div id="edit-Overlay-Menu-Avatar" class="flex y-center"></div>
+            <!-- <div id="edit-Overlay-Menu-Avatar" class="flex y-center"></div> -->
             <!-- <div class="flex y-center">
                 <img src="assets/img/contact_person.png" alt="avatar">
             </div> -->
-            <div id="contactIcon" style="display: flex; align-items: center; justify-content: center;background-color: rgba(255, 255, 255);">
+            <div id="contactIcon"
+                style="display: flex; align-items: center; justify-content: center;background-color: rgba(255, 255, 255);">
 
             </div>
             <div class="flex flex-column x-center y-center w-100">
@@ -242,7 +264,8 @@
                             placeholder="Phone" required>
                     </div>
                     <div id="delete-part" class="flex x-start gap-35px">
-                        <button class="btn-light ft-general fs-21px fw-700 flex y-center gap-4px" onclick="deleteContact()" type="button">
+                        <button class="btn-light ft-general fs-21px fw-700 flex y-center gap-4px"
+                            onclick="deleteContact()" type="button">
                             Delete <img src="assets/img/close.png" alt="cancel">
                         </button>
                         <button id="safe-btn" class="btn-dark ft-general fs-21px fw-700 flex y-center gap-4px"
@@ -254,6 +277,108 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+    <!-- Overlay contacts menu RESPONSIVE -->
+    <div id="overlay-contactsResponsive" class="contacts-overlay-Resp d-none z-ind-0 flex flex-column">
+        <div class="bg-dark-blue flex flex-column x-center y-start">
+            <div class="flex w-100 x-end close-cross mb-12px"><img onclick="closeContactOverlay()" class="p-8px"
+                    src="assets/img/close.png" alt="close"></div>
+            <span class="ft-general fs-27px fw-700 mb-8px">Add contact</span>
+            <span class="ft-general fs-20px fw-400 mb-8px">Tasks are better with a team!</span>
+            <img src="assets/img/Vector 5.png" alt="blue horizontal line">
+        </div>
+        <div class="contactAvatarIcon">
+            <img src="assets/img/contact_person.png" alt="avatar" class="avatarIconSize">
+        </div>
+        <div class="bg-white flex flex-column w-100" style="padding-top: 20px;">
+            <div class="flex flex-column x-center y-center w-100">
+
+                <form onsubmit="createNewContact(); return false;" class="flex flex-column" id="newContactFormResponsive">
+                    <div class="login-input-Resp mb-8px flex x-space-betw y-center">
+                        <input class="ft-general fs-16px fw-400 input-icon-pos icon-name w-100" id="first-nameRESP"
+                            placeholder="First-Name" type="text" required>
+                    </div>
+                    <div class="login-input-Resp mb-8px flex x-space-betw y-center">
+                        <input class="ft-general fs-16px fw-400 input-icon-pos icon-name w-100" id="last-nameRESP"
+                            placeholder="Last-Name" type="text" required>
+                    </div>
+                    <div class="login-input-Resp mb-8px flex x-space-betw y-center">
+                        <input class="ft-general fs-16px fw-400 input-icon-pos icon-name w-100" id="emailRESP"
+                            placeholder="Email" type="email" required>
+                    </div>
+                    <div class="login-input-Resp mb-8px flex x-space-betw y-center">
+                        <input type="numbers" class="ft-general fs-16px fw-400 input-icon-pos icon-phone w-100"
+                            id="telephoneNumberRESP" placeholder="Phone" required>
+                    </div>
+                    <div class="flex x-center gap-4px" style="padding-top: 20px;">
+                        <button onclick="closeContactOverlay()"
+                            class="btn-light-Resp ft-general fs-16px fw-700 flex y-center gap-4px">Cancel
+                            <img src="assets/img/close.png" alt="cancel"></button>
+                        <button class="btn-dark-Resp ft-general fs-16px fw-700 flex y-center gap-4px">Create contact
+                            <img src="assets/img/check.png" alt="add"></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Edit contact form RESPONSIVE -->
+    <div id="edit-contactsResponsive" class="contacts-overlay-Resp d-none z-ind-0 flex flex-column">
+        <div class="bg-dark-blue flex flex-column x-center y-start">
+            <div class="flex w-100 x-end close-cross mb-12px">
+                <img onclick="closeContactOverlay()" class="p-8px" src="assets/img/close.png" alt="close">
+            </div>
+            <span class="ft-general fs-27px fw-700 mb-8px">Edit contact</span>
+            <img src="assets/img/Vector 5.png" alt="blue horizontal line">
+        </div>
+        <div id="contactIconResponsive" class="contactAvatarIcon">
+        </div>
+        <div class="bg-white flex flex-column w-100" style="padding-top: 20px;">
+            <div class="flex flex-column x-center y-center w-100">
+
+                <form onsubmit="saveChanges(); return false;" class="flex flex-column">
+                    <div class="login-input-Resp mb-8px flex x-space-betw y-center">
+                        <input contenteditable="true" class="ft-general fs-16px fw-400 input-icon-pos icon-name w-100"
+                            id="edit-fist-nameRESP" placeholder="First-Name" type="text" value="" required>
+                    </div>
+                    <div class="login-input-Resp mb-8px flex x-space-betw y-center">
+                        <input contenteditable="true" class="ft-general fs-16px fw-400 input-icon-pos icon-name w-100"
+                            id="edit-last-nameRESP" placeholder="Last-Name" type="text" required>
+                    </div>
+                    <div class="login-input-Resp mb-8px flex x-space-betw y-center">
+                        <input contenteditable="true" class="ft-general fs-16px fw-400 input-icon-pos icon-name w-100"
+                            id="edit-emailRESP" placeholder="Email" type="email" required>
+                    </div>
+                    <div class="login-input-Resp mb-8px flex x-space-betw y-center">
+                        <input type="numbers" contenteditable="true"
+                            class="ft-general fs-16px fw-400 input-icon-pos icon-name w-100" id="edit-numberRESP"
+                            placeholder="Phone" required>
+                    </div>
+                    <div id="delete-part" class="flex x-start gap-35px">
+                        <button class="btn-light ft-general fs-21px fw-700 flex y-center gap-4px"
+                            onclick="deleteContact()" type="button">
+                            Delete <img src="assets/img/close.png" alt="cancel">
+                        </button>
+                        <button id="safe-btn" class="btn-dark ft-general fs-21px fw-700 flex y-center gap-4px"
+                            type="submit">
+                            Safe <img src="assets/img/check.png" alt="add">
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
 </body>
 
 </html>

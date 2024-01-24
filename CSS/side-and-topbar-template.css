@@ -93,7 +93,6 @@ div.topbar > div.sign-up > img:hover { scale: 1.1; }
 
 .login img { position: absolute; }
 
-
 @media only screen and (max-width: 800px) {
 
     .set-span{display:none}

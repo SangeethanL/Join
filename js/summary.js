@@ -88,6 +88,9 @@ function removeLoader() {
         document.getElementById('user-name').innerHTML = `${currentUser[0]}`;
         currentUser.push('1x');
     }
+    if (currentUser.length == 1) {
+        document.getElementById('user-name').innerHTML = `${currentUser[0]}`;
+    }
     if(guestLogin.length == 1) {
         document.getElementById('greet').classList.add('d-none');
     }

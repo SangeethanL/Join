@@ -131,6 +131,10 @@ a { text-decoration: none; }
 
 .bg-dark-blue { background: #2A3647; }
 
+.bg-white { background: #FFFFFF; }
+
+.w-70 { width: 70%; }
+
 .w-100 { width: 100%; }
 
 .ft-general {
@@ -162,6 +166,7 @@ a { text-decoration: none; }
     border-radius: 10px;
     width: 422px;
     border: 1px solid var(--Style, #D1D1D1);
+    background-color: #FFFFFF;
     padding: 12px 21px;
     cursor: pointer;
     font-family: 'Inter';
