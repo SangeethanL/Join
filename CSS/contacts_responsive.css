@@ -2,7 +2,6 @@
     position: absolute;
     background-color: rgba(133, 133, 133, 0);
     width: 92%;
-    height: 110vh;
     left: 20px;
     overflow-y: scroll;
 }
@@ -41,6 +40,7 @@
 
 .contactIcon {
     font-size: 40px;
+    color: white;
     border-radius: 100%;
     padding-top: 35px;
     padding-bottom: 35px;
@@ -113,8 +113,7 @@
         width: 100%;
         justify-content: center;
         align-items: center;
-        height: 120vh;
-
+        height: max-content
     }
 
     .sub-div-contacts {
@@ -141,6 +140,43 @@
         border-radius: 100px !important;
         position: fixed;
         right: 20px;
+    }
+}
+
+@media  (max-width: 470px) {
+    .contacts-overlay-Resp {
+        width: 300px;
+    }
+
+    .avatarIconSize {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .contactIcon {
+        font-size: 30px;
+        color: white;
+        border-radius: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .login-input-Resp {
+        width: 240px;
+    }
+
+    #delete-partResponsive button{
+        font-size: 15px ;
+    }
+
+    .btn-light-Resp {
+        padding: 6px 11px;
+    }
+    
+    .btn-dark-Resp {
+        padding: 2px 12px;
     }
 
 }

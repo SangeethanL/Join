@@ -160,7 +160,7 @@
 
         <div class="displayContactResponsive d-none" id="ResponsiveVersion">
             <div class="team-slogan.Resp">
-                <div class="flex flex-column y-start mb-48px">
+                <div class="flex flex-column y-start">
                     <div class="flex flex-row x-space-betw" style="width: 100%;">
                         <span class="ft-general fs-47px fw-700">Contacts</span>
                         <img src="assets/img/arrow-left-line.png" class="go-back go-back-size"
@@ -343,7 +343,7 @@
         <div class="bg-white flex flex-column w-100" style="padding-top: 20px;">
             <div class="flex flex-column x-center y-center w-100">
 
-                <form onsubmit="saveChanges(); return false;" class="flex flex-column">
+                <form onsubmit="saveChanges(); return false;" class="flex flex-column y-center">
                     <div class="login-input-Resp mb-8px flex x-space-betw y-center">
                         <input contenteditable="true" class="ft-general fs-16px fw-400 input-icon-pos icon-name w-100"
                             id="edit-fist-nameRESP" placeholder="First-Name" type="text" value="" required>
@@ -358,15 +358,15 @@
                     </div>
                     <div class="login-input-Resp mb-8px flex x-space-betw y-center">
                         <input type="numbers" contenteditable="true"
-                            class="ft-general fs-16px fw-400 input-icon-pos icon-name w-100" id="edit-numberRESP"
+                            class="ft-general fs-16px fw-400 input-icon-pos icon-phone w-100" id="edit-numberRESP"
                             placeholder="Phone" required>
                     </div>
-                    <div id="delete-part" class="flex x-start gap-35px">
-                        <button class="btn-light ft-general fs-21px fw-700 flex y-center gap-4px"
+                    <div id="delete-partResponsive" class="flex x-center gap-35px">
+                        <button class="btn-light-Resp ft-general fs-21px fw-700 flex y-center gap-4px"
                             onclick="deleteContact()" type="button">
                             Delete <img src="assets/img/close.png" alt="cancel">
                         </button>
-                        <button id="safe-btn" class="btn-dark ft-general fs-21px fw-700 flex y-center gap-4px"
+                        <button id="safe-btn" class="btn-dark-Resp ft-general fs-21px fw-700 flex y-center gap-4px"
                             type="submit">
                             Safe <img src="assets/img/check.png" alt="add">
                         </button>

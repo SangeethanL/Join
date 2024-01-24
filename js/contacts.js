@@ -44,55 +44,28 @@ function listContact(indexOfContact) {
 
 function showContact(indexOfContact) {
     if (window.screen.width >= 1370) {
-        document.getElementById('contact-details').innerHTML = `
-        <div id="modify-contact" class="edit-contact flex y-center mb-24px">
-            <div class="ft-general fs-47px fw-500 col-white mr-54px" style="background-color: ${contacts[indexOfContact]['color']};"> 
-            ${contacts[indexOfContact]['first-name'].charAt(0)}${contacts[indexOfContact]['last-name'].charAt(0)}</div>
-            <div>
-                <div class="ft-general fs-47px fw-500 mb-12px">${contacts[indexOfContact]['first-name']} ${contacts[indexOfContact]['last-name']}</div>
-                <div class="flex gap-16px">
-                    <div onclick="editContactForm(${indexOfContact})" class="flex col-black y-center gap-8px">
-                        <img src="/assets/img/edit.png" alt="Edit">
-                        <span class="dark-blue">Edit</span>
-                    </div>
-                    <div onclick="deleteContact()" class="flex col-black y-center gap-8px">
-                        <img src="/assets/img/delete.png" alt="Delete">
-                        <span class="dark-blue">Delete</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="flex flex-column">
-            <span class="ft-general fs-20px fw-400 mb-64px mt-24px">Contact Information</span>
-            <div class="flex flex-column">
-                <span class="ft-general fs-16px fw-700 mb-16px">Email</span>
-                <span class="margin-bottom">${contacts[indexOfContact]['E-Mail']}</span>
-                <span class="ft-general fs-16px fw-700 mb-16px">Phone</span>
-                ${contacts[indexOfContact]['Phone']}</span>
-            </div>
-        </div>`;
+        document.getElementById('contact-details').innerHTML = '';
+        document.getElementById('contact-details').innerHTML += loadTopic(indexOfContact);
+        document.getElementById('contact-details').innerHTML += loadDetails(indexOfContact);
     } else {
         document.getElementById('Webversion').classList.add('d-none');
         document.getElementById('ResponsiveVersion').classList.remove('d-none');
-        showContactResponsive(indexOfContact);
+        document.getElementById('contact-detailsResponsive').innerHTML = '';
+        document.getElementById('contact-detailsResponsive').innerHTML += loadTopicRESPONSIVE(indexOfContact);
+        document.getElementById('contact-detailsResponsive').innerHTML += loadDetailsRESPONSIVE(indexOfContact);
     }
 
     indexOfcurrentContact = indexOfContact;
 }
 
-function goBack() {
-    document.getElementById('Webversion').classList.remove('d-none');
-    document.getElementById('ResponsiveVersion').classList.add('d-none');
-}
-
-function showContactResponsive(indexOfContact) {
-    document.getElementById('contact-detailsResponsive').innerHTML = `
-        <div id="modify-contact" class="edit-contact flex y-center mb-24px">
-            <div class="ft-general fs-27px fw-500 col-white mr-54px" style="background-color: ${contacts[indexOfContact]['color']};"> 
+function loadTopic(indexOfContact) {
+    return `
+    <div id="modify-contact" class="edit-contact flex y-center mb-24px">
+        <div class="ft-general fs-47px fw-500 col-white mr-54px" style="background-color: ${contacts[indexOfContact]['color']};"> 
             ${contacts[indexOfContact]['first-name'].charAt(0)}${contacts[indexOfContact]['last-name'].charAt(0)}</div>
             <div>
-                <div class="ft-general fs-27px fw-500 mb-12px">${contacts[indexOfContact]['first-name']} ${contacts[indexOfContact]['last-name']}</div>
+                <div class="ft-general fs-47px fw-500 mb-12px">${contacts[indexOfContact]['first-name']} ${contacts[indexOfContact]['last-name']}
+                </div>
                 <div class="flex gap-16px">
                     <div onclick="editContactForm(${indexOfContact})" class="flex col-black y-center gap-8px">
                         <img src="/assets/img/edit.png" alt="Edit">
@@ -105,18 +78,61 @@ function showContactResponsive(indexOfContact) {
                 </div>
             </div>
         </div>
-        
-        <div class="flex flex-column">
-            <span class="ft-general fs-20px fw-400 mb-64px mt-24px">Contact Information</span>
+    </div>`
+}
+
+function loadDetails(indexOfContact) {
+    return `
+    <div class="flex flex-column">
+            <span class="ft-general fs-20px fw-400 mb-32px mt-24px">Contact Information</span>
             <div class="flex flex-column">
                 <span class="ft-general fs-16px fw-700 mb-16px">Email</span>
                 <span class="margin-bottom">${contacts[indexOfContact]['E-Mail']}</span>
                 <span class="ft-general fs-16px fw-700 mb-16px">Phone</span>
                 ${contacts[indexOfContact]['Phone']}</span>
             </div>
-        </div>`;
+        </div>`
+}
 
-    indexOfcurrentContact = indexOfContact;
+function loadTopicRESPONSIVE(indexOfContact) {
+    return `
+    <div id="modify-contact" class="edit-contact flex y-center mb-24px">
+        <div class="ft-general fs-20px fw-500 col-white mr-44px" style="background-color: ${contacts[indexOfContact]['color']};"> 
+            ${contacts[indexOfContact]['first-name'].charAt(0)}${contacts[indexOfContact]['last-name'].charAt(0)}</div>
+            <div>
+                <div class="ft-general fs-27px fw-500 mb-12px">${contacts[indexOfContact]['first-name']} ${contacts[indexOfContact]['last-name']}
+                </div>
+                <div class="flex gap-16px">
+                    <div onclick="editContactForm(${indexOfContact})" class="flex col-black y-center gap-8px">
+                        <img src="/assets/img/edit.png" alt="Edit">
+                        <span class="dark-blue">Edit</span>
+                    </div>
+                    <div onclick="deleteContact()" class="flex col-black y-center gap-8px">
+                        <img src="/assets/img/delete.png" alt="Delete">
+                        <span class="dark-blue">Delete</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`
+}
+
+function loadDetailsRESPONSIVE(indexOfContact) {
+    return `
+    <div class="flex flex-column">
+            <span class="ft-general fs-20px fw-400 mb-32px mt-24px">Contact Information</span>
+            <div class="flex flex-column">
+                <span class="ft-general fs-16px fw-700 mb-16px">Email</span>
+                <span class="margin-bottom">${contacts[indexOfContact]['E-Mail']}</span>
+                <span class="ft-general fs-16px fw-700 mb-16px">Phone</span>
+                ${contacts[indexOfContact]['Phone']}</span>
+            </div>
+        </div>`
+}
+
+function goBack() {
+    document.getElementById('Webversion').classList.remove('d-none');
+    document.getElementById('ResponsiveVersion').classList.add('d-none');
 }
 
 function createNewContact() {

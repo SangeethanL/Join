@@ -98,6 +98,7 @@ a { color: #007CEE; }
 }
 
 .mr-54px { margin-right: 54px; }
+.mr-44px { margin-right: 44px; }
 
 .edit-contact > div > div > div { cursor: pointer; }
 
@@ -106,6 +107,16 @@ a { color: #007CEE; }
 {
     height: 120px;
     width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 4px solid white;
+}
+
+.edit-contact > div.mr-44px {
+    height: 70px;
+    width: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
