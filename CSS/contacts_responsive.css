@@ -113,7 +113,11 @@
         width: 100%;
         justify-content: center;
         align-items: center;
-        height: max-content
+        height: fit-content;
+    }
+
+    #Webversion {
+        height: 133vh;
     }
 
     .sub-div-contacts {

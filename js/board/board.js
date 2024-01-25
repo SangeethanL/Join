@@ -9,11 +9,7 @@ function searchTask() {
         for (let s = 0; s < tasks.length; s++) {
             let task = tasks[s];
             if (task['title'].includes(searchField)) {
-                document.getElementById('board').classList.add('display-none');
-                document.getElementById('boardResponsive').style = "display: none;";
-                document.getElementById('searchResults').innerHTML += showSearchedTask(task);
-                document.getElementById('searchPicture').classList.add('display-none');
-                document.getElementById('resetPicture').classList.remove('display-none');
+                resultOfSearch(task);
 
                 loadSubtasksProgressbarSEARCHEDTASK(task);
                 showAmountOfFinishedSubtasksSEARCHEDTASK(task);
@@ -22,6 +18,14 @@ function searchTask() {
             }
         }
     }
+}
+
+function resultOfSearch(suitableTask) {
+    document.getElementById('board').classList.add('display-none');
+    document.getElementById('boardResponsive').style = "display: none;";
+    document.getElementById('searchResults').innerHTML += showSearchedTask(suitableTask);
+    document.getElementById('searchPicture').classList.add('display-none');
+    document.getElementById('resetPicture').classList.remove('display-none');
 }
 
 function showSearchedTask(eachTask) {
@@ -57,35 +61,51 @@ function resetSearchedTask() {
 /*------------------------------------Board laden bzw. anzeigen lassen-------------------------------------*/
 
 function loadBoard() {
-    let toDo = document.getElementById('TODO');
-    let inProgress = document.getElementById('INPROGRESS');
-    let awaitFeedback = document.getElementById('AWAITFEEDBACK');
-    let done = document.getElementById('DONE');
 
     for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
 
-        if (task['progress'].includes('TODO')) {
-            toDo.innerHTML += displayTask(task);
-            document.getElementById('TODOresponsive').innerHTML += displayTaskResponsive(task);
-        }
-        if (task['progress'].includes('INPROGRESS')) {
-            inProgress.innerHTML += displayTask(task);
-            document.getElementById('INPROGRESSresponsive').innerHTML += displayTaskResponsive(task);
-        }
-        if (task['progress'].includes('AWAITFEEDBACK')) {
-            awaitFeedback.innerHTML += displayTask(task);
-            document.getElementById('AWAITFEEDBACKresponsive').innerHTML += displayTaskResponsive(task);
-        }
-        if (task['progress'].includes('DONE')) {
-            done.innerHTML += displayTask(task);
-            document.getElementById('DONEresponsive').innerHTML += displayTaskResponsive(task);
-        }
+        loadIntoToDo(task);
+        loadIntoInProgress(task);
+        loadIntoAwaitFeedback(task);
+        loadIntoDone(task);
 
         loadSubtasksProgressbar(task);
         showAmountOfFinishedSubtasks(task);
         displayContactIcons(task);
         displayPriorityImg(task);
+    }
+}
+
+function loadIntoToDo(task) {
+    let toDo = document.getElementById('TODO');
+    if (task['progress'].includes('TODO')) {
+        toDo.innerHTML += displayTask(task);
+        document.getElementById('TODOresponsive').innerHTML += displayTaskResponsive(task);
+    }
+}
+
+function loadIntoInProgress(task) {
+    let inProgress = document.getElementById('INPROGRESS');
+    if (task['progress'].includes('INPROGRESS')) {
+        inProgress.innerHTML += displayTask(task);
+        document.getElementById('INPROGRESSresponsive').innerHTML += displayTaskResponsive(task);
+    }
+}
+
+function loadIntoAwaitFeedback(task) {
+    let awaitFeedback = document.getElementById('AWAITFEEDBACK');
+    if (task['progress'].includes('AWAITFEEDBACK')) {
+        awaitFeedback.innerHTML += displayTask(task);
+        document.getElementById('AWAITFEEDBACKresponsive').innerHTML += displayTaskResponsive(task);
+    }
+}
+
+function loadIntoDone(task) {
+    let done = document.getElementById('DONE');
+    if (task['progress'].includes('DONE')) {
+        done.innerHTML += displayTask(task);
+        document.getElementById('DONEresponsive').innerHTML += displayTaskResponsive(task);
     }
 }
 

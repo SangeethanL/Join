@@ -59,14 +59,18 @@ function editTask() {
     <string class="elementStyling">Description</string>
     <input id="descriptionEdited" value="${tasks[currentDisplayedTask]['description']}"></div>`;
     document.getElementById('date2').innerHTML = `<input id="dateEdited" type="date" value="${tasks[currentDisplayedTask]['date']}">`;
-    document.getElementById('priority2').innerHTML = `
-    <button onclick="chooseUrgent()">Urgent</button>
-    <button onclick="chooseMedium()">Medium</button>
-    <button onclick="chooseLow()">Low</button>`;
+    loadPriorityButtons();
     editContacts();
     editSubtasks002();
     displaySubtasks('2');
     document.getElementById('Edit-Save').innerHTML = `<string onclick="saveTask()">Save</string>`;
+}
+
+function loadPriorityButtons() {
+    document.getElementById('priority2').innerHTML = `
+    <button onclick="chooseUrgent()">Urgent</button>
+    <button onclick="chooseMedium()">Medium</button>
+    <button onclick="chooseLow()">Low</button>`;
 }
 
 function editSubtasks002() {

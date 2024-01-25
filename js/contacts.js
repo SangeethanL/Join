@@ -130,7 +130,7 @@ function loadDetailsRESPONSIVE(indexOfContact) {
         </div>`
 }
 
-function goBack() {
+function goBackToContacts() {
     document.getElementById('Webversion').classList.remove('d-none');
     document.getElementById('ResponsiveVersion').classList.add('d-none');
 }

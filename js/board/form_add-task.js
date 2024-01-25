@@ -49,14 +49,18 @@ function saveContact(value) {
             if (selectedContacts.length >= 3) {
                 alert('Keine Kontaktauswahl mehr möglich!');
             } else {
-                selectedContacts.push(contacts[value]);
-                document.getElementById('displaySelectedContacts').innerHTML = '';
-                for (c = 0; c < selectedContacts.length; c++) {
-                    document.getElementById('displaySelectedContacts').innerHTML += `
-                    ${selectedContacts[c]['first-name']} ${selectedContacts[c]['last-name']}`;
-                }
+                cacheContacts(value);
             }
         }
+    }
+}
+
+function cacheContacts(value) {
+    selectedContacts.push(contacts[value]);
+    document.getElementById('displaySelectedContacts').innerHTML = '';
+    for (c = 0; c < selectedContacts.length; c++) {
+        document.getElementById('displaySelectedContacts').innerHTML += `
+                    ${selectedContacts[c]['first-name']} ${selectedContacts[c]['last-name']}`;
     }
 }
 
@@ -77,6 +81,19 @@ function chooseLow() {
 /*-----------------Eingegebenen Task erstellen bzw. submitten-----------------*/
 
 function createTask() {
+    inputsForPush();
+
+    priorityStatus = '';
+    selectedContacts = [];
+    subtasks = [];
+    document.getElementById('displaySubtasks').innerHTML = '';
+    document.getElementById('displaySelectedContacts').innerHTML = '';
+    resetForms()
+    setItem();
+
+}
+
+function inputsForPush() {
     let addTaskProgress = 'TODO';
     if (document.getElementById('progress')) { addTaskProgress = document.getElementById('progress').value };
     let addTaskCategory = document.getElementById('category').value;
@@ -85,7 +102,10 @@ function createTask() {
     let addTaskDescription = document.getElementById('description').value;
     let addTaskDate = document.getElementById('date').value;
     if (priorityStatus == null) { priorityStatus = 'Low' };
+    pushInputsToCreateTask(addTaskProgress, addTaskCategory, addTaskTitle, addTaskDescription, addTaskDate, priorityStatus);
+}
 
+function pushInputsToCreateTask(addTaskProgress, addTaskCategory, addTaskTitle, addTaskDescription, addTaskDate, priorityStatus) {
     tasks.push({
         'id': `${tasks.length}`,
         'progress': `${addTaskProgress}`,
@@ -99,11 +119,9 @@ function createTask() {
         'subtasks-checkbox': [],
         'subtasks-true': []
     });
-    priorityStatus = '';
-    selectedContacts = [];
-    subtasks = [];
-    document.getElementById('displaySubtasks').innerHTML = '';
-    document.getElementById('displaySelectedContacts').innerHTML = '';
+}
+
+function resetForms() {
     if (window.location.pathname.endsWith('add_task.html')) {
         document.getElementById('addTaskForm').reset();
         window.location.href = 'board.html';
@@ -114,7 +132,6 @@ function createTask() {
         loadBoard();
         closeTaskForm();
     }
-    setItem();
 }
 
 /*-------------------------Inhalt des Board's leeren-------------------------*/
@@ -165,6 +182,10 @@ function enableInputButtons(x) {
         subtasksDeposit = tasks[currentDisplayedTask]['subtasks'];
     }
 
+    enableOptions(inputfield, buttons, subtasksDeposit);
+}
+
+function enableOptions(inputfield, buttons, subtasksDeposit) {
     if (subtasksDeposit.length >= 2) {
         buttons.style = "display:none;";
     }
@@ -200,14 +221,19 @@ function submitSubtask(x) {
         subtasksDeposit = tasks[currentDisplayedTask]['subtasks'];
     }
 
+    submitOptions(subtasksDeposit, inputfield);
+
+    displaySubtasks(x);
+    enableInputButtons(x);
+    checkIfInputOpen = '';
+}
+
+function submitOptions(subtasksDeposit, inputfield) {
     if (subtasksDeposit.length >= 2) {
     } else {
         subtasksDeposit.push(inputfield.value);
         inputfield.value = '';
     }
-    displaySubtasks(x);
-    enableInputButtons(x);
-    checkIfInputOpen = '';
 }
 
 /*------------------------Subtasks anzeigen lassen------------------------*/
@@ -229,6 +255,10 @@ function displaySubtasks(x) {
         textContainer = `textOfElement2`;
     }
 
+    displaySubtasksOptions(displaySubtasks, subtasksDeposit, container, textContainer, x)
+}
+
+function displaySubtasksOptions(displaySubtasks, subtasksDeposit, container, textContainer, x) {
     document.getElementById(`${displaySubtasks}`).innerHTML = '';
     for (let a = 0; a < subtasksDeposit.length; a++) {
         document.getElementById(`${displaySubtasks}`).innerHTML += `
@@ -257,6 +287,10 @@ function displayEditDeleteButtons(x, indexOfSubtask) {
         subtasksDeposit = tasks[currentDisplayedTask]['subtasks'];
     }
 
+    editDeleteButtonsOptions(container, indexOfSubtask, x, subtasksDeposit);
+}
+
+function editDeleteButtonsOptions(container, indexOfSubtask, x, subtasksDeposit) {
     if (checkIfInputOpen == 'yes') {
         document.getElementById(`onmouse${indexOfSubtask}`).addEventListener('mouseover', function (e) { e.stopPropagation() }, true);
     } else {
@@ -290,6 +324,10 @@ function editSubtask(x, indexOfSubtask) {
         subtasksDeposit = tasks[currentDisplayedTask]['subtasks'];
     }
 
+    editSubtaskOptions(container, indexOfSubtask, editContainer, unchangedContent, subtasksDeposit, x);
+}
+
+function editSubtaskOptions(container, indexOfSubtask, editContainer, unchangedContent, subtasksDeposit, x) {
     document.getElementById(`${container[indexOfSubtask]}`).innerHTML = `
         <div id="${editContainer[indexOfSubtask]}" class="editDiv">
             <input id="${unchangedContent}${[indexOfSubtask]}" value="${subtasksDeposit[indexOfSubtask]}" style="width: 100%;">
