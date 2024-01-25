@@ -333,6 +333,18 @@ line-height: 120%; /* 56.4px */
     background-color: #7AE229;
 }
 
+@media only screen and (max-height: 700px) {
+
+    .add-task{
+        
+    height: 180vh !important;
+    }
+
+
+
+
+}
+
 @media only screen and (max-width: 1300px) {
 
     .add-task-container{
