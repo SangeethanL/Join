@@ -242,10 +242,11 @@ function loadValueIntoInputsRESPONSIVE(indexOfContact) {
 function saveChanges() {
     if (window.screen.width > 1160) {
         saveEditedValues();
+        refreshContactsInTask();
     } else {
         saveEditedValuesRESPONSIVE();
+        refreshContactsInTaskRESPONSIVE();
     }
-    refreshContactsInTask();
     closeEditContactForm();
     setContacts();
     showContact(indexOfcurrentContact);
@@ -286,6 +287,21 @@ function refreshContactsInTask() {
                 taskContact['last-name'] = document.getElementById('edit-last-name').value;
                 taskContact['E-Mail'] = document.getElementById('edit-email').value;
                 taskContact['Phone'] = document.getElementById('edit-number').value;
+            }
+        }
+    }
+}
+
+function refreshContactsInTaskRESPONSIVE() {
+    for (t = 0; t < tasks.length; t++) {
+        let task = tasks[t];
+        for (c = 0; c < task['contacts'].length; c++) {
+            let taskContact = task['contacts'][c];
+            if (taskContact['first-name'] == unchangedContact) {
+                taskContact['first-name'] = document.getElementById('edit-fist-nameRESP').value;
+                taskContact['last-name'] = document.getElementById('edit-last-nameRESP').value;
+                taskContact['E-Mail'] = document.getElementById('edit-emailRESP').value;
+                taskContact['Phone'] = document.getElementById('edit-numberRESP').value;
             }
         }
     }
