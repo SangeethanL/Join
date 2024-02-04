@@ -4,6 +4,7 @@ function searchTask() {
     let searchField = document.getElementById('searchInput').value;
 
     if (searchField == '') {
+        resetSearchedTask();
     } else {
         document.getElementById('searchResults').innerHTML = '';
         for (let s = 0; s < tasks.length; s++) {
@@ -11,10 +12,10 @@ function searchTask() {
             if (task['title'].includes(searchField)) {
                 resultOfSearch(task);
 
-                loadSubtasksProgressbarSEARCHEDTASK(task);
-                showAmountOfFinishedSubtasksSEARCHEDTASK(task);
-                displayContactIconsSEARCHEDTASK(task);
-                displayPriorityImgSEARCHEDTASK(task);
+                loadSubtasksProgressbar_searchedTask(task);
+                showAmountOfFinishedSubtasks_searchedTask(task);
+                displayContactIcons_searchedTask(task);
+                displayPriorityImg_searchedTask(task);
             }
         }
     }
@@ -75,6 +76,7 @@ function loadBoard() {
         displayContactIcons(task);
         displayPriorityImg(task);
     }
+    checkContent();
 }
 
 function loadIntoToDo(task) {
@@ -148,6 +150,32 @@ function displayTaskResponsive(eachTask) {
                 <img src id="taskPriorityIMGresponsive${eachTask['id']}">
             </div>
         </div>
+    </div>`;
+}
+
+function checkContent() {
+    let toDo = document.getElementById('TODO');
+    let inProgress = document.getElementById('INPROGRESS');
+    let awaitFeedback = document.getElementById('AWAITFEEDBACK');
+    let done = document.getElementById('DONE');
+
+    if (toDo.innerHTML == '') {
+        toDo.innerHTML += showProgressIsEmpty();
+    }
+    if (inProgress.innerHTML == '') {
+        inProgress.innerHTML += showProgressIsEmpty();
+    }
+    if (awaitFeedback.innerHTML == '') {
+        awaitFeedback.innerHTML += showProgressIsEmpty();
+    }
+    if (done.innerHTML == '') {
+        done.innerHTML += showProgressIsEmpty();
+    }
+}
+
+function showProgressIsEmpty() {
+    return `<div class="noTasks">
+    No Tasks available
     </div>`;
 }
 
@@ -249,7 +277,7 @@ function displayPriorityImg(eachTask) {
 
 /*--------------Subtasks Länge & Bilder anzeigen bei SEARCHED TASK--------------*/
 
-function loadSubtasksProgressbarSEARCHEDTASK(eachTask) {
+function loadSubtasksProgressbar_searchedTask(eachTask) {
     let subtasksProgressbar = document.getElementById(`subtasksProgressbarSEARCHED${eachTask['id']}`);
     eachTask['subtasks-true'] = [];
     for (t = 0; t < eachTask['subtasks-checkbox'].length; t++) {
@@ -266,7 +294,7 @@ function loadSubtasksProgressbarSEARCHEDTASK(eachTask) {
     }
 }
 
-function showAmountOfFinishedSubtasksSEARCHEDTASK(eachTask) {
+function showAmountOfFinishedSubtasks_searchedTask(eachTask) {
     let numberOfSubtasks = document.getElementById(`numberOfSubtasksSEARCHED${eachTask['id']}`);
     if (eachTask['subtasks'][1]) {
         numberOfSubtasks.innerHTML = `${eachTask['subtasks-true'].length}/${eachTask['subtasks'].length} Subtasks`;
@@ -278,7 +306,7 @@ function showAmountOfFinishedSubtasksSEARCHEDTASK(eachTask) {
 
 }
 
-function displayContactIconsSEARCHEDTASK(eachTask) {
+function displayContactIcons_searchedTask(eachTask) {
     let contactIconsField = document.getElementById(`taskContactsIconsSEARCHED${eachTask['id']}`);
     for (y = 0; y < eachTask['contacts'].length; y++) {
         let firstName = eachTask['contacts'][y]['first-name'].charAt(0).toUpperCase();
@@ -292,7 +320,7 @@ function displayContactIconsSEARCHEDTASK(eachTask) {
     }
 }
 
-function displayPriorityImgSEARCHEDTASK(eachTask) {
+function displayPriorityImg_searchedTask(eachTask) {
     let priorityField = document.getElementById(`taskPriorityIMGSEARCHED${eachTask['id']}`);
 
     if (eachTask['priority'] == 'Urgent') {
@@ -311,7 +339,7 @@ function displayPriorityImgSEARCHEDTASK(eachTask) {
 
 /*----------------Progresse in unterschiedlichen Varianten lade----------------*/
 
-function progressNEUTRAL(progress) {
+function progress_Neutral(progress) {
     if (progress == 'TODO') {
         document.getElementById('progress').innerHTML = `
             <option value="TODO">To do</option>
@@ -320,7 +348,7 @@ function progressNEUTRAL(progress) {
     }
 }
 
-function progressINPROGRESS(progress) {
+function progress_InProgress(progress) {
     if (progress == 'INPROGRESS') {
         document.getElementById('progress').innerHTML = `
             <option value="INPROGRESS">In Progress</option>
@@ -329,7 +357,7 @@ function progressINPROGRESS(progress) {
     }
 }
 
-function progressAWAITFEEDBACK(progress) {
+function progress_AwaitFeedback(progress) {
     if (progress == 'AWAITFEEDBACK') {
         document.getElementById('progress').innerHTML = `
             <option value="AWAITFEEDBACK">Await Feedback</option>

@@ -21,9 +21,14 @@ function addTaskForm(progress) {
     loadContactsForAddTask()
 
     /*-----Progresse anzeigen lassen-----*/
-    progressNEUTRAL(progress);
-    progressINPROGRESS(progress);
-    progressAWAITFEEDBACK(progress)
+    progress_Neutral(progress);
+    progress_InProgress(progress);
+    progress_AwaitFeedback(progress)
+}
+
+function disablePastDates() {
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementById('date').setAttribute("min", today);
 }
 
 /*------------------------Kontakte im Add Task Form Laden------------------------*/
@@ -60,7 +65,7 @@ function cacheContacts(value) {
     document.getElementById('displaySelectedContacts').innerHTML = '';
     for (c = 0; c < selectedContacts.length; c++) {
         document.getElementById('displaySelectedContacts').innerHTML += `
-                    ${selectedContacts[c]['first-name']} ${selectedContacts[c]['last-name']}`;
+                    <div>${selectedContacts[c]['first-name']} ${selectedContacts[c]['last-name']}</div>`;
     }
 }
 
@@ -298,7 +303,7 @@ function editDeleteButtonsOptions(container, indexOfSubtask, x, subtasksDeposit)
             <div id="editDeleteButtons" onmouseleave="displaySubtasks(${x})" style="display: flex; flex-direction: row;">
                 <string>${subtasksDeposit[indexOfSubtask]}</string>
                 <div>
-                    <string onclick="editSubtask(${x}, ${indexOfSubtask})"> &#9998 </string> 
+                    <string onclick="editSubtask(${x}, ${indexOfSubtask})" style="margin-right: 20px;"> &#9998 </string> 
                     <string onclick="deleteSubtask(${x}, ${indexOfSubtask})"> &#x1F5D1 <string>
                 </div>
             </div>`;

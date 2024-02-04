@@ -27,13 +27,14 @@ function setContacts() {
 }
 
 function listContact(indexOfContact) {
-    return `<td onclick="showContact(${indexOfContact});" class="contact contactHover mb-24px">
+    return `<td onclick="showContact(${indexOfContact});" class="contact contactHover mb-24px cursor" id="activeContact${indexOfContact}">
     <div class="flex y-center gap-35px">
         <div class="flex x-center y-center p-12px acronym" style="background-color: ${contacts[indexOfContact]['color']};"> 
             ${contacts[indexOfContact]['first-name'].charAt(0)} ${contacts[indexOfContact]['last-name'].charAt(0)}
         </div>
         <div>
-            <div class="ft-general fs-20px fw-400 mb-5px">${contacts[indexOfContact]['first-name']}, ${contacts[indexOfContact]['last-name']}
+            <div class="ft-general fs-20px fw-400 mb-5px" id="activeContactName${indexOfContact}">
+            ${contacts[indexOfContact]['first-name']}, ${contacts[indexOfContact]['last-name']}
             </div>
             <div><a href="" class="ft-general fw-400 fs-16px">${contacts[indexOfContact]['E-Mail']}</a>
             </div>
@@ -43,6 +44,10 @@ function listContact(indexOfContact) {
 }
 
 function showContact(indexOfContact) {
+    setContacts();
+    document.getElementById(`activeContact${indexOfContact}`).style = "background-color: #2A3647;";
+    document.getElementById(`activeContact${indexOfContact}`).classList.add('border-radius-contact');
+    document.getElementById(`activeContactName${indexOfContact}`).style = "color: white;";
     if (window.screen.width >= 1370) {
         document.getElementById('contact-details').innerHTML = '';
         document.getElementById('contact-details').innerHTML += loadTopic(indexOfContact);
@@ -342,6 +347,8 @@ function openEditContactForm() {
 }
 
 function closeContactOverlay() {
+    document.getElementById('newContactForm').reset();
+    document.getElementById('newContactFormResponsive').reset();
     document.getElementById('contacts').classList.remove('d-none');
     document.getElementById('body-contacts').classList.remove("flex", "x-center", "y-center");
     document.getElementById('side-and-topbar-contacts').classList.remove("opacity", "z-ind--1");
@@ -355,4 +362,12 @@ function closeEditContactForm() {
     document.getElementById('side-and-topbar-contacts').classList.remove("opacity", "z-ind--1");
     document.getElementById('edit-contacts').classList.add('d-none');
     document.getElementById('edit-contactsResponsive').classList.add('d-none');
+}
+
+
+function isInputNumber(evt) {
+    var ch = String.fromCharCode(evt.which);
+    if (!(/[0-9]/.test(ch))) {
+        evt.preventDefault();
+    }
 }

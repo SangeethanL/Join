@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Inter';
     overflow-x: hidden;
     overflow-y: hidden;
     margin: 0;
@@ -22,7 +22,7 @@ body {
 .addTaskCSS {
     position: fixed;
     transition: all 225ms ease-in-out;
-    background-color: rgb(190, 190, 190);
+    background-color: rgb(255, 255, 255);
     border: 3px solid black;
     border-radius: 20px;
     width: 70vw;
@@ -35,6 +35,14 @@ body {
     z-index: 6;
 }
 
+#createTaskForm input {
+    border: 1px solid rgb(181, 181, 181);
+}
+
+#createTaskForm textarea {
+    font-family: 'Inter';
+}
+
 .show_form1 {
     transform: translateX(21.25vw);
 }
@@ -43,6 +51,12 @@ body {
     table-layout: fixed;
     width: 100%;
     padding: 50px;
+}
+
+#aTContent tr:nth-child(2) td:nth-child(1){
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #aTContent th {
@@ -135,7 +149,7 @@ body {
 #displaySubtasks {
     margin-top: 20px;
     margin-bottom: 20px;
-    max-width: 100%;
+    max-width: 50%;
 }
 
 #editDeleteButtons {
@@ -152,7 +166,7 @@ body {
     cursor: pointer;
 }
 
-#editDeleteButtons div string {
+#editDeleteButtons div string:nth-child(1) {
     margin-left: 5px;
     margin-right: 5px;
 }
@@ -161,7 +175,7 @@ body {
     display: flex;
     flex-direction: row !important;
     justify-content: space-between;
-    width: 100%
+    width: 62%;
 }
 
 .editDiv input {
@@ -283,12 +297,15 @@ body {
 #container3 div {
     display: flex;
     flex-direction: row;
-    float: left;
 }
 
-#container3 div input {
-    width: 13px;
-    height: 13px;
+#container3 div div:nth-child(1){
+    display: flex;
+    flex-direction: row;
+}
+
+#hiddenButtons2 string:nth-child(1){
+    margin-right: 15px;
 }
 
 #displaySubtasks2 {
@@ -300,6 +317,7 @@ body {
     display: flex;
     justify-content: space-between !important;
     margin-top: 5px;
+    max-width: 100%;
 }
 
 /*------------------------------------Edit Task Form------------------------------------*/
@@ -452,6 +470,18 @@ body {
     width: 25%;
 }
 
+.noTasks {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    color: #3e3e3e;
+    background-color: #c8c8c8;
+    border: 1px dashed black; 
+    border-radius: 5%;
+    width: 95%; 
+    height: 20%;
+}
+
 .taskCSS {
     cursor: pointer;
 }
@@ -546,17 +576,13 @@ body {
 }
 
 
-
-
-
 #container {
     display: flex;
     flex-direction: row !important;
-    max-width: 100% !important;
 }
 
 #inputNewSubtask {
-    max-width: 50% !important;
+    max-width: 70% !important;
 }
 
 #hiddenButtons {
@@ -564,7 +590,7 @@ body {
     flex-direction: row !important;
     color: black;
     cursor: pointer;
-    max-width: 40% !important;
+    max-width: fit-content !important;
 }
 
 #hiddenButtons2 {

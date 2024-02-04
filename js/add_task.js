@@ -6,10 +6,7 @@ function resetAddTaskBoard() {
     priorityStatus = '';
     selectedContacts = [];
     subtasks = [];
-
-    function activeButton(){
-        
-    }
+    resetActiveButtonBySubmit();
 }
 
 

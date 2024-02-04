@@ -2,10 +2,6 @@ let users = [];
 let currentUser = [];
 let guestLogin = [];
 
-if(window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('summary.html')){
-  getItemSummary();
-}
-
 /* Declare variables and arrays */
 
 async function initLogin() {
@@ -28,6 +24,7 @@ async function loadUsers() {
 function login() {
   let email = document.getElementById('email');
   let password = document.getElementById('password');
+  let loginSuccessful;
   // document.getElementById('login-btn').disabled = true;
 
   for (let u = 0; u < users.length; u++) {
@@ -35,7 +32,11 @@ function login() {
     if (user.Email == email.value && user.Password == password.value) {
       window.location.href = "summary.html";
       currentUser.push(user['Name']);
+      loginSuccessful = true;
     }
+  }
+  if(!loginSuccessful == true) {
+    alert('E-mail or password is wrong!')
   }
   setItemSummary();
 }
@@ -122,14 +123,14 @@ async function addNewUser() {
  */
 function saveNewUser(name, email, password, comparePassword) {
   if (password.value == comparePassword.value) {
-    console.log('Registration succesfull.');
     users.push({
       "Name": name.value,
       "Email": email.value,
       "Password": password.value,
     });
     resetRegisterForm(name, email, password, comparePassword);
-  } else { console.log('Registration failed, check input!'); }
+    closeSignUpSection();
+  } else { alert(`Password's doesn't match!`) };
 }
 
 /**
@@ -158,4 +159,24 @@ function logOut() {
   currentUser = [];
   guestLogin = [];
   setItemSummary();
+}
+
+function setItemSummary() {
+  let guestLoginToText = JSON.stringify(guestLogin);
+  localStorage.setItem('guestLoginStorage', guestLoginToText);
+
+  let currentUserToText = JSON.stringify(currentUser);
+  localStorage.setItem('currentUserStorage', currentUserToText);
+}
+
+function getItemSummary() {
+  let guestLoginToArray = localStorage.getItem('guestLoginStorage');
+  if (guestLoginToArray) {
+      guestLogin = JSON.parse(guestLoginToArray);
+  }
+
+  let currentUserToArray = localStorage.getItem('currentUserStorage');
+  if (currentUserToArray) {
+      currentUser = JSON.parse(currentUserToArray);
+  }
 }

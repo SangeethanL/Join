@@ -16,6 +16,7 @@
 
     #title {
         width: 96vw;
+        margin-top: 10px;
     }
 
     #title h1 {
@@ -42,6 +43,7 @@
     #boardResponsive {
         display: unset;
         width: 96vw;
+        margin-left: 10px;
     }
 
     #boardResponsive button {
@@ -58,7 +60,7 @@
         display: flex;
         justify-content: space-between;
         font-size: 20px;
-        width: 96vw;
+        width: 92vw !important;
         margin-top: 2vh;
     }
 

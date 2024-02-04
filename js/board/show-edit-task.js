@@ -1,3 +1,4 @@
+let changedProgress;
 
 /*-------------------------------Show Task Form öffnen bzw. anzeigen lassen-------------------------------*/
 
@@ -51,6 +52,7 @@ function checkbox(indexOfCheckbox) {
 }
 
 function editTask() {
+    moveTaskInResponsive();
     document.getElementById('delete').classList.remove('display-none');
     document.getElementById('title2').innerHTML = `<div class="space">
     <string class="elementStyling">Title</string>
@@ -66,6 +68,70 @@ function editTask() {
     document.getElementById('Edit-Save').innerHTML = `<string onclick="saveTask()">Save</string>`;
 }
 
+function moveTaskInResponsive() {
+    if(window.screen.width <= 800) {
+        document.getElementById('category2').innerHTML = '';
+        if(tasks[currentDisplayedTask]['progress'] == 'TODO'){
+            document.getElementById('category2').innerHTML += displayButtonsToMoveTask1();
+        }
+        if(tasks[currentDisplayedTask]['progress'] == 'INPROGRESS'){
+            document.getElementById('category2').innerHTML += displayButtonsToMoveTask2();
+        }
+        if(tasks[currentDisplayedTask]['progress'] == 'AWAITFEEDBACK'){
+            document.getElementById('category2').innerHTML += displayButtonsToMoveTask3();
+        }
+        if(tasks[currentDisplayedTask]['progress'] == 'DONE'){
+            document.getElementById('category2').innerHTML += displayButtonsToMoveTask4();
+        }
+    }
+}
+
+function displayButtonsToMoveTask1() {
+    return `<div>
+    <string class="elementStyling">Move Task</string>
+    <button onclick="moveInProgress()">In progress</button>
+    <button onclick="moveAwaitFeedback()">Await feedback</button>
+    <button onclick="moveDone()">Done</button>
+    </div>`
+}
+function displayButtonsToMoveTask2() {
+    return `<div>
+    <string class="elementStyling">Move Task</string>
+    <button onclick="moveToDo()">To do</button>
+    <button onclick="moveAwaitFeedback()">Await feedback</button>
+    <button onclick="moveDone()">Done</button>
+    </div>`
+}
+function displayButtonsToMoveTask3() {
+    return `<div>
+    <string class="elementStyling">Move Task</string>
+    <button onclick="moveToDo()">To do</button>
+    <button onclick="moveInProgress()">In progress</button>
+    <button onclick="moveDone()">Done</button>
+    </div>`
+}
+function displayButtonsToMoveTask4() {
+    return `<div>
+    <string class="elementStyling">Move Task</string>
+    <button onclick="moveToDo()">To do</button>
+    <button onclick="moveInProgress()">In progress</button>
+    <button onclick="moveAwaitFeedback()">Await feedback</button>
+    </div>`
+}
+
+function moveToDo() {
+    changedProgress = 'TODO';
+}
+function moveInProgress() {
+    changedProgress = 'INPROGRESS';
+}
+function moveAwaitFeedback() {
+    changedProgress = 'AWAITFEEDBACK';
+}
+function moveDone() {
+    changedProgress = 'DONE';
+}
+
 function loadPriorityButtons() {
     document.getElementById('priority2').innerHTML = `
     <button onclick="chooseUrgent()">Urgent</button>
@@ -76,10 +142,12 @@ function loadPriorityButtons() {
 function editSubtasks002() {
     document.getElementById('container3').innerHTML = '';
     document.getElementById('container3').innerHTML = `
+    <div>
     <input id="inputNewSubtask2" oninput="enableInputButtons('2')">
     <div id="hiddenButtons2" style="display:none;">
         <string onclick="submitSubtask('2')">&#10003</string>
         <string onclick="cleanInputField('2')">&#x1F5D1</string>
+    </div>
     </div>
     <div id="displaySubtasks2">
     </div>`;
@@ -148,13 +216,14 @@ function saveTask() {
     let editedTitle = document.getElementById('titleEdited').value;
     let editedDescription = document.getElementById('descriptionEdited').value;
     let editedDate = document.getElementById('dateEdited').value;
-
+    if(changedProgress == null){} else {tasks[currentDisplayedTask]['progress'] = changedProgress;}
     tasks[currentDisplayedTask]['title'] = editedTitle;
     tasks[currentDisplayedTask]['description'] = editedDescription;
     tasks[currentDisplayedTask]['date'] = editedDate;
     tasks[currentDisplayedTask]['priority'] = priorityStatus || tasks[currentDisplayedTask]['priority'];
     openTaskInWindow(currentDisplayedTask);
     document.getElementById('delete').classList.add('display-none');
+    changedProgress = null;
     cleanBoard();
     loadBoard();
     setItem();

@@ -127,7 +127,11 @@ async function includeHTML() {
 async function init() {
     await includeHTML();
     declareIDs();
-    if(window.location.pathname.endsWith('board.html')){
-       loadBoard();
+    if (window.location.pathname.endsWith('board.html')) {
+        loadBoard();
+        disablePastDates();
+    }
+    if (window.location.pathname.endsWith('add_task.html')) {
+        disablePastDates();
     }
 }
