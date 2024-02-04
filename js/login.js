@@ -2,6 +2,8 @@ let users = [];
 let currentUser = [];
 let guestLogin = [];
 
+getItemSummary();
+
 /* Declare variables and arrays */
 
 async function initLogin() {
