@@ -81,7 +81,7 @@ a {
 }
 
 .mb-12px {
-    margin-bottom: 12px;
+    margin-bottom: 12px !important;
 }
 
 .mb-16px {
@@ -114,6 +114,10 @@ a {
 
 .mb--128px {
     margin-bottom: -128px;
+}
+
+.ml-12px {
+    margin-left: 12px;
 }
 
 .ml-39px {
@@ -188,6 +192,10 @@ a {
     gap: 35px;
 }
 
+.fs-10px {
+    font-size: 10px !important;
+}
+
 .fs-16px {
     font-size: 16px;
 }
@@ -232,6 +240,10 @@ a {
     color: #000000;
 }
 
+.col-red {
+    color: #ff0000;
+}
+
 .col-light-blue {
     color: #29abe2;
 }
@@ -246,6 +258,14 @@ a {
 
 .bg-white {
     background: #FFFFFF;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.w-60 {
+    width: 60%;
 }
 
 .w-70 {
@@ -283,6 +303,10 @@ a {
 
 .border-round {
     border-radius: 50%;
+}
+
+.border-round-100 {
+    border-radius: 100%;
 }
 
 .border-radius-contact {

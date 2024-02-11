@@ -18,7 +18,7 @@ function addTaskForm(progress) {
     <option value="">Select Contact</option>`;
 
     /*-----Kontakte anzeigen lassen-----*/
-    loadContactsForAddTask()
+    loadContactsForAddTask();
 
     /*-----Progresse anzeigen lassen-----*/
     progress_Neutral(progress);
@@ -47,11 +47,11 @@ function saveContact(value) {
         alert('Kontakt wurde schon ausgewählt!');
     }
     else {
-        if (selectedContacts.length >= 3 && selectedContacts.includes(contacts[value])) {
+        if (selectedContacts.length >= 5 && selectedContacts.includes(contacts[value])) {
             alert('Keine Kontaktauswahl mehr möglich!');
         }
         else {
-            if (selectedContacts.length >= 3) {
+            if (selectedContacts.length >= 5) {
                 alert('Keine Kontaktauswahl mehr möglich!');
             } else {
                 cacheContacts(value);
@@ -191,7 +191,7 @@ function enableInputButtons(x) {
 }
 
 function enableOptions(inputfield, buttons, subtasksDeposit) {
-    if (subtasksDeposit.length >= 2) {
+    if (subtasksDeposit.length >= 4) {
         buttons.style = "display:none;";
     }
     else {
@@ -234,7 +234,7 @@ function submitSubtask(x) {
 }
 
 function submitOptions(subtasksDeposit, inputfield) {
-    if (subtasksDeposit.length >= 2) {
+    if (subtasksDeposit.length >= 4) {
     } else {
         subtasksDeposit.push(inputfield.value);
         inputfield.value = '';
@@ -269,7 +269,7 @@ function displaySubtasksOptions(displaySubtasks, subtasksDeposit, container, tex
         document.getElementById(`${displaySubtasks}`).innerHTML += `
             <div id="${container[a]}">
                 <div id="onmouse${a}" onmouseover="displayEditDeleteButtons(${x}, ${a})" onclick="displayEditDeleteButtons(${x}, ${a})">
-                    <string id="${textContainer[a]}" style="width: fit-content">
+                    <string id="${textContainer[a]}">
                     ${subtasksDeposit[a]}
                     </string>
                 </div>
@@ -300,11 +300,11 @@ function editDeleteButtonsOptions(container, indexOfSubtask, x, subtasksDeposit)
         document.getElementById(`onmouse${indexOfSubtask}`).addEventListener('mouseover', function (e) { e.stopPropagation() }, true);
     } else {
         document.getElementById(`${container[indexOfSubtask]}`).innerHTML = `
-            <div id="editDeleteButtons" onmouseleave="displaySubtasks(${x})" style="display: flex; flex-direction: row;">
-                <string>${subtasksDeposit[indexOfSubtask]}</string>
+            <div id="editDeleteButtons" onmouseleave="displaySubtasks(${x})" >
+                <div><string>${subtasksDeposit[indexOfSubtask]}</string></div>
                 <div>
-                    <string onclick="editSubtask(${x}, ${indexOfSubtask})" style="margin-right: 20px;"> &#9998 </string> 
-                    <string onclick="deleteSubtask(${x}, ${indexOfSubtask})"> &#x1F5D1 <string>
+                    <string onclick="editSubtask(${x}, ${indexOfSubtask})" class="cursor"> &#9998 </string> 
+                    <string onclick="deleteSubtask(${x}, ${indexOfSubtask})" class="cursor"> &#x1F5D1 <string>
                 </div>
             </div>`;
     }
@@ -335,8 +335,8 @@ function editSubtask(x, indexOfSubtask) {
 function editSubtaskOptions(container, indexOfSubtask, editContainer, unchangedContent, subtasksDeposit, x) {
     document.getElementById(`${container[indexOfSubtask]}`).innerHTML = `
         <div id="${editContainer[indexOfSubtask]}" class="editDiv">
-            <input id="${unchangedContent}${[indexOfSubtask]}" value="${subtasksDeposit[indexOfSubtask]}" style="width: 100%;">
-            <string onclick="saveChangedSubtask(${x}, ${indexOfSubtask})">&#10003</string>
+            <input id="${unchangedContent}${[indexOfSubtask]}" value="${subtasksDeposit[indexOfSubtask]}">
+            <string onclick="saveChangedSubtask(${x}, ${indexOfSubtask})" class="cursor">&#10003</string>
         </div>`;
 }
 

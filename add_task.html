@@ -16,7 +16,7 @@
     <script src="js/templates.js"></script>
     <script src="js/add_task.js"></script>
     <script src="js/board/arrays_tasks-contacts.js"></script>
-    <script src="js/board/form_add-task.js"></script>
+    <script src="js/board/form-add-task.js"></script>
     <script src="js/contacts.js"></script>
     <script src="js/login.js"></script>
 </head>
@@ -63,15 +63,18 @@
                     <div class="prioritisation">
                         <span>Prio</span>
                         <div class="prio-buttons-container">
-                            <button onclick=" activeButtonUrgent(), chooseUrgent()" id="urgent" type="button" class="prio-button ">Urgent 
+                            <button onclick=" activeButtonUrgent(), chooseUrgent()" id="urgent" type="button"
+                                class="prio-button ">Urgent
                                 <img id="urgent-black" src="assets/img/add-task-img/prio-urgent.png">
                                 <img id="urgent-white" class="d-none" src="assets/img/Prio alta.png">
                             </button>
-                            <button onclick="activeButtonMedium(), chooseMedium()" id="medium" type="button" class="prio-button ">Medium 
+                            <button onclick="activeButtonMedium(), chooseMedium()" id="medium" type="button"
+                                class="prio-button ">Medium
                                 <img id="medium-black" src="assets/img/add-task-img/prio-medium.png">
                                 <img id="medium-white" class="d-none" src="assets/img/Prio_media_white.png">
                             </button>
-                            <button onclick="activeButtonLow(), chooseLow()" id="low" type="button" class="prio-button" >Low 
+                            <button onclick="activeButtonLow(), chooseLow()" id="low" type="button"
+                                class="prio-button">Low
                                 <img id="low-black" src="assets/img/add-task-img/prio-low.png">
                                 <img id="low-white" class="d-none" src="assets/img/Prio_baja_white.png">
                             </button>
@@ -88,18 +91,20 @@
 
                     <div class="subtask">
                         <span>Subtasks</span>
-                        <input id="inputNewSubtask" oninput="enableInputButtons('1')" class="input-subtasks"
-                            placeholder="Add new subtask">
-                        <div id="hiddenButtons" style="display:none;">
-                            <string onclick="submitSubtask('1')">&#10003</string>
-                            <string onclick="cleanInputField('1')">&#x1F5D1</string>
+                        <div class="inputSubtasks">
+                            <input id="inputNewSubtask" oninput="enableInputButtons('1')" class="input-subtasks"
+                                placeholder="Add new subtask">
+                            <div id="hiddenButtons" style="display:none;">
+                                <string onclick="submitSubtask('1')">&#10003</string>
+                                <string onclick="cleanInputField('1')">&#x1F5D1</string>
+                            </div>
                         </div>
                         <div id="displaySubtasks">
                         </div>
                     </div>
-                   
+
                 </div>
-                
+
             </div>
             <div class="bottom-section">
                 <div class="required">
@@ -109,15 +114,17 @@
                 <div class="buttons">
                     <button class="button-clear" type="button" onclick="resetAddTaskBoard()"> Clear <img
                             src="assets/img/add-task-img/clear-x.png"></button>
-                    <button onclick="resetActiveButtonBySubmit()" class="button-create-task" type="submit"> <p class="create-task-text">Create Task</p> <img
-                            src="assets/img/add-task-img/create-task-check.png"></button>
+                    <button onclick="resetActiveButtonBySubmit()" class="button-create-task" type="submit">
+                        <p class="create-task-text">Create Task</p> <img
+                            src="assets/img/add-task-img/create-task-check.png">
+                    </button>
                 </div>
             </div>
         </div>
-        
+
     </form>
 
-   
+
 </body>
 
 </html>

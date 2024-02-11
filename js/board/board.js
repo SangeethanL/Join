@@ -9,7 +9,7 @@ function searchTask() {
         document.getElementById('searchResults').innerHTML = '';
         for (let s = 0; s < tasks.length; s++) {
             let task = tasks[s];
-            if (task['title'].includes(searchField)) {
+            if (task['title'].includes(searchField) || task['description'].includes(searchField)) {
                 resultOfSearch(task);
 
                 loadSubtasksProgressbar_searchedTask(task);
@@ -210,28 +210,22 @@ function loadSubtasksProgressbar(eachTask) {
         if (checkIsTrue == true) {
             eachTask['subtasks-true'].push('->');
         }
-        if (eachTask['subtasks-true'].length == 1) {
-            subtasksProgressbar.style = "background-color: #4589FF; border-radius: 5px; width: 50%; height: 60%;";
-            subtasksProgressbarResponsive.style = "background-color: #4589FF; border-radius: 5px; width: 50%; height: 60%;";
-        }
-        if (eachTask['subtasks-true'].length == 2) {
-            subtasksProgressbar.style = "background-color: #4589FF; border-radius: 5px; width: 100%; height: 60%;";
-            subtasksProgressbarResponsive.style = "background-color: #4589FF; border-radius: 5px; width: 100%; height: 60%;";
-        }
+    }
+
+    if (eachTask['subtasks-true'].length > 0) {
+        let doneSubtasks = eachTask['subtasks-true'].length / eachTask['subtasks'].length * 100;
+        subtasksProgressbar.style = `background-color: #4589FF; border-radius: 5px; width: ${doneSubtasks}%; height: 60%;`;
+        subtasksProgressbarResponsive.style = `background-color: #4589FF; border-radius: 5px; width: ${doneSubtasks}%; height: 60%;`;
     }
 }
 
 function showAmountOfFinishedSubtasks(eachTask) {
     let numberOfSubtasks = document.getElementById(`numberOfSubtasks${eachTask['id']}`);
     let numberOfSubtasksResponsive = document.getElementById(`numberOfSubtasksResponsive${eachTask['id']}`);
-    if (eachTask['subtasks'][1]) {
+
+    if (eachTask['subtasks'].length > 0) {
         numberOfSubtasks.innerHTML = `${eachTask['subtasks-true'].length}/${eachTask['subtasks'].length} Subtasks`;
         numberOfSubtasksResponsive.innerHTML = `${eachTask['subtasks-true'].length}/${eachTask['subtasks'].length} Subtasks`;
-    } else {
-        if (eachTask['subtasks'][0]) {
-            numberOfSubtasks.innerHTML = `${eachTask['subtasks-true'].length}/${eachTask['subtasks'].length} Subtasks`;
-            numberOfSubtasksResponsive.innerHTML = `${eachTask['subtasks-true'].length}/${eachTask['subtasks'].length} Subtasks`;
-        }
     }
 }
 
@@ -285,25 +279,18 @@ function loadSubtasksProgressbar_searchedTask(eachTask) {
         if (checkIsTrue == true) {
             eachTask['subtasks-true'].push('->');
         }
-        if (eachTask['subtasks-true'].length == 1) {
-            subtasksProgressbar.style = "background-color: #4589FF; border-radius: 5px; width: 50%; height: 60%;";
-        }
-        if (eachTask['subtasks-true'].length == 2) {
-            subtasksProgressbar.style = "background-color: #4589FF; border-radius: 5px; width: 100%; height: 60%;";
-        }
     }
+
+    let doneSubtasks = eachTask['subtasks-true'].length / eachTask['subtasks'].length * 100;
+    subtasksProgressbar.style = `background-color: #4589FF; border-radius: 5px; width: ${doneSubtasks}%; height: 60%;`;
 }
 
 function showAmountOfFinishedSubtasks_searchedTask(eachTask) {
     let numberOfSubtasks = document.getElementById(`numberOfSubtasksSEARCHED${eachTask['id']}`);
-    if (eachTask['subtasks'][1]) {
-        numberOfSubtasks.innerHTML = `${eachTask['subtasks-true'].length}/${eachTask['subtasks'].length} Subtasks`;
-    } else {
-        if (eachTask['subtasks'][0]) {
-            numberOfSubtasks.innerHTML = `${eachTask['subtasks-true'].length}/${eachTask['subtasks'].length} Subtasks`;
-        }
-    }
 
+    if (eachTask['subtasks'].length > 0) {
+        numberOfSubtasks.innerHTML = `${eachTask['subtasks-true'].length}/${eachTask['subtasks'].length} Subtasks`;
+    }
 }
 
 function displayContactIcons_searchedTask(eachTask) {

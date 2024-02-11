@@ -26,6 +26,7 @@ async function loadUsers() {
 function login() {
   let email = document.getElementById('email');
   let password = document.getElementById('password');
+  let notRightUserAlert = document.getElementById('notRightUserData');
   let loginSuccessful;
   // document.getElementById('login-btn').disabled = true;
 
@@ -35,10 +36,11 @@ function login() {
       window.location.href = "summary.html";
       currentUser.push(user['Name']);
       loginSuccessful = true;
+      notRightUserAlert.innerHTML = '';
     }
   }
   if(!loginSuccessful == true) {
-    alert('E-mail or password is wrong!')
+    notRightUserAlert.innerHTML = `Email or Password is wrong!`;
   }
   setItemSummary();
 }
@@ -124,6 +126,7 @@ async function addNewUser() {
  * @param {string} comparePassword This is the password to compare of the person registering
  */
 function saveNewUser(name, email, password, comparePassword) {
+  let passwordMatchAlert = document.getElementById('notSamePassword');
   if (password.value == comparePassword.value) {
     users.push({
       "Name": name.value,
@@ -132,7 +135,8 @@ function saveNewUser(name, email, password, comparePassword) {
     });
     resetRegisterForm(name, email, password, comparePassword);
     closeSignUpSection();
-  } else { alert(`Password's doesn't match!`) };
+    passwordMatchAlert.innerHTML = ''; 
+  } else {passwordMatchAlert.innerHTML = `Password's doesn't match!`; };
 }
 
 /**
@@ -161,6 +165,7 @@ function logOut() {
   currentUser = [];
   guestLogin = [];
   setItemSummary();
+  window.location.href = "index.html";
 }
 
 function setItemSummary() {

@@ -76,14 +76,37 @@
         padding: 12px;
     }
 
+    /*------------------------------------Edit Task Form------------------------------------*/
+    #showTaskContent string, #contacts2{
+        font-size: 13px;
+    }
+
     #showTaskContent div input {
         width: 300px;
     }
 
-    #container3 div input {
-        width: 13px;
-        height: 13px;
+    #date2 {
     }
+
+    #currentContacts div {
+        width: 300px;
+    }
+
+    #inputNewSubtask2 {
+        min-width: 300px !important;
+    }
+
+
+    #displaySubtasks2 div {
+        width: 300px;
+    }
+
+    #editDeleteButtons div {
+        display: flex;
+        flex-direction: row !important;
+        width: max-content;
+    }
+
 
     /*--------------------------------------Head Bereich--------------------------------------*/
 
@@ -156,19 +179,8 @@
         transform: translateX(32.5vw);
     }
 
-
-    #showTaskContent div input {
-        height: 15px;
-    }
-
     #title2 {
         font-size: 30px;
-    }
-
-    /*------------------------------------Edit Task Form------------------------------------*/
-
-    .elementStyling {
-        font-size: 14px;
     }
 
     /*--------------------------------------Head Bereich--------------------------------------*/
@@ -261,19 +273,27 @@
         transform: translateX(25vw);
     }
 
-    #showTaskContent div input {
-        width: 240px;
-        height: 15px;
-    }
-
     #title2 {
         font-size: 25px;
     }
 
     /*------------------------------------Edit Task Form------------------------------------*/
 
-    .elementStyling {
-        font-size: 13px;
+    #showTaskContent div input {
+        width: 270px;
+    }
+
+    #currentContacts div {
+        width: 270px;
+    }
+
+    #inputNewSubtask2 {
+        min-width: 270px !important;
+    }
+
+
+    #displaySubtasks2 div {
+        width: 270px;
     }
 
     /*--------------------------------------Head Bereich--------------------------------------*/

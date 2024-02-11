@@ -11,17 +11,44 @@ function openTaskInWindow(task) {
     document.getElementById('title2').innerHTML = `${tasks[currentDisplayedTask]['title']}`;
     document.getElementById('description2').innerHTML = `${tasks[currentDisplayedTask]['description']}`;
     document.getElementById('date2').innerHTML = `${tasks[currentDisplayedTask]['date']}`;
-    document.getElementById('priority2').innerHTML = `${tasks[currentDisplayedTask]['priority']}`;
+    displayPriorityWithSymbols();
     displayContacts();
     displaySubtasksWithCheckbox(tasks[currentDisplayedTask]['subtasks']);
     document.getElementById('Edit-Save').innerHTML = `<string onclick="editTask()">Edit</string>`;
 }
 
+function displayPriorityWithSymbols() {
+    if (tasks[currentDisplayedTask]['priority'] == 'Low') {
+        document.getElementById('priority2').innerHTML = `
+            ${tasks[currentDisplayedTask]['priority']} <img src="assets/img/add-task-img/prio-low.png">`;
+    }
+    if (tasks[currentDisplayedTask]['priority'] == 'Medium') {
+        document.getElementById('priority2').innerHTML = `
+            ${tasks[currentDisplayedTask]['priority']} <img src="assets/img/add-task-img/prio-medium.png">`;
+    }
+    if (tasks[currentDisplayedTask]['priority'] == 'Urgent') {
+        document.getElementById('priority2').innerHTML = `
+            ${tasks[currentDisplayedTask]['priority']} <img src="assets/img/add-task-img/prio-urgent.png">`;
+    }
+}
+
 function displayContacts() {
     document.getElementById('contacts2').innerHTML = '';
-    for (c = 0; c < tasks[currentDisplayedTask]['contacts'].length; c++) {
-        let assignedContact = tasks[currentDisplayedTask]['contacts'][c];
-        document.getElementById('contacts2').innerHTML += `<div>${assignedContact['first-name']} ${assignedContact['last-name']}</div>`;
+    if (tasks[currentDisplayedTask]['contacts'].length == 0) {
+        document.getElementById('contacts2').innerHTML = 'No Contacts assigned';
+    } else {
+        for (c = 0; c < tasks[currentDisplayedTask]['contacts'].length; c++) {
+            let assignedContact = tasks[currentDisplayedTask]['contacts'][c];
+            document.getElementById('contacts2').innerHTML += `
+            <div class="flex row">
+                <string style="background-color:${assignedContact['color']}; width: 25px; height: 25px; font-size: 12px;" 
+                class="flex x-center y-center border-round-100">
+                ${assignedContact['first-name'].charAt(0)}${assignedContact['last-name'].charAt(0)}
+                </string>
+                <div>${assignedContact['first-name']} ${assignedContact['last-name']}
+                </div>
+            </div>`;
+        }
     }
 }
 
@@ -54,12 +81,15 @@ function checkbox(indexOfCheckbox) {
 function editTask() {
     moveTaskInResponsive();
     document.getElementById('delete').classList.remove('display-none');
-    document.getElementById('title2').innerHTML = `<div class="space">
+    document.getElementById('title2').innerHTML = `<div class="column">
     <string class="elementStyling">Title</string>
     <input id="titleEdited" value="${tasks[currentDisplayedTask]['title']}"></div>`;
-    document.getElementById('description2').innerHTML = `<div class="space">
+    document.getElementById('description2').innerHTML = `<div class="column">
     <string class="elementStyling">Description</string>
     <input id="descriptionEdited" value="${tasks[currentDisplayedTask]['description']}"></div>`;
+    document.getElementById('date-container').classList.remove('date-container');
+    document.getElementById('date-container').classList.add('column');
+    document.getElementById('date2').style="display: flex; justify-content: flex-start;";
     document.getElementById('date2').innerHTML = `<input id="dateEdited" type="date" value="${tasks[currentDisplayedTask]['date']}">`;
     loadPriorityButtons();
     editContacts();
@@ -68,81 +98,42 @@ function editTask() {
     document.getElementById('Edit-Save').innerHTML = `<string onclick="saveTask()">Save</string>`;
 }
 
-function moveTaskInResponsive() {
-    if(window.screen.width <= 800) {
-        document.getElementById('category2').innerHTML = '';
-        if(tasks[currentDisplayedTask]['progress'] == 'TODO'){
-            document.getElementById('category2').innerHTML += displayButtonsToMoveTask1();
-        }
-        if(tasks[currentDisplayedTask]['progress'] == 'INPROGRESS'){
-            document.getElementById('category2').innerHTML += displayButtonsToMoveTask2();
-        }
-        if(tasks[currentDisplayedTask]['progress'] == 'AWAITFEEDBACK'){
-            document.getElementById('category2').innerHTML += displayButtonsToMoveTask3();
-        }
-        if(tasks[currentDisplayedTask]['progress'] == 'DONE'){
-            document.getElementById('category2').innerHTML += displayButtonsToMoveTask4();
-        }
-    }
-}
 
-function displayButtonsToMoveTask1() {
-    return `<div>
-    <string class="elementStyling">Move Task</string>
-    <button onclick="moveInProgress()">In progress</button>
-    <button onclick="moveAwaitFeedback()">Await feedback</button>
-    <button onclick="moveDone()">Done</button>
-    </div>`
-}
-function displayButtonsToMoveTask2() {
-    return `<div>
-    <string class="elementStyling">Move Task</string>
-    <button onclick="moveToDo()">To do</button>
-    <button onclick="moveAwaitFeedback()">Await feedback</button>
-    <button onclick="moveDone()">Done</button>
-    </div>`
-}
-function displayButtonsToMoveTask3() {
-    return `<div>
-    <string class="elementStyling">Move Task</string>
-    <button onclick="moveToDo()">To do</button>
-    <button onclick="moveInProgress()">In progress</button>
-    <button onclick="moveDone()">Done</button>
-    </div>`
-}
-function displayButtonsToMoveTask4() {
-    return `<div>
-    <string class="elementStyling">Move Task</string>
-    <button onclick="moveToDo()">To do</button>
-    <button onclick="moveInProgress()">In progress</button>
-    <button onclick="moveAwaitFeedback()">Await feedback</button>
-    </div>`
-}
-
-function moveToDo() {
-    changedProgress = 'TODO';
-}
-function moveInProgress() {
-    changedProgress = 'INPROGRESS';
-}
-function moveAwaitFeedback() {
-    changedProgress = 'AWAITFEEDBACK';
-}
-function moveDone() {
-    changedProgress = 'DONE';
-}
 
 function loadPriorityButtons() {
     document.getElementById('priority2').innerHTML = `
-    <button onclick="chooseUrgent()">Urgent</button>
-    <button onclick="chooseMedium()">Medium</button>
-    <button onclick="chooseLow()">Low</button>`;
+    <div class="priorityButtons">
+        <button onclick="chooseUrgent();changeBgColorUrgent();" id="edit-urgent">Urgent</button>
+        <button onclick="chooseMedium();changeBgColorMedium();" id="edit-medium">Medium</button>
+        <button onclick="chooseLow();changeBgColorLow();" id="edit-low">Low</button>
+    </div>`;
+}
+
+function resetPriorityButtons() {
+    document.getElementById('edit-urgent').style = "background-color: #dedede;"
+    document.getElementById('edit-medium').style = "background-color: #dedede;"
+    document.getElementById('edit-low').style = "background-color: #dedede;"
+}
+
+function changeBgColorUrgent() {
+    resetPriorityButtons();
+    document.getElementById('edit-urgent').style = "background-color: orange;"
+}
+
+function changeBgColorMedium() {
+    resetPriorityButtons();
+    document.getElementById('edit-medium').style = "background-color: yellow;"
+}
+
+function changeBgColorLow() {
+    resetPriorityButtons();
+    document.getElementById('edit-low').style = "background-color: green;"
 }
 
 function editSubtasks002() {
     document.getElementById('container3').innerHTML = '';
     document.getElementById('container3').innerHTML = `
-    <div>
+    <div class="flex flex-row w-100">
     <input id="inputNewSubtask2" oninput="enableInputButtons('2')">
     <div id="hiddenButtons2" style="display:none;">
         <string onclick="submitSubtask('2')">&#10003</string>
@@ -171,7 +162,7 @@ function displayContactsinSHOWTASK() {
     for (e = 0; e < tasks[currentDisplayedTask]['contacts'].length; e++) {
         let currentContact = tasks[currentDisplayedTask]['contacts'][e];
         document.getElementById('currentContacts').innerHTML += `
-        <div>${currentContact['first-name']} ${currentContact['last-name']}
+        <div class="flex x-space-betw">${currentContact['first-name']} ${currentContact['last-name']}
         <button onclick="deleteSelectedContact(${[e]})">Entfernen</button></div>`;
     }
 }
@@ -199,7 +190,7 @@ function displaySelectableContactsInMenu() {
     }
 }
 function addContact(newContact) {
-    if (tasks[currentDisplayedTask]['contacts'].length >= 3) { alert('Keine Kontaktauswahl mehr möglich!') }
+    if (tasks[currentDisplayedTask]['contacts'].length >= 5) { alert('Keine Kontaktauswahl mehr möglich!') }
     else {
         tasks[currentDisplayedTask]['contacts'].push(contactsNew[newContact]);
     }
@@ -216,11 +207,14 @@ function saveTask() {
     let editedTitle = document.getElementById('titleEdited').value;
     let editedDescription = document.getElementById('descriptionEdited').value;
     let editedDate = document.getElementById('dateEdited').value;
-    if(changedProgress == null){} else {tasks[currentDisplayedTask]['progress'] = changedProgress;}
+    if (changedProgress == null) { } else { tasks[currentDisplayedTask]['progress'] = changedProgress; }
     tasks[currentDisplayedTask]['title'] = editedTitle;
     tasks[currentDisplayedTask]['description'] = editedDescription;
     tasks[currentDisplayedTask]['date'] = editedDate;
     tasks[currentDisplayedTask]['priority'] = priorityStatus || tasks[currentDisplayedTask]['priority'];
+    document.getElementById('date2').style="";
+    document.getElementById('date-container').classList.remove('column');
+    document.getElementById('date-container').classList.add('date-container');
     openTaskInWindow(currentDisplayedTask);
     document.getElementById('delete').classList.add('display-none');
     changedProgress = null;
@@ -230,12 +224,15 @@ function saveTask() {
 }
 
 function closeShowTask() {
+    document.getElementById('date2').style="";
+    document.getElementById('date-container').classList.remove('column');
+    document.getElementById('date-container').classList.add('date-container');
     document.getElementById('contacts2').innerHTML = '';
     document.getElementById('showTaskBackground').style = "display: none;";
     document.getElementById('openedTask').classList.remove('show_form2');
     cleanBoard();
     loadBoard();
-    if(document.getElementById('board').classList == 'display-none') {
+    if (document.getElementById('board').classList == 'display-none') {
         searchTask();
     }
     setItem();
@@ -246,4 +243,79 @@ function deleteTask() {
     declareIDs();
     closeShowTask();
     setItem();
+}
+
+
+
+
+
+
+
+
+function moveTaskInResponsive() {
+    if (window.screen.width <= 800) {
+        document.getElementById('category2').innerHTML = '';
+        document.getElementById('category2').innerHTML = `
+            <div class="moveTaskCSS">
+                <string class="elementStyling">Move Task</string>
+                <div id="destinationButtons">
+                </div>
+            </div>`;
+        defineButtonsMoveTask();
+    }
+
+}
+
+let buttonToDo = `<button onclick="moveTask('1')" id="1" class="moveTaskButton">To do</button>`;
+let buttonInProgress = `<button onclick="moveTask('2')" id="2" class="moveTaskButton">In progress</button>`;
+let buttonAwaitFeedback = `<button onclick="moveTask('3')" id="3" class="moveTaskButton">Await feedback</button>`;
+let buttonDone = `<button onclick="moveTask('4')" id="4" class="moveTaskButton">Done</button>`;
+
+function defineButtonsMoveTask() {
+    if (tasks[currentDisplayedTask]['progress'] == 'TODO') {
+        document.getElementById('destinationButtons').innerHTML += buttonInProgress;
+        document.getElementById('destinationButtons').innerHTML += buttonAwaitFeedback;
+        document.getElementById('destinationButtons').innerHTML += buttonDone;
+    }
+    if (tasks[currentDisplayedTask]['progress'] == 'INPROGRESS') {
+        document.getElementById('destinationButtons').innerHTML += buttonToDo;
+        document.getElementById('destinationButtons').innerHTML += buttonAwaitFeedback;
+        document.getElementById('destinationButtons').innerHTML += buttonDone;
+    }
+    if (tasks[currentDisplayedTask]['progress'] == 'AWAITFEEDBACK') {
+        document.getElementById('destinationButtons').innerHTML += buttonToDo;
+        document.getElementById('destinationButtons').innerHTML += buttonInProgress;
+        document.getElementById('destinationButtons').innerHTML += buttonDone;
+    }
+    if (tasks[currentDisplayedTask]['progress'] == 'DONE') {
+        document.getElementById('destinationButtons').innerHTML += buttonToDo;
+        document.getElementById('destinationButtons').innerHTML += buttonInProgress;
+        document.getElementById('destinationButtons').innerHTML += buttonAwaitFeedback;
+    }
+}
+
+function resetMoveTaskButtons() {
+    for (let t = 1; t < 5; t++) {
+        if (document.getElementById(`${t}`)) {
+            document.getElementById(`${t}`).style = "background-color: rgb(12, 131, 182);";
+        }
+    }
+}
+
+function moveTask(buttonNr) {
+    if(buttonNr == '1'){
+        changedProgress = 'TODO';
+    }
+    if(buttonNr == '2'){
+        changedProgress = 'INPROGRESS';
+    }
+    if(buttonNr == '3'){
+        changedProgress = 'AWAITFEEDBACK';
+    }
+    if(buttonNr == '4'){
+        changedProgress = 'DONE';
+    }
+    resetMoveTaskButtons();
+    document.getElementById(`${buttonNr}`).style = "background-color: rgb(12, 83, 182);"
+
 }

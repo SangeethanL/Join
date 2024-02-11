@@ -7,6 +7,10 @@ body {
 
 /*-------------------------------------Add Task Form-------------------------------------*/
 
+.show_form1 {
+    transform: translateX(21.25vw);
+}
+
 .add-show-TaskBackground {
     position: fixed;
     background-color: rgba(255, 255, 255, 0.889);
@@ -35,27 +39,15 @@ body {
     z-index: 6;
 }
 
-#createTaskForm input {
-    border: 1px solid rgb(181, 181, 181);
-}
-
-#createTaskForm textarea {
-    font-family: 'Inter';
-}
-
-.show_form1 {
-    transform: translateX(21.25vw);
-}
-
 #aTContent {
     table-layout: fixed;
     width: 100%;
     padding: 50px;
 }
 
-#aTContent tr:nth-child(2) td:nth-child(1){
+#aTContent tr {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -71,26 +63,14 @@ body {
 #aTContent td {
     display: flex;
     flex-direction: column;
-    height: 400px;
+    justify-content: space-between;
+    width: 50%;
 }
 
 #aTContent td div {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 10px;
-}
-
-#createTaskForm input {
-    width: 80%;
-    height: 30px;
-    border-radius: 5px;
-}
-
-#createTaskForm select {
-    width: 80%;
-    height: 30px;
-}
-
-.red {
-    color: red;
 }
 
 #aTContentTitle {
@@ -100,19 +80,31 @@ body {
     margin-bottom: 14px;
 }
 
-#aTContent tr {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+#aTContent input {
+    border: 1px solid rgb(108, 108, 108);
+    border-radius: 5px;
+    width: 80%;
+    height: 30px;
 }
 
-#aTContent td {
-    width: 50%;
+#aTContent textarea {
+    font-family: 'Inter';
 }
 
-#aTContent td div {
+#aTContent select {
+    width: 80%;
+    height: 30px;
+}
+
+.requiredField {
+    position: fixed;
     display: flex;
-    flex-direction: column;
+    flex-direction: row !important;
+    bottom: 0;
+}
+
+.red {
+    color: red;
 }
 
 #description {
@@ -146,44 +138,26 @@ body {
     max-width: fit-content;
 }
 
-#displaySubtasks {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    max-width: 50%;
-}
-
-#editDeleteButtons {
+#container {
     display: flex;
-    justify-content: space-between;
-    cursor: pointer;
+    flex-direction: row !important;
 }
 
-#editDeleteButtons div {
+#hiddenButtons {
     display: flex;
     flex-direction: row !important;
     color: black;
-    height: 9px;
     cursor: pointer;
+    max-width: fit-content !important;
 }
 
-#editDeleteButtons div string:nth-child(1) {
-    margin-left: 5px;
-    margin-right: 5px;
+#displaySubtasks {
+    margin-bottom: 20px;
+    max-width: 60%;
 }
 
-.editDiv {
-    display: flex;
-    flex-direction: row !important;
-    justify-content: space-between;
-    width: 62%;
-}
-
-.editDiv input {
-    border: 1px solid black !important;
-}
-
-.editDiv string {
-    cursor: pointer;
+#displaySubtasks div {
+    margin-bottom: 0px !important;
 }
 
 .buttonsAtEnd {
@@ -192,7 +166,7 @@ body {
     flex-direction: row !important;
     justify-content: space-between;
     width: 28%;
-    margin-top: 180px;
+    bottom: 0;
 }
 
 .buttonsAtEnd button {
@@ -205,7 +179,7 @@ body {
     border: 1.5px solid var(--version-2-main-color, #2A3647);
     background: #F6F7F8;
     font-family: 'Inter', sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     padding: 13px;
     gap: 4px;
     display: flex;
@@ -219,7 +193,7 @@ body {
     border: 1.3px solid var(--version-2-main-color, #2A3647);
     background: #2A3647;
     font-family: 'Inter', sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     padding: 13px;
     gap: 4px;
     display: flex;
@@ -233,9 +207,10 @@ body {
 
 .showTaskCSS {
     position: fixed;
+    display: flex;
     transform: translateX(250vw);
     transition: all 225ms ease-in-out;
-    background-color: rgb(248, 248, 248);
+    background-color: rgb(255, 255, 255);
     border: 2px solid rgba(0, 0, 0, 0.671);
     border-radius: 20px;
     width: 35vw;
@@ -257,26 +232,51 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     overflow-y: auto;
-    height: 90%;
-    padding: 12px;
-}
-
-#showTaskContent div input {
-    width: 300px;
-}
-
-#showTaskContent input {
-    border: 1px solid black;
+    width: 95%;
+    height: 98%;
+    padding: 10px;
 }
 
 #headContainer2 {
     display: flex;
     justify-content: space-between;
+    width: 100% !important;
 }
 
 #title2 {
-    font-size: 50px;
+    font-size: 35px;
     font-weight: bold;
+}
+
+.date-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 65% !important;
+}
+
+#date2 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.priorityContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between !important;
+    width: 65% !important;
+}
+
+#priority2 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#priority2 img {
+    width: 12px;
+    height: 10px;
+    margin-left: 5px;
 }
 
 #contacts2 {
@@ -284,40 +284,8 @@ body {
     flex-direction: column;
 }
 
-#currentContacts {
-    display: flex;
-    flex-direction: column;
-}
-
-#container3 {
-    display: flex;
-    flex-direction: column;
-}
-
-#container3 div {
-    display: flex;
-    flex-direction: row;
-}
-
-#container3 div div:nth-child(1){
-    display: flex;
-    flex-direction: row;
-}
-
-#hiddenButtons2 string:nth-child(1){
-    margin-right: 15px;
-}
-
-#displaySubtasks2 {
-    display: flex;
-    flex-direction: column !important;
-}
-
-#displaySubtasks2 div {
-    display: flex;
-    justify-content: space-between !important;
-    margin-top: 5px;
-    max-width: 100%;
+.priorityButtons {
+    max-width: fit-content;
 }
 
 /*------------------------------------Edit Task Form------------------------------------*/
@@ -328,10 +296,69 @@ body {
     color: rgb(84, 84, 84);
 }
 
-.space {
+#showTaskContent div {
+    width: 400px;
+}
+
+#showTaskContent input {
+    border: 1px solid black;
+    width: 400px;
+}
+
+#priority2 button {
+    border: unset;
+    background-color: #dedede;
+    border-radius: 12px;
+}
+
+#inputNewSubtask2 {
+    min-width: 400px !important;
+    height: max-content;
+}
+
+#hiddenButtons2 {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+#container3 {
     display: flex;
     flex-direction: column;
 }
+
+#displaySubtasks2 {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+#displaySubtasks2 div {
+    display: flex;
+    white-space: nowrap;
+    height: 18px;
+}
+
+#editDeleteButtons {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#editDeleteButtons div {
+    display: flex;
+    flex-direction: row !important;
+    width: max-content;
+}
+
+.editDiv {
+    display: flex;
+    flex-direction: row !important;
+    width: 100%;
+}
+
 
 /*--------------------------------------Head Bereich--------------------------------------*/
 
@@ -370,14 +397,14 @@ body {
 #search {
     display: flex;
     align-items: center;
-    border: 2px solid black;
+    border: 2px solid rgb(124, 124, 124);
     border-radius: 5px;
 }
 
 #search input {
     border: 0px solid transparent;
     background-color: unset;
-    border-right: 1px solid black;
+    border-right: 1px solid rgb(124, 124, 124);
     margin: 5px;
     width: 200px;
 }
@@ -471,14 +498,14 @@ body {
 }
 
 .noTasks {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    color: #3e3e3e;
-    background-color: #c8c8c8;
-    border: 1px dashed black; 
-    border-radius: 5%;
-    width: 95%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #707070;
+    background-color: #dfdfdf;
+    border: 1px dashed #707070;
+    border-radius: 12px;
+    width: 95%;
     height: 20%;
 }
 
@@ -535,6 +562,7 @@ body {
 .taskNumberOfSubtasks {
     display: flex;
     justify-content: flex-end;
+    text-align: end;
     width: 35%;
 }
 
@@ -550,6 +578,7 @@ body {
 .taskEnd img {
     width: 20px;
     height: 16px;
+    object-fit: contain;
 }
 
 .taskContactIcon {
@@ -558,6 +587,15 @@ body {
     border-radius: 100%;
     max-width: 22px;
     padding: 4px;
+}
+
+/*-------------------------------------Search Result-------------------------------------*/
+
+#searchResults {
+    display: flex;
+    flex-wrap: wrap;
+    width: 96vw;
+    margin-top: 17vh;
 }
 
 /*-----------------------------------------Etc.-----------------------------------------*/
@@ -570,33 +608,17 @@ body {
     display: none;
 }
 
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
 .myDIV:hover+.hide {
     display: block;
     color: red;
-}
-
-
-#container {
-    display: flex;
-    flex-direction: row !important;
-}
-
-#inputNewSubtask {
-    max-width: 70% !important;
-}
-
-#hiddenButtons {
-    display: flex;
-    flex-direction: row !important;
-    color: black;
-    cursor: pointer;
-    max-width: fit-content !important;
-}
-
-#hiddenButtons2 {
-    display: flex;
-    flex-direction: row !important;
-    color: black;
-    cursor: pointer;
-    max-width: 40% !important;
 }

@@ -17,6 +17,7 @@
     #title {
         width: 96vw;
         margin-top: 10px;
+        margin-left: 10px;
     }
 
     #title h1 {
@@ -236,21 +237,28 @@
 
     /*----------------------EDIT TASK BEREICH----------------------*/
 
-    #showTaskContent {
-        padding: 12px;
+    #showTaskContent string, #contacts2{
+        font-size: 12px;
     }
 
-    #showTaskContent div input {
-        width: 250px;
+
+    /*----------------------------ETC.----------------------------*/
+
+    .moveTaskCSS {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    #contacts2 {
-        font-size: 14px;
-    }
-
-    /*--------*/
-    .elementStyling {
-        font-size: 15px;
+    .moveTaskButton {
+        border: unset;
+        background-color: rgb(12, 131, 182);
+        border: 1px dotted black;
+        border-radius: 4px;
+        font-size: 11.5px;
+        color: white;
+        width: max-content;
     }
 }
 
@@ -442,22 +450,6 @@
 
     /*----------------------EDIT TASK BEREICH----------------------*/
 
-    #showTaskContent {
-        padding: 12px;
-    }
-
-    #showTaskContent div input {
-        width: 270px;
-    }
-
-    #contacts2 {
-        font-size: 13px;
-    }
-
-    /*--------*/
-    .elementStyling {
-        font-size: 13px;
-    }
 }
 
 
@@ -487,7 +479,7 @@
 }
 
 @media (max-width: 430px) {
-    
+
     body {
         overflow-y: unset;
     }
@@ -556,6 +548,12 @@
         display: none;
     }
 
+    /*------------------SEARCH RESULT BEREICH------------------*/
+
+    #searchResults {
+        margin-top: 28vh;
+    }
+
     /*----------------------ADD TASK BEREICH----------------------*/
 
     .addTaskCSS {
@@ -605,11 +603,20 @@
 
     /*----------------------EDIT TASK BEREICH----------------------*/
 
-    #showTaskContent {
-        padding: 12px;
+    #showTaskContent div input {
+        width: 230px;
     }
 
-    #showTaskContent div input {
-        width: 200px;
+    #currentContacts div {
+        width: 230px;
+    }
+
+    #inputNewSubtask2 {
+        min-width: 230px !important;
+    }
+
+
+    #displaySubtasks2 div {
+        width: 230px;
     }
 }
