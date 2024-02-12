@@ -5,6 +5,17 @@ body {
     margin: 0;
 }
 
+.onmouse {
+    display: flex;
+    justify-content: space-between;
+    width: 100% !important;
+}
+
+.onmouse:hover div:nth-child(2) {
+    display: unset !important;
+}
+
+
 /*-------------------------------------Add Task Form-------------------------------------*/
 
 .show_form1 {

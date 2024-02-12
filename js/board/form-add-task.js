@@ -73,14 +73,26 @@ function cacheContacts(value) {
 
 function chooseUrgent() {
     priorityStatus = 'Urgent';
+    resetPriorityButtonsCreateTask();
+    document.getElementById('urgent').style = "background-color: orange;";
 }
 
 function chooseMedium() {
     priorityStatus = 'Medium';
+    resetPriorityButtonsCreateTask();
+    document.getElementById('medium').style = "background-color: yellow;";
 }
 
 function chooseLow() {
     priorityStatus = 'Low';
+    resetPriorityButtonsCreateTask();
+    document.getElementById('low').style = "background-color: green;";
+}
+
+function resetPriorityButtonsCreateTask() {
+    document.getElementById('urgent').style = "background-color: #ffffff;";
+    document.getElementById('medium').style = "background-color: #ffffff;";
+    document.getElementById('low').style = "background-color: #ffffff;";
 }
 
 /*-----------------Eingegebenen Task erstellen bzw. submitten-----------------*/
@@ -93,9 +105,8 @@ function createTask() {
     subtasks = [];
     document.getElementById('displaySubtasks').innerHTML = '';
     document.getElementById('displaySelectedContacts').innerHTML = '';
-    resetForms()
+    resetForms();
     setItem();
-
 }
 
 function inputsForPush() {
@@ -106,7 +117,7 @@ function inputsForPush() {
     let addTaskTitle = document.getElementById('enterTitle').value;
     let addTaskDescription = document.getElementById('description').value;
     let addTaskDate = document.getElementById('date').value;
-    if (priorityStatus == null) { priorityStatus = 'Low' };
+    if (priorityStatus == null) { priorityStatus = 'Medium' };
     pushInputsToCreateTask(addTaskProgress, addTaskCategory, addTaskTitle, addTaskDescription, addTaskDate, priorityStatus);
 }
 
@@ -132,6 +143,7 @@ function resetForms() {
         window.location.href = 'board.html';
     }
     if (window.location.pathname.endsWith('board.html')) {
+        resetPriorityButtonsCreateTask();
         document.getElementById('createTaskForm').reset();
         cleanBoard();
         loadBoard();
@@ -158,6 +170,7 @@ function closeTaskForm() {
     document.getElementById('addTaskBackground').style = "display: none;";
     document.getElementById('addTask').style = "display: none;";
     document.getElementById('hiddenButtons').style = "display: none;"
+    resetPriorityButtonsCreateTask();
     priorityStatus = '';
     selectedContacts = [];
     subtasks = [];
@@ -303,7 +316,7 @@ function editDeleteButtonsOptions(container, indexOfSubtask, x, subtasksDeposit)
             <div id="editDeleteButtons" onmouseleave="displaySubtasks(${x})" >
                 <div><string>${subtasksDeposit[indexOfSubtask]}</string></div>
                 <div>
-                    <string onclick="editSubtask(${x}, ${indexOfSubtask})" class="cursor"> &#9998 </string> 
+                    <string onclick="editSubtask(${x}, ${indexOfSubtask})" class="cursor" style="margin-right: 15px;"> &#9998 </string> 
                     <string onclick="deleteSubtask(${x}, ${indexOfSubtask})" class="cursor"> &#x1F5D1 <string>
                 </div>
             </div>`;

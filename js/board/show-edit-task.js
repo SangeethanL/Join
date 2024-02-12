@@ -89,7 +89,7 @@ function editTask() {
     <input id="descriptionEdited" value="${tasks[currentDisplayedTask]['description']}"></div>`;
     document.getElementById('date-container').classList.remove('date-container');
     document.getElementById('date-container').classList.add('column');
-    document.getElementById('date2').style="display: flex; justify-content: flex-start;";
+    document.getElementById('date2').style = "display: flex; justify-content: flex-start;";
     document.getElementById('date2').innerHTML = `<input id="dateEdited" type="date" value="${tasks[currentDisplayedTask]['date']}">`;
     loadPriorityButtons();
     editContacts();
@@ -109,25 +109,25 @@ function loadPriorityButtons() {
     </div>`;
 }
 
-function resetPriorityButtons() {
-    document.getElementById('edit-urgent').style = "background-color: #dedede;"
-    document.getElementById('edit-medium').style = "background-color: #dedede;"
-    document.getElementById('edit-low').style = "background-color: #dedede;"
+function resetPriorityButtonsEditTask() {
+        document.getElementById('edit-urgent').style = "background-color: #dedede;";
+        document.getElementById('edit-medium').style = "background-color: #dedede;";
+        document.getElementById('edit-low').style = "background-color: #dedede;";
 }
 
 function changeBgColorUrgent() {
-    resetPriorityButtons();
-    document.getElementById('edit-urgent').style = "background-color: orange;"
+    resetPriorityButtonsEditTask();
+    document.getElementById('edit-urgent').style = "background-color: orange;";
 }
 
 function changeBgColorMedium() {
-    resetPriorityButtons();
-    document.getElementById('edit-medium').style = "background-color: yellow;"
+    resetPriorityButtonsEditTask();
+    document.getElementById('edit-medium').style = "background-color: yellow;";
 }
 
 function changeBgColorLow() {
-    resetPriorityButtons();
-    document.getElementById('edit-low').style = "background-color: green;"
+    resetPriorityButtonsEditTask();
+    document.getElementById('edit-low').style = "background-color: green;";
 }
 
 function editSubtasks002() {
@@ -136,7 +136,7 @@ function editSubtasks002() {
     <div class="flex flex-row w-100">
     <input id="inputNewSubtask2" oninput="enableInputButtons('2')">
     <div id="hiddenButtons2" style="display:none;">
-        <string onclick="submitSubtask('2')">&#10003</string>
+        <string onclick="submitSubtask('2')" style="margin-right: 15px;">&#10003</string>
         <string onclick="cleanInputField('2')">&#x1F5D1</string>
     </div>
     </div>
@@ -212,7 +212,8 @@ function saveTask() {
     tasks[currentDisplayedTask]['description'] = editedDescription;
     tasks[currentDisplayedTask]['date'] = editedDate;
     tasks[currentDisplayedTask]['priority'] = priorityStatus || tasks[currentDisplayedTask]['priority'];
-    document.getElementById('date2').style="";
+    displayPriorityWithSymbols();
+    document.getElementById('date2').style = "";
     document.getElementById('date-container').classList.remove('column');
     document.getElementById('date-container').classList.add('date-container');
     openTaskInWindow(currentDisplayedTask);
@@ -224,7 +225,7 @@ function saveTask() {
 }
 
 function closeShowTask() {
-    document.getElementById('date2').style="";
+    document.getElementById('date2').style = "";
     document.getElementById('date-container').classList.remove('column');
     document.getElementById('date-container').classList.add('date-container');
     document.getElementById('contacts2').innerHTML = '';
@@ -303,16 +304,16 @@ function resetMoveTaskButtons() {
 }
 
 function moveTask(buttonNr) {
-    if(buttonNr == '1'){
+    if (buttonNr == '1') {
         changedProgress = 'TODO';
     }
-    if(buttonNr == '2'){
+    if (buttonNr == '2') {
         changedProgress = 'INPROGRESS';
     }
-    if(buttonNr == '3'){
+    if (buttonNr == '3') {
         changedProgress = 'AWAITFEEDBACK';
     }
-    if(buttonNr == '4'){
+    if (buttonNr == '4') {
         changedProgress = 'DONE';
     }
     resetMoveTaskButtons();
