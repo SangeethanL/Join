@@ -204,7 +204,7 @@ function enableInputButtons(x) {
 }
 
 function enableOptions(inputfield, buttons, subtasksDeposit) {
-    if (subtasksDeposit.length >= 4) {
+    if (subtasksDeposit.length >= 15) {
         buttons.style = "display:none;";
     }
     else {
@@ -239,15 +239,15 @@ function submitSubtask(x) {
         subtasksDeposit = tasks[currentDisplayedTask]['subtasks'];
     }
 
-    submitOptions(subtasksDeposit, inputfield);
+    submitOptions(inputfield, subtasksDeposit);
 
     displaySubtasks(x);
     enableInputButtons(x);
     checkIfInputOpen = '';
 }
 
-function submitOptions(subtasksDeposit, inputfield) {
-    if (subtasksDeposit.length >= 4) {
+function submitOptions(inputfield, subtasksDeposit) {
+    if (subtasksDeposit.length >= 15) {
     } else {
         subtasksDeposit.push(inputfield.value);
         inputfield.value = '';
@@ -259,34 +259,28 @@ function submitOptions(subtasksDeposit, inputfield) {
 function displaySubtasks(x) {
     let displaySubtasks = '';
     let subtasksDeposit = '';
-    let container = '';
-    let textContainer = '';
     if (x == '1') {
         displaySubtasks = 'displaySubtasks';
         subtasksDeposit = subtasks;
-        container = `containerX1`;
-        textContainer = `textOfElement`;
     } else {
         displaySubtasks = 'displaySubtasks2';
         subtasksDeposit = tasks[currentDisplayedTask]['subtasks'];
-        container = `containerX2`;
-        textContainer = `textOfElement2`;
     }
 
-    displaySubtasksOptions(displaySubtasks, subtasksDeposit, container, textContainer, x)
+    displaySubtasksOptions(x, displaySubtasks, subtasksDeposit);
 }
 
-function displaySubtasksOptions(displaySubtasks, subtasksDeposit, container, textContainer, x) {
+function displaySubtasksOptions(x, displaySubtasks, subtasksDeposit) {
     document.getElementById(`${displaySubtasks}`).innerHTML = '';
     for (let a = 0; a < subtasksDeposit.length; a++) {
         document.getElementById(`${displaySubtasks}`).innerHTML += `
-            <div id="${container[a]}">
-                <div id="onmouse${a}" onmouseover="displayEditDeleteButtons(${x}, ${a})" onclick="displayEditDeleteButtons(${x}, ${a})">
-                    <string id="${textContainer[a]}">
-                    ${subtasksDeposit[a]}
-                    </string>
-                </div>
-            </div>`;
+                <div id="sub${a}">
+                    <div onmouseover="displayEditDeleteButtons(${x}, ${a})" onclick="displayEditDeleteButtons(${x}, ${a})">
+                        <string>
+                        ${subtasksDeposit[a]}
+                        </string>
+                    </div>
+                </div>`;
     }
 }
 
@@ -294,30 +288,27 @@ function displaySubtasksOptions(displaySubtasks, subtasksDeposit, container, tex
 
 
 function displayEditDeleteButtons(x, indexOfSubtask) {
-    let container = '';
     let subtasksDeposit = '';
     if (x == '1') {
-        container = `container`;
         subtasksDeposit = subtasks;
     }
     else {
-        container = `container2`;
         subtasksDeposit = tasks[currentDisplayedTask]['subtasks'];
     }
 
-    editDeleteButtonsOptions(container, indexOfSubtask, x, subtasksDeposit);
+    editDeleteButtonsOptions(x, indexOfSubtask, subtasksDeposit)
 }
 
-function editDeleteButtonsOptions(container, indexOfSubtask, x, subtasksDeposit) {
+function editDeleteButtonsOptions(x, indexOfSubtask, subtasksDeposit) {
     if (checkIfInputOpen == 'yes') {
-        document.getElementById(`onmouse${indexOfSubtask}`).addEventListener('mouseover', function (e) { e.stopPropagation() }, true);
+        document.getElementById(`sub${indexOfSubtask}`).addEventListener('mouseover', function (e) { e.stopPropagation() }, true);
     } else {
-        document.getElementById(`${container[indexOfSubtask]}`).innerHTML = `
-            <div id="editDeleteButtons" onmouseleave="displaySubtasks(${x})" >
-                <div><string>${subtasksDeposit[indexOfSubtask]}</string></div>
+        document.getElementById(`sub${[indexOfSubtask]}`).innerHTML = `
+            <div id="editDeleteButtons" onmouseleave="displaySubtasks(${x})" class="cursor">
+                <string>${subtasksDeposit[indexOfSubtask]}</string>
                 <div>
                     <string onclick="editSubtask(${x}, ${indexOfSubtask})" class="cursor" style="margin-right: 15px;"> &#9998 </string> 
-                    <string onclick="deleteSubtask(${x}, ${indexOfSubtask})" class="cursor"> &#x1F5D1 <string>
+                    <string onclick="deleteSubtask(${x}, ${indexOfSubtask})" class="cursor"> &#x1F5D1 </string>
                 </div>
             </div>`;
     }
@@ -325,29 +316,23 @@ function editDeleteButtonsOptions(container, indexOfSubtask, x, subtasksDeposit)
 
 function editSubtask(x, indexOfSubtask) {
     checkIfInputOpen = 'yes';
-    let container = '';
-    let editContainer = '';
     let unchangedContent = '';
     let subtasksDeposit = '';
 
     if (x == '1') {
-        container = `container`;
-        editContainer = `editContainer`;
         unchangedContent = `currentContent`;
         subtasksDeposit = subtasks;
     } else {
-        container = `container2`;
-        editContainer = `editContainer2`;
         unchangedContent = `currentContent2`;
         subtasksDeposit = tasks[currentDisplayedTask]['subtasks'];
     }
 
-    editSubtaskOptions(container, indexOfSubtask, editContainer, unchangedContent, subtasksDeposit, x);
+    editSubtaskOptions(x, indexOfSubtask, unchangedContent, subtasksDeposit);
 }
 
-function editSubtaskOptions(container, indexOfSubtask, editContainer, unchangedContent, subtasksDeposit, x) {
-    document.getElementById(`${container[indexOfSubtask]}`).innerHTML = `
-        <div id="${editContainer[indexOfSubtask]}" class="editDiv">
+function editSubtaskOptions(x, indexOfSubtask, unchangedContent, subtasksDeposit) {
+    document.getElementById(`sub${indexOfSubtask}`).innerHTML = `
+        <div class="editDiv">
             <input id="${unchangedContent}${[indexOfSubtask]}" value="${subtasksDeposit[indexOfSubtask]}">
             <string onclick="saveChangedSubtask(${x}, ${indexOfSubtask})" class="cursor">&#10003</string>
         </div>`;

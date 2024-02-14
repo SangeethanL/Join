@@ -5,16 +5,6 @@ body {
     margin: 0;
 }
 
-.onmouse {
-    display: flex;
-    justify-content: space-between;
-    width: 100% !important;
-}
-
-.onmouse:hover div:nth-child(2) {
-    display: unset !important;
-}
-
 
 /*-------------------------------------Add Task Form-------------------------------------*/
 
@@ -242,6 +232,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    overflow-x: hidden;
     overflow-y: auto;
     width: 95%;
     height: 98%;
