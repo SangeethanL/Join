@@ -8,7 +8,7 @@ let tasks = [{
     'date': '2023-05-10',
     'priority': 'Medium',
     'contacts': [],
-    'subtasks': ['Implement Recipe Recommendation', 'Start Page Layout','Define Functions','Test the finished work','TEST','2','3','4','5','6','7','8','9','10','11'],
+    'subtasks': ['Implement Recipe Recommendation', 'Start Page Layout','Define Functions','Test the finished work'],
     'subtasks-checkbox': [true, false],
     'subtasks-true': []
 },

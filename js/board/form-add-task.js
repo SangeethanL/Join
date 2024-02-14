@@ -204,7 +204,7 @@ function enableInputButtons(x) {
 }
 
 function enableOptions(inputfield, buttons, subtasksDeposit) {
-    if (subtasksDeposit.length >= 15) {
+    if (subtasksDeposit.length >= 6) {
         buttons.style = "display:none;";
     }
     else {
