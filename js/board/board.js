@@ -239,13 +239,16 @@ function displayContactIcons(eachTask) {
 
         contactIconsField.style = "display: flex; flex-direction: row;";
         contactIconsField.innerHTML += `
-            <div class="taskContactIcon" style="background-color: ${contactsBgColor};">
-            ${firstName}${lastName}</div>`;
+        <div>
+            <div class="taskContactIcon" style="background-color: ${contactsBgColor};" id="icon${y}">
+            ${firstName}${lastName}</div>
+        </div>`;
 
         contactIconsFieldResponsive.style = "display: flex; flex-direction: row;";
         contactIconsFieldResponsive.innerHTML += `
             <div class="taskContactIcon" style="background-color: ${contactsBgColor};">
             ${firstName}${lastName}</div>`;
+
     }
 }
 

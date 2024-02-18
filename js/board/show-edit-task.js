@@ -5,18 +5,28 @@ let changedProgress;
 function openTaskInWindow(task) {
     currentDisplayedTask = task;
     document.getElementById('showTaskBackground').style = "";
-    document.getElementById('delete').classList.add('display-none');
+    document.getElementById('Save').classList.add('display-none');
     document.getElementById('openedTask').classList.add('show_form2');
-    document.getElementById('category2').innerHTML = `${tasks[currentDisplayedTask]['category']}`;
+    loadCategory();
     document.getElementById('title2').innerHTML = `${tasks[currentDisplayedTask]['title']}`;
     document.getElementById('description2').innerHTML = `${tasks[currentDisplayedTask]['description']}`;
     document.getElementById('date2').innerHTML = `${tasks[currentDisplayedTask]['date']}`;
     displayPriorityWithSymbols();
     displayContacts();
     displaySubtasksWithCheckbox(tasks[currentDisplayedTask]['subtasks']);
-    document.getElementById('Edit-Save').innerHTML = `<string onclick="editTask()">Edit</string>`;
+    document.getElementById('Edit-Delete').classList.remove('d-none');
 }
 
+function loadCategory() {
+    if(tasks[currentDisplayedTask]['category'].charAt(0) == 'T'){
+        document.getElementById('category2').innerHTML = `
+        <div style="background-color: #1FD7C1;">${tasks[currentDisplayedTask]['category']}</div>`;
+    }
+    if(tasks[currentDisplayedTask]['category'].charAt(0) == 'U'){
+        document.getElementById('category2').innerHTML = `
+        <div style="background-color: #0038FF;">${tasks[currentDisplayedTask]['category']}</div>`;
+    }
+}
 function displayPriorityWithSymbols() {
     if (tasks[currentDisplayedTask]['priority'] == 'Low') {
         document.getElementById('priority2').innerHTML = `
@@ -40,9 +50,9 @@ function displayContacts() {
         for (c = 0; c < tasks[currentDisplayedTask]['contacts'].length; c++) {
             let assignedContact = tasks[currentDisplayedTask]['contacts'][c];
             document.getElementById('contacts2').innerHTML += `
-            <div class="flex row">
-                <string style="background-color:${assignedContact['color']}; width: 25px; height: 25px; font-size: 12px;" 
-                class="flex x-center y-center border-round-100">
+            <div class="flex row y-center">
+                <string style="background-color:${assignedContact['color']}; width: 20px; height: 20px; font-size: 11px;" 
+                class="flex x-center y-center border-round-100 ml-12px mr-32px">
                 ${assignedContact['first-name'].charAt(0)}${assignedContact['last-name'].charAt(0)}
                 </string>
                 <div>${assignedContact['first-name']} ${assignedContact['last-name']}
@@ -57,7 +67,7 @@ function displaySubtasksWithCheckbox(subtasksArray) {
     for (p = 0; p < subtasksArray.length; p++) {
         document.getElementById('container3').innerHTML += `
         <div>
-            <input type="checkbox" id="check${p}" onclick="checkbox(${p})" style="width: 13px;"> <string>${tasks[currentDisplayedTask]['subtasks'][p]}</string>
+            <input type="checkbox" id="check${p}" onclick="checkbox(${p})" style="width: 13px;"> <label>${tasks[currentDisplayedTask]['subtasks'][p]}</label>
         </div>`;
     }
     for (q = 0; q < tasks[currentDisplayedTask]['subtasks-checkbox'].length; q++) {
@@ -80,7 +90,7 @@ function checkbox(indexOfCheckbox) {
 
 function editTask() {
     moveTaskInResponsive();
-    document.getElementById('delete').classList.remove('display-none');
+    document.getElementById('Save').classList.remove('display-none');
     document.getElementById('title2').innerHTML = `<div class="column">
     <string class="elementStyling">Title</string>
     <input id="titleEdited" value="${tasks[currentDisplayedTask]['title']}"></div>`;
@@ -95,7 +105,7 @@ function editTask() {
     editContacts();
     editSubtasks002();
     displaySubtasks('2');
-    document.getElementById('Edit-Save').innerHTML = `<string onclick="saveTask()">Save</string>`;
+    document.getElementById('Edit-Delete').classList.add('d-none');
 }
 
 
@@ -110,24 +120,24 @@ function loadPriorityButtons() {
 }
 
 function resetPriorityButtonsEditTask() {
-        document.getElementById('edit-urgent').style = "background-color: #dedede;";
-        document.getElementById('edit-medium').style = "background-color: #dedede;";
-        document.getElementById('edit-low').style = "background-color: #dedede;";
+        document.getElementById('edit-urgent').style = "background-color: #d8f0ff;";
+        document.getElementById('edit-medium').style = "background-color: #d8f0ff;";
+        document.getElementById('edit-low').style = "background-color: #d8f0ff;";
 }
 
 function changeBgColorUrgent() {
     resetPriorityButtonsEditTask();
-    document.getElementById('edit-urgent').style = "background-color: orange;";
+    document.getElementById('edit-urgent').style = "background-color: #ffb700;";
 }
 
 function changeBgColorMedium() {
     resetPriorityButtonsEditTask();
-    document.getElementById('edit-medium').style = "background-color: yellow;";
+    document.getElementById('edit-medium').style = "background-color: #fbff00;";
 }
 
 function changeBgColorLow() {
     resetPriorityButtonsEditTask();
-    document.getElementById('edit-low').style = "background-color: green;";
+    document.getElementById('edit-low').style = "background-color: #64975f;";
 }
 
 function editSubtasks002() {
@@ -136,7 +146,7 @@ function editSubtasks002() {
     <div class="flex flex-row w-100">
     <input id="inputNewSubtask2" oninput="enableInputButtons('2')">
     <div id="hiddenButtons2" style="display:none;">
-        <string onclick="submitSubtask('2')" style="margin-right: 15px;">&#10003</string>
+        <string onclick="submitSubtask('2')" style="margin-right: 5px;">&#10003</string>
         <string onclick="cleanInputField('2')">&#x1F5D1</string>
     </div>
     </div>
@@ -162,7 +172,7 @@ function displayContactsinSHOWTASK() {
     for (e = 0; e < tasks[currentDisplayedTask]['contacts'].length; e++) {
         let currentContact = tasks[currentDisplayedTask]['contacts'][e];
         document.getElementById('currentContacts').innerHTML += `
-        <div class="flex x-space-betw">${currentContact['first-name']} ${currentContact['last-name']}
+        <div class="flex x-space-betw mb-2px w-70">${currentContact['first-name']} ${currentContact['last-name']}
         <button onclick="deleteSelectedContact(${[e]})">Entfernen</button></div>`;
     }
 }
@@ -217,7 +227,7 @@ function saveTask() {
     document.getElementById('date-container').classList.remove('column');
     document.getElementById('date-container').classList.add('date-container');
     openTaskInWindow(currentDisplayedTask);
-    document.getElementById('delete').classList.add('display-none');
+    document.getElementById('Save').classList.add('display-none');
     changedProgress = null;
     cleanBoard();
     loadBoard();

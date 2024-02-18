@@ -34,8 +34,8 @@
         margin-right: 10px;
     }
 
-    .addTaskButton {
-        width: 100px;
+    #title button img{
+        width: 100px !important;
         height: 30px;
     }
 
@@ -612,7 +612,7 @@
     }
 
     #inputNewSubtask2 {
-        min-width: 230px !important;
+        max-width: 50% !important;
     }
 
 

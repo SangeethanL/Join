@@ -72,6 +72,10 @@ a {
     flex-direction: row;
 }
 
+.mb-2px {
+    margin-bottom: 2px;
+}
+
 .mb-5px {
     margin-bottom: 5px;
 }
@@ -126,6 +130,10 @@ a {
 
 .mr-16px {
     margin-right: 16px;
+}
+
+.mt-6px {
+    margin-top: 6px;
 }
 
 .mt-24px {
@@ -269,7 +277,7 @@ a {
 }
 
 .w-70 {
-    width: 70%;
+    width: 70% !important;
 }
 
 .w-100 {

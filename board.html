@@ -8,7 +8,7 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon-32x32.png">
-    
+
     <link rel="stylesheet" href="CSS/board.css">
     <link rel="stylesheet" href="CSS/board_smaller-width.css">
     <link rel="stylesheet" href="CSS/board_responsive.css">
@@ -36,28 +36,34 @@
                 <tr>
                     <th id="aTContentTitle">Add Task</th>
                     <th>
-                        <string onclick="closeTaskForm()" style="cursor: pointer;">X</string>
+                        <string onclick="closeTaskForm()"><img src="assets/img/close.png" class="closeButton"></string>
                     </th>
                 </tr>
 
                 <tr>
-                    <td>
-                        <div>
-                            <div><span>Title<span class="red">*</span></span><input id="enterTitle"
-                                    placeholder="Enter a title" required></div>
+                    <td style="display: flex; flex-direction: row;">
+                        <div id="inputSection">
                             <div>
-                                <span>Description</span>
-                                <textarea id="description" placeholder="Enter a Description"></textarea>
+                                <div><span>Title<span class="red">*</span></span><input id="enterTitle"
+                                        placeholder="Enter a title" required></div>
+                                <div>
+                                    <span>Description</span>
+                                    <textarea id="description" placeholder="Enter a Description"></textarea>
+                                </div>
+                                <div>
+                                    <span>Assigned to</span>
+                                    <select id="contacts" onchange="saveContact(this.value)">
+                                        <option value="">Select Contact</option>
+                                    </select>
+                                    <div id="displaySelectedContacts"></div>
+                                </div>
                             </div>
-                            <div>
-                                <span>Assigned to</span>
-                                <select id="contacts" onchange="saveContact(this.value)">
-                                    <option value="">Select Contact</option>
-                                </select>
-                                <div id="displaySelectedContacts"></div>
+                            <div class="requiredField"><span class="red">*</span><span>This field is required</span>
                             </div>
                         </div>
-                        <div class="requiredField"><span class="red">*</span><span>This field is required</span></div>
+                        <div id="middleLine">
+                            <div></div>
+                        </div>
                     </td>
 
                     <td>
@@ -118,16 +124,20 @@
         <div id="showTaskContent">
             <div id="headContainer2">
                 <string id="category2"></string>
-                <string onclick="closeShowTask()" style="cursor:pointer;">X</string>
+                <string onclick="closeShowTask()"><img src="assets/img/close.png" class="closeButton"></string>
             </div>
             <div id="title2"></div>
             <string id="description2"></string>
             <div id="date-container" class="date-container">
-                <div class="elementStyling"><string>Due Date:</string></div>
+                <div class="elementStyling">
+                    <string>Due Date:</string>
+                </div>
                 <div id="date2"></div>
             </div>
             <div id="priorityContainer" class="priorityContainer">
-                <div class="elementStyling"><string>Priority:</string></div>
+                <div class="elementStyling">
+                    <string>Priority:</string>
+                </div>
                 <div id="priority2"></div>
             </div>
             <div>
@@ -138,12 +148,14 @@
                 <string class="elementStyling">Subtasks</string>
                 <div id="container3"></div>
             </div>
-            <div><button id="Edit-Save">
-                    <string onclick="editTask()">Edit</string>
-                </button>
-                <button id="delete" class="display-none">
-                    <string onclick="deleteTask()">Delete</string>
-                </button>
+            <div id="buttonsOnBottom">
+                <div id="Edit-Delete">
+                    <img src="assets/img/edit contacts.png" onclick="editTask()">
+                    <img src="assets/img/Delete contact.png" onclick="deleteTask()">
+                </div>
+                <div id="Save">
+                    <string onclick="saveTask()" cursor="pointer">Save</string>
+                </div>
             </div>
         </div>
     </div>
@@ -158,8 +170,7 @@
                 <img src="assets/img/Refresh_icon.png" id="resetPicture" class="display-none"
                     onclick="resetSearchedTask()">
             </div>
-            <button onclick="addTaskForm('TODO')"><img src="assets/img/Secondary-plus.png"
-                    class="addTaskButton"></button>
+            <button onclick="addTaskForm('TODO')"><img src="assets/img/Secondary-plus.png"></button>
         </div>
 
         <!-- ----------------------------------------------------Board---------------------------------------------------- -->

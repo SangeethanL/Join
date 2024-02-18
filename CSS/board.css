@@ -28,8 +28,8 @@ body {
     position: fixed;
     transition: all 225ms ease-in-out;
     background-color: rgb(255, 255, 255);
-    border: 3px solid black;
-    border-radius: 20px;
+    border: 1px solid rgb(136, 136, 136);
+    border-radius: 30px;
     width: 70vw;
     height: 85vh;
     top: 0;
@@ -43,7 +43,7 @@ body {
 #aTContent {
     table-layout: fixed;
     width: 100%;
-    padding: 50px;
+    padding: 30px;
 }
 
 #aTContent tr {
@@ -71,28 +71,91 @@ body {
 #aTContent td div {
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
+    margin-bottom: 13px;
+}
+
+#aTContent td div span {
+    color: #2A3647;
+    margin-bottom: 5px;
 }
 
 #aTContentTitle {
     display: flex;
     justify-content: flex-start;
-    font-size: 40px;
+    font-size: 51px;
     margin-bottom: 14px;
 }
 
-#aTContent input {
-    border: 1px solid rgb(108, 108, 108);
+.closeButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    color: #64975f;
+}
+
+.closeButton:hover {
+    transition: 225ms ease-out;
+    border-radius: 100%;
+    background-color: #cde2fb;
+}
+
+#inputSection {
+    width: 80%;
+}
+
+#inputSection input {
+    border-radius: 10px;
+    width: 100% !important;
+}
+
+#inputSection textarea {
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-size: 14px;
+    color: #000000;
+}
+
+#description {
+    resize: none;
+    width: 100%;
     border-radius: 5px;
+}
+
+#inputSection select {
+    border-radius: 10px;
+    width: 100% !important;
+}
+
+#middleLine {
+    width: 20%;
+}
+
+#middleLine div {
+    border-right: 1px solid lightgray;
+    height: 350px;
+    margin-right: 45%;
+}
+
+#aTContent input {
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    color: #000000;
+    font-family: 'Inter';
+    font-size: 14px;
     width: 80%;
     height: 30px;
 }
 
-#aTContent textarea {
-    font-family: 'Inter';
-}
-
 #aTContent select {
+    border-radius: 10px;
+    background-color: transparent;
+    font-family: 'Inter';
+    font-size: 14px;
+    padding: 12px, 16px, 12px, 16px;
     width: 80%;
     height: 30px;
 }
@@ -105,13 +168,7 @@ body {
 }
 
 .red {
-    color: red;
-}
-
-#description {
-    resize: none;
-    width: 80%;
-    border-radius: 5px;
+    color: red !important;
 }
 
 .priority {
@@ -152,9 +209,25 @@ body {
     max-width: fit-content !important;
 }
 
+#hiddenButtons string {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2A3647;
+    width: 20px;
+}
+
+#hiddenButtons string:hover {
+    transition: 225ms ease-out;
+    border-radius: 100%;
+    background-color: #cde2fb;
+}
+
 #displaySubtasks {
     margin-bottom: 20px;
-    max-width: 60%;
+    max-width: 80%;
+    max-height: 60px;
+    overflow-y: auto;
 }
 
 #displaySubtasks div {
@@ -178,7 +251,6 @@ body {
 .button-clear {
     border-radius: 10px;
     border: 1.5px solid var(--version-2-main-color, #2A3647);
-    background: #F6F7F8;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     padding: 13px;
@@ -212,9 +284,9 @@ body {
     transform: translateX(250vw);
     transition: all 225ms ease-in-out;
     background-color: rgb(255, 255, 255);
-    border: 2px solid rgba(0, 0, 0, 0.671);
-    border-radius: 20px;
-    width: 35vw;
+    border: 1px solid rgb(136, 136, 136);
+    border-radius: 30px;
+    width: 25vw;
     height: 90vh;
     top: 0;
     left: 0;
@@ -232,11 +304,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    background-color: white;
+    border-radius: 30px;
+    font-size: 14px;
     overflow-x: hidden;
     overflow-y: auto;
     width: 95%;
     height: 98%;
-    padding: 10px;
+    padding: 7px;
 }
 
 #headContainer2 {
@@ -245,9 +320,17 @@ body {
     width: 100% !important;
 }
 
+#category2 div {
+    color: white;
+    border-radius: 10px;
+    width: max-content !important;
+    padding: 5px;
+}
+
 #title2 {
-    font-size: 35px;
+    font-size: 38px;
     font-weight: bold;
+    max-width: 95%;
 }
 
 .date-container {
@@ -281,13 +364,58 @@ body {
     margin-left: 5px;
 }
 
-#contacts2 {
-    display: flex;
-    flex-direction: column;
-}
-
 .priorityButtons {
     max-width: fit-content;
+}
+
+#buttonsOnBottom {
+    display: flex;
+    justify-content: flex-end;
+    width: 90% !important;
+}
+
+#Edit-Delete img:nth-child(1) {
+    width: 50px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+#Edit-Delete img:nth-child(2) {
+    border-left: 1px solid #D1D1D1;
+    width: 65px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+#Edit-Delete img:hover {
+    background-color: #cde2fb;
+    border-radius: 10px;
+    transition: 225ms ease-in-out;
+    width: 50px;
+    padding: 2px;
+}
+
+#Edit-Delete img:hover:nth-child(2) {
+    background-color: #cde2fb;
+    border-radius: 10px;
+    transition: 225ms ease-in-out;
+    width: 65px;
+    padding: 2px;
+}
+
+#Save string {
+    font-size: 13px;
+    color: #42526E;
+    padding: 2px;
+    cursor: pointer;
+}
+
+#Save string:hover {
+    background-color: #cde2fb;
+    border-radius: 10px;
+    transition: 225ms ease-in-out;
+    width: 50px;
+    padding: 2px;
 }
 
 /*------------------------------------Edit Task Form------------------------------------*/
@@ -295,7 +423,7 @@ body {
 .elementStyling {
     font-size: 15px;
     font-weight: normal;
-    color: rgb(84, 84, 84);
+    color: #42526E;
 }
 
 #showTaskContent div {
@@ -303,25 +431,50 @@ body {
 }
 
 #showTaskContent input {
-    border: 1px solid black;
-    width: 400px;
+    border: 1px solid rgb(136, 136, 136);
+    border-radius: 7px;
+    width: 80%;
 }
 
 #priority2 button {
     border: unset;
-    background-color: #dedede;
+    background-color: #d8f0ff;
     border-radius: 12px;
 }
 
+#currentContacts button {
+    border: unset;
+    background-color: rgba(255, 0, 0, 0.656);
+    border-radius: 7px;
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+}
+
 #inputNewSubtask2 {
-    min-width: 400px !important;
+    max-width: 75% !important;
     height: max-content;
 }
 
 #hiddenButtons2 {
     display: flex;
-    flex-direction: row;
+    flex-direction: row !important;
+    color: black;
     cursor: pointer;
+    max-width: fit-content !important;
+}
+
+#hiddenButtons2 string {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2A3647;
+    width: 20px;
+}
+
+#hiddenButtons2 string:hover {
+    transition: 225ms ease-out;
+    border-radius: 100%;
+    background-color: #cde2fb;
 }
 
 #container3 {
@@ -346,7 +499,7 @@ body {
     display: flex;
     flex-direction: row !important;
     justify-content: space-between;
-    width: 100%;
+    width: 90% !important;
 }
 
 #editDeleteButtons div {
@@ -355,10 +508,46 @@ body {
     width: max-content;
 }
 
+#editDeleteButtons div string {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2A3647;
+    width: 20px;
+}
+
+#editDeleteButtons div string:hover {
+    transition: 225ms ease-out;
+    border-radius: 100%;
+    background-color: #cde2fb;
+}
+
 .editDiv {
     display: flex;
     flex-direction: row !important;
     width: 100%;
+    max-height: max-content !important;
+}
+
+.editDiv input {
+    border: 1px solid rgb(205, 205, 205) !important;
+    width: 100%;
+}
+
+.editDiv string {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2A3647;
+    width: 20px;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.editDiv string:hover {
+    transition: 225ms ease-out;
+    border-radius: 100%;
+    background-color: #cde2fb;
 }
 
 
@@ -399,14 +588,14 @@ body {
 #search {
     display: flex;
     align-items: center;
-    border: 2px solid rgb(124, 124, 124);
-    border-radius: 5px;
+    border: 2px solid #A8A8A8;
+    border-radius: 10px;
 }
 
 #search input {
     border: 0px solid transparent;
     background-color: unset;
-    border-right: 1px solid rgb(124, 124, 124);
+    border-right: 1px solid #A8A8A8;
     margin: 5px;
     width: 200px;
 }
@@ -503,10 +692,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #707070;
-    background-color: #dfdfdf;
+    color: #A8A8A8;
+    background-color: #E7E7E7;
     border: 1px dashed #707070;
-    border-radius: 12px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 24px;
     width: 95%;
     height: 20%;
 }
@@ -519,7 +709,8 @@ body {
     display: flex;
     flex-direction: column;
     border: 1px solid black;
-    border-radius: 12px;
+    box-shadow: 0px 0px 7px 3px rgba(0, 0, 0, 0.12);
+    border-radius: 24px;
     width: 250px;
     padding: 10px;
     margin-bottom: 5px;
@@ -586,6 +777,7 @@ body {
 .taskContactIcon {
     display: flex;
     justify-content: center;
+    color: #212121;
     border-radius: 100%;
     max-width: 22px;
     padding: 4px;

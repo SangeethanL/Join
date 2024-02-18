@@ -74,19 +74,19 @@ function cacheContacts(value) {
 function chooseUrgent() {
     priorityStatus = 'Urgent';
     resetPriorityButtonsCreateTask();
-    document.getElementById('urgent').style = "background-color: orange;";
+    document.getElementById('urgent').style = "background-color: #ffb700;";
 }
 
 function chooseMedium() {
     priorityStatus = 'Medium';
     resetPriorityButtonsCreateTask();
-    document.getElementById('medium').style = "background-color: yellow;";
+    document.getElementById('medium').style = "background-color: #fbff00";
 }
 
 function chooseLow() {
     priorityStatus = 'Low';
     resetPriorityButtonsCreateTask();
-    document.getElementById('low').style = "background-color: green;";
+    document.getElementById('low').style = "background-color: #64975f;";
 }
 
 function resetPriorityButtonsCreateTask() {
@@ -204,7 +204,7 @@ function enableInputButtons(x) {
 }
 
 function enableOptions(inputfield, buttons, subtasksDeposit) {
-    if (subtasksDeposit.length >= 6) {
+    if (subtasksDeposit.length >= 15) {
         buttons.style = "display:none;";
     }
     else {

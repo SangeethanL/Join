@@ -93,7 +93,7 @@
     }
 
     #inputNewSubtask2 {
-        min-width: 300px !important;
+        max-width: 65% !important;
     }
 
 
@@ -288,7 +288,7 @@
     }
 
     #inputNewSubtask2 {
-        min-width: 270px !important;
+        max-width: 55% !important;
     }
 
 
