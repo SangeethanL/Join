@@ -7,9 +7,16 @@ They are able to add tasks with a title, a description, a priority (Urgent, Medi
 set a date for the task to be finished, add contacts to them and also create subtasks. <br>
 <br>
 Those tasks can be editted and moved on the BOARD of the task manager. <br>
+![join_board](https://github.com/user-attachments/assets/1fef77e0-b0d3-4733-8274-38f33cc60a18)
 Contacts can also be added and editted. <br>
+![join_contacts](https://github.com/user-attachments/assets/4bbe1ccd-60d1-43fa-8e98-b5a9283783a8)
+
 <br>
-On the SUMMARY users have an overview of their tasks (Amount of tasks, Urgent Tasks, etc.)
+On the SUMMARY users have an overview of their tasks (Amount of tasks, Urgent Tasks, etc.) <br>
+
+![join_summary](https://github.com/user-attachments/assets/9e894cf6-ee90-4efa-bdc2-eb3c32b36821)
+
+
 
 ### Informations
 
