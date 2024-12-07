@@ -1,0 +1,51 @@
+.mainArea {
+    position: absolute;
+    top: 80px;
+    left: 300px;
+    height: 150vh;
+    margin-right: 100px;
+
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-size: 61px;
+    font-weight: 700;
+}
+
+.color-light-blue {
+    color: #29abe2;
+}
+
+.topic {
+    font-size: 27px;
+    font-weight: 700;
+}
+
+ol {
+    padding-left: 24px;
+    margin-bottom: 32px;
+}
+
+ol>li::marker {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.subTopic {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+.enjoy {
+    font-size: 27px;
+    font-weight: 700;
+    margin-bottom: 100px;
+}

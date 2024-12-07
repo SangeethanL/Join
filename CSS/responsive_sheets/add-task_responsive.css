@@ -1,0 +1,443 @@
+@media (max-width: 850px) {
+
+    .mainArea {
+        width: 100vw;
+        height: 78vh;
+        top: 7vh;
+        left: unset;
+        bottom: unset;
+        right: unset;
+        margin: unset;
+        overflow-y: auto;
+    }
+
+    .addTaskContainer {
+        margin-bottom: 20px;
+    }
+
+    .addTaskForm {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+    }
+
+    .left-side {
+        width: 100%;
+    }
+
+    .right-side {
+        width: 100%;
+    }
+
+    .middle-line {
+        display: none;
+    }
+
+    .right-side div {
+        width: 80%;
+    }
+
+    .right-side input {
+        min-width: unset;
+        max-width: unset;
+    }
+
+    .input-section {
+        margin-bottom: 20px;
+    }
+
+    .input-type {
+        font-size: 22px;
+    }
+
+    #newTitle {
+        font-size: 22px;
+    }
+
+    .description-input {
+        font-size: 22px;
+    }
+
+    #newContacts {
+        font-size: 22px !important;
+    }
+
+    #showNewContacts string {
+        font-size: 22px !important;
+    }
+
+    #newDate {
+        font-size: 22px;
+    }
+
+    .prio {
+        font-size: 20px;
+    }
+
+    #newCategory {
+        font-size: 22px !important;
+    }
+
+    .subtasks-input input {
+        font-size: 22px;
+        min-width: 75% !important;
+        max-width: 75% !important;
+    }
+
+    
+    .newSubtaskButtons {
+        min-width: 14% !important;
+        max-width: 14% !important;
+    }
+
+    .bottom-section {
+        width: 60%;
+    }
+
+    .clear-button {
+        font-size: 22px;
+        height: max-content;
+        padding: 15px;
+        margin-right: 15px;
+    }
+
+    .create-button {
+        font-size: 22px;
+        white-space: nowrap;
+        height: max-content;
+        padding: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 650px) {
+    h1 {
+        font-size: 40px;
+        margin-bottom: 25px;
+    }
+
+    .input-type {
+        font-size: 18px;
+    }
+
+    #newTitle {
+        font-size: 18px;
+    }
+
+    .description-input {
+        font-size: 18px;
+    }
+
+    #newContacts {
+        font-size: 18px !important;
+    }
+
+    #showNewContacts string {
+        font-size: 18px !important;
+    }
+
+    #newDate {
+        font-size: 18px;
+    }
+
+    .prio {
+        font-size: 16px;
+    }
+
+    #newCategory {
+        font-size: 18px !important;
+    }
+
+    .subtasks-input input {
+        font-size: 18px;
+    }
+
+    .clear-button {
+        font-size: 18px;
+        padding: 12px;
+        margin-right: 15px;
+    }
+
+    .create-button {
+        font-size: 18px;
+        padding: 12px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 500px) {
+
+    h1 {
+        font-size: 38px;
+    }
+
+    .input-type {
+        font-size: 17px;
+    }
+
+    #newTitle {
+        font-size: 17px;
+    }
+
+    .description-input {
+        font-size: 17px;
+    }
+
+    #newContacts {
+        font-size: 17px !important;
+    }
+
+    #showNewContacts string {
+        font-size: 17px !important;
+    }
+
+    #newDate {
+        font-size: 17px;
+    }
+
+    .prio {
+        font-size: 15px;
+    }
+
+    #newCategory {
+        font-size: 17px !important;
+    }
+
+    .subtasks-input input {
+        font-size: 17px;
+        min-width: 70% !important;
+        max-width: 70% !important;
+    }
+    
+    .newSubtaskButtons {
+        min-width: 19% !important;
+        max-width: 19% !important;
+    }
+
+    .bottom-section {
+        width: 55%;
+    }
+
+    .clear-button {
+        font-size: 17px;
+        padding: 8px;
+        margin-right: 12px;
+    }
+
+    .create-button {
+        font-size: 17px;
+        padding: 8px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 450px) {
+
+    h1 {
+        font-size: 38px;
+    }
+
+    .input-type {
+        font-size: 16px;
+    }
+
+    #newTitle {
+        font-size: 16px;
+    }
+
+    .description-input {
+        font-size: 16px;
+    }
+
+    #newContacts {
+        font-size: 16px !important;
+    }
+
+    #showNewContacts string {
+        font-size: 16px !important;
+    }
+
+    #newDate {
+        font-size: 16px;
+    }
+
+    .prio {
+        font-size: 14px;
+    }
+
+    #newCategory {
+        font-size: 16px !important;
+    }
+
+    .subtasks-input input {
+        font-size: 16px;
+    }
+
+    .bottom-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+        align-items: unset;
+        margin-left: 10%;
+    }
+
+    .bottom-buttons {
+        width: fit-content;
+    }
+
+    .clear-button {
+        font-size: 14px;
+        padding: 5px;
+        margin-right: 7px;
+    }
+
+    .create-button {
+        font-size: 14px;
+        padding: 5px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 34px;
+    }
+
+    .input-type {
+        font-size: 15px;
+    }
+
+    #newTitle {
+        font-size: 15px;
+    }
+
+    .description-input {
+        font-size: 15px;
+    }
+
+    #newContacts {
+        font-size: 15px !important;
+    }
+
+    #showNewContacts string {
+        font-size: 15px !important;
+    }
+
+    #newDate {
+        font-size: 15px;
+    }
+
+    .prio {
+        font-size: 13px;
+    }
+
+    #newCategory {
+        font-size: 15px !important;
+    }
+
+    .subtasks-input input {
+        font-size: 15px;
+    }
+}
+
+
+
+
+
+
+@media (max-width: 360px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    .input-type {
+        font-size: 15px;
+    }
+
+    #newTitle {
+        font-size: 15px;
+    }
+
+    .description-input {
+        font-size: 15px;
+    }
+
+    #newContacts {
+        font-size: 15px !important;
+    }
+
+    #showNewContacts string {
+        font-size: 15px !important;
+    }
+
+    #newDate {
+        font-size: 15px;
+    }
+
+    .prio {
+        font-size: 13px;
+    }
+
+    #newCategory {
+        font-size: 15px !important;
+    }
+
+    .subtasks-input input {
+        font-size: 15px;
+    }
+
+    .subtasks-input string {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}

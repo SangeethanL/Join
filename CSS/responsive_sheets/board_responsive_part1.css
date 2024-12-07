@@ -1,0 +1,304 @@
+@media (max-width: 1300px) {
+
+    /*-------------------------------------Add Task Form-------------------------------------*/
+
+    .addTask {
+        width: 80vw;
+    }
+
+    .show_addTaskForm {
+        transform: translateX(10vw);
+    }
+
+    .addTaskHeader h1 {
+        font-size: 45px;
+    }
+
+    .input-type {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    #newTitle {
+        font-size: 18px;
+    }
+
+    .description-input {
+        font-size: 18px;
+    }
+
+    #newContacts {
+        font-size: 18px;
+    }
+
+    #newDate {
+        font-size: 18px;
+    }
+
+    .prio {
+        font-size: 15px;
+        width: fit-content;
+    }
+
+    .prio-edit {
+        font-size: 12px;
+        width: 80px;
+    }
+
+    .subtasks-input input {
+        font-size: 18px;
+        min-width: 76% !important;
+        max-width: 76% !important;
+    }
+
+    .newSubtaskButtons {
+        min-width: 19% !important;
+        max-width: 19% !important;
+    }
+
+    .clear-button {
+        height: 50px;
+        padding: 6px;
+        margin: 5px;
+    }
+
+
+    .create-button {
+        height: 50px;
+        padding: 8px;
+        margin: 5px;
+    }
+
+
+    /*------------------------------------Show Task Form------------------------------------*/
+
+    .showTask {
+        width: 45vw;
+    }
+
+    .show_showTaskFrom {
+        transform: translateX(27.5vw);
+    }
+
+    .showTaskContent {
+        font-size: 16px;
+    }
+
+    /*------------------------------------Edit Task Form------------------------------------*/
+
+    .prio-edit {
+        font-size: 13px;
+    }
+
+    #showContacts_EditTask string {
+        font-size: 13px;
+        width: 26px;
+        height: 26px;
+    }
+
+    /*--------------------------------------Head Bereich--------------------------------------*/
+    .mainArea {
+        max-height: unset;
+        height: 78vh;
+        top: 76px;
+        left: 200px;
+    }
+
+    .header h1 {
+        font-size: 56px;
+    }
+
+    .headerContent {
+        width: 50%;
+    }
+
+    .searchContainer {
+        width: 280px;
+        height: 40px;
+    }
+
+    .headerContent button img {
+        width: 140px;
+        height: 40px;
+    }
+
+    /*-----------------------------------------Bord-----------------------------------------*/
+
+    #board th {
+        font-size: 17px;
+    }
+
+    .noTasks {
+        font-size: 14px;
+    }
+
+    .taskBox {
+        min-width: 115px;
+        max-width: 115px;
+        padding: 10px;
+    }
+
+    .box_category {
+        font-size: 14px;
+        margin-bottom: 20px;
+        padding: 4px;
+    }
+
+    .box_title {
+        font-size: 14px;
+    }
+
+    .box_description {
+        font-size: 14px;
+    }
+
+    .box_progressbar {
+        width: 45%;
+    }
+
+    .box_totalSubtasks {
+        font-size: 11px;
+        width: 50%;
+    }
+
+    .box_contacts_priority {
+        margin-top: 10px;
+        margin-bottom: 2px;
+    }
+
+    .box_contacts_priority img {
+        width: 20px;
+        height: 14px;
+    }
+
+    .contactIcon {
+        font-size: 13px;
+        padding: 4px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1000px) {
+
+    /*-------------------------------------Add Task Form-------------------------------------*/
+
+    .subtasks-input input {
+        min-width: 74% !important;
+        max-width: 74% !important;
+    }
+
+    .newSubtaskButtons {
+        min-width: 21% !important;
+        max-width: 21% !important;
+    }
+
+    /*------------------------------------Show Task Form------------------------------------*/
+
+    .showTask {
+        width: 45vw;
+    }
+
+    .show_showTaskFrom {
+        transform: translateX(27.5vw);
+    }
+
+    /*------------------------------------Edit Task Form------------------------------------*/
+
+
+    #newSubtaskContainer_EditTask input {
+        min-width: 78% !important;
+        max-width: 78% !important;
+    }
+
+    .newSubtaskButtons_EditTask {
+        min-width: 16% !important;
+        max-width: 16% !important;
+    }
+
+
+    /*--------------------------------------Head Bereich--------------------------------------*/
+    .mainArea {
+        top: 66px;
+        left: 180px;
+    }
+
+    .header h1 {
+        font-size: 56px;
+    }
+
+    .headerContent {
+        width: 50%;
+    }
+
+    .searchContainer {
+        width: 280px;
+        height: 40px;
+    }
+
+    .headerContent button img {
+        width: 140px;
+        height: 40px;
+    }
+}
+
+
+
+
+
+
+
+@media (max-width: 950px) {
+
+    /*-------------------------------------Add Task Form-------------------------------------*/
+
+    .subtasks-input input {
+        min-width: 70% !important;
+        max-width: 70% !important;
+    }
+
+    .newSubtaskButtons {
+        min-width: 25% !important;
+        max-width: 25% !important;
+    }
+
+    /*--------------------------------------Head Bereich--------------------------------------*/
+    .mainArea {
+        top: 74px;
+        left: 180px;
+    }
+
+    .header h1 {
+        font-size: 52px;
+    }
+
+    .headerContent {
+        width: 60%;
+    }
+
+    /*-----------------------------------------Bord-----------------------------------------*/
+
+    #board th {
+        font-size: 15px;
+    }
+
+}
+
+
+
+
+
+
+
+
+

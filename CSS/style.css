@@ -1,0 +1,24 @@
+body {
+    font-family: 'Inter';
+    background-color: #F6F7F8;
+    margin: 0;
+}
+
+input {
+    border: none;
+    outline: none;
+    gap: 10px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+.d-none {
+    display: none;
+}
+
+.cursor {
+    cursor: pointer;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon-32x32.png">
+
+    <link rel="stylesheet" href="CSS/fonts_inter.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/login.css">
+    <link rel="stylesheet" href="CSS/responsive_sheets/login_responsive.css">
+    <!-- Include CSS and Script Sheets -->
+    <script src="firebase/firebase.js" type="module"></script>
+    <script src="js/board/arrays_tasks-contacts.js"></script>
+    <script src="js/login_animation.js"></script>
+    <script src="js/login.js"></script>
+    <!--<script src="js/summary.js"></script>-->
+</head>
+
+<body onload="initLogin();">
+    <div id="login_animation_container" class="login_animation_container">
+        <img src="assets/img/Capa 1.png" id="animation_logo_white" class="animation_logo">
+        <img src="assets/img/Capa 2.png" id="animation_logo_blue" class="animation_logo">
+    </div>
+    <div class="mainArea">
+
+        <div class="header">
+            <img src="assets/img/Capa 2.png">
+            <div class="sign-up-info">
+                <span>Not a Join user?</span>
+                <button onclick="openSignUpSection()">Sign up</button>
+            </div>
+        </div>
+
+        <!-- Login section -->
+        <div id="login_container" class="login_container">
+            <div class="login">
+                <div class="login_signUp_title">
+                    <span>Log in</span>
+                    <img src="assets/img/Vector 5.png">
+                </div>
+                <div>
+                    <form onsubmit="login(); return false" id="loginForm">
+                        <div class="login-input">
+                            <input class="icon_email" id="email_login" placeholder="Email" type="email"
+                                autocomplete="off" required>
+                        </div>
+                        <div class="login-input">
+                            <input class="icon_password" id="password_login" placeholder="Password" type="password"
+                                autocomplete="off" required>
+                        </div>
+                        <div class="wrong_login_signUp" id="wrongUser"></div>
+                        <div class="checkbox_container">
+                            <input type="checkbox" id="rememberMe" autocomplete="off">
+                            <span>Remember me</span>
+                        </div>
+                        <div class="bottom_buttons">
+                            <button id="login-btn" class="login_signUp_button" type="submit">Login</button>
+                            <button onclick="loginAsGuest()" class="guest_login_button" type="button">Guest
+                                Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign up section -->
+        <div id="signUp_container" class="signUp_container d-none">
+            <div class="signUp">
+                <img src="assets/img/arrow-left-line.png" onclick="closeSignUpSection()" class="arrow-back">
+                <div class="login_signUp_title">
+                    <span>Sign up</span>
+                    <img src="assets/img/Vector 5.png">
+                </div>
+                <div>
+                    <form onsubmit="addNewUser(); return false" id="signUpForm">
+                        <div class="login-input">
+                            <input id="name_signUp" class="icon_name" placeholder="Name" required>
+                        </div>
+                        <div class="login-input">
+                            <input id="email_signUp" class="icon_email" placeholder="Email" type="email" required>
+                        </div>
+                        <div class="login-input">
+                            <input id="password_signUp" class="icon_password" placeholder="Password" type="password"
+                                required>
+                        </div>
+                        <div class="login-input">
+                            <input id="comparePassword_signUp" class="icon_password" placeholder="Confirm password"
+                                type="password" required>
+                        </div>
+                        <div class="wrong_login_signUp" id="wrongSignUp"></div>
+                        <div class="checkbox_container">
+                            <input type="checkbox" id="policy_checkbox">
+                            <div>I accept the <span class="color-light-blue">Privacy policy</span></div>
+                        </div>
+                        <div class="bottom_buttons">
+                            <button class="login_signUp_button">Sign up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <a>Privacy Policy</a>
+            <a>Legal Notice</a>
+        </footer>
+
+    </div>
+
+
+
+
+</body>
+
+</html>

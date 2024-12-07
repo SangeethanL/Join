@@ -1,0 +1,262 @@
+body {
+    margin: 0;
+}
+
+.mainArea {
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: max-content;
+    height: fit-content;
+    padding-bottom: 50px;
+    top: 15%;
+    left: 20%;
+}
+
+.topicArea {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+.topicTitle {
+    font-size: 61px;
+    font-weight: 700;
+}
+
+.vertical-blue-line {
+    padding: 0 30px;
+}
+
+.topicSlogan {
+    font-size: 27px;
+    color: #2A3647;
+}
+
+.topicContainer_responsive {
+    display: none;
+}
+
+.topicArea_responsive {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.topicArea_responsive div {
+    display: flex;
+    flex-direction: column;
+}
+
+.topicTitle_responsive {
+    font-size: 61px;
+    font-weight: 700;
+}
+
+.topicSlogan_responsive {
+    font-size: 27px;
+    color: #2A3647;
+}
+
+.horizontal-blue-line {
+    transform: rotate(90deg);
+    margin-left: 30px;
+}
+
+.summaryContent {
+    display: flex;
+    align-items: center;
+}
+
+.box_style {
+    background: white;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+    border-radius: 30px;
+}
+
+.content_line_1 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.summary_icon {
+    margin-right: 16px;
+}
+
+.summary_infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.to_do_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 32px;
+    width: 226px;
+    height: 92px;
+    padding: 38px 19px;
+}
+
+.done_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 148px;
+    height: 92px;
+    padding: 38px 58px;
+}
+
+.urgent_container {
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    width: 464px;
+    height: 112px;
+    margin-bottom: 28px;
+    padding: 28px 48px;
+}
+
+.urgent {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.urgent_image {
+    width: 35%;
+}
+
+.urgent_infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+}
+
+.urgent_line {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+}
+
+.urgent_deadline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+.content_line_2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottomBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 168px;
+    height: 118px;
+    padding: 25px 0;
+}
+
+.summary_infos, .urgent_infos, .urgent_deadline, .bottomBox {
+    text-align: center;
+}
+
+#to_dos, #dones, #urgents,
+#total_tasks, #in_progress,
+#await_feedback {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+#urgentDate {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.to_do_container:hover,
+.done_container:hover,
+.urgent_container:hover,
+.bottomBox:hover {
+    color: white;
+    background-color: #2A3647;
+    transform: scale(1.1);
+    transition: transform 80ms ease-out;
+    cursor: pointer;
+}
+
+.to_do_container:hover circle,
+.done_container:hover circle {
+    fill: white;
+}
+
+.to_do_container:hover path {
+    fill: #2A3647;
+}
+
+.done_container:hover path {
+    stroke: #2A3647;
+}
+
+.loaderBackground {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeBackground 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    background: #2A3647;;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.loaderBackground div {
+    font-size: 47px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.loaderBackground span {
+    color: #ffffff;
+}
+
+@keyframes fadeBackground {
+    from {
+        background: #2A3647;;
+    }
+
+    to {
+        background: rgba(255, 192, 203, 0);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeBackground {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.greetSummary div {
+    font-size: 47px;
+    font-weight: 500;
+    color: #2A3647;
+}

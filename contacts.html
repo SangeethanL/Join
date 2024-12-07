@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon-32x32.png">
+
+    <link rel="stylesheet" href="CSS/fonts_inter.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/side-and-topbar-template.css">
+    <link rel="stylesheet" href="CSS/responsive_sheets/side-and-topbar-template_responsive.css">
+    <link rel="stylesheet" href="CSS/contacts.css">
+    <link rel="stylesheet" href="CSS/responsive_sheets/contacts_responsive.css">
+    <script src="firebase/firebase.js" type="module"></script>
+    <script src="js/board/arrays_tasks-contacts.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/contacts.js"></script>
+</head>
+
+<body id="body_contacts" onload="init();setContacts();">
+    <div id="side-and-topbar-contacts" w3-include-html="assets/templates/side-and-topbar-template.html"></div>
+
+    <!-- Main contacts overview -->
+    <div id="showContacts" class="body_container">
+        <div class="mainArea">
+
+            <div class="tableArea" id="tableArea">
+                <div class="addContact_Desktop">
+                    <button onclick="openAddContact()">
+                        Add new Contact
+                        <img src="assets/img/person_add.png">
+                    </button>
+                </div>
+                <div class="addContact_Responsive">
+                    <button onclick="openAddContact()">
+                        <img src="assets/img/person_add.png">
+                    </button>
+                </div>
+
+                <!-- Contact book to render in contacts -->
+                <div>
+                    <table>
+                        <tbody id="contact-book">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <div class="informationArea" id="informationArea">
+                <div class="infosHeader">
+                    <div>
+                        <span class="infosHeader_Title">Contacts</span>
+                        <img src="assets/img/Vector_blue_vertical.png" class="vertical-blue-line">
+                        <span class="infosHeaderSlogan">Better with a Team!</span>
+                        <img src="assets/img/Vector_blue_vertical.png" class="horizontal-blue-line">
+                    </div>
+                    <img src="assets/img/arrow-left-line.png" onclick="hideContact()" id="goBackToTable">
+                </div>
+
+                <div id="contact-details">
+                    <div id="infosTitle" class="infosTitle" style="display:none;">
+                        <div class="infosTitle_Icon" id="infosTitle_Icon">
+                        </div>
+                        <div class="infosTitle_Content">
+                            <div class="infosTitle_Name" id="infosTitle_Name">
+                            </div>
+                            <div class="infosTitle_Buttons">
+                                <div onclick="editContact()">
+                                    <img src="assets/img/edit.png">
+                                    <span>Edit</span>
+                                </div>
+                                <div onclick="deleteContact()">
+                                    <img src="assets/img/delete.png">
+                                    <span>Delete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="infosContent" id="infosContent" style="display:none;">
+                    <span class="infosContent_Title">Contact Information</span>
+                    <div class="infosContent_Content">
+                        <div>
+                            <span class="infosContent_Info">Email</span>
+                            <span id="infosContent_EMail"></span>
+                        </div>
+                        <div>
+                            <span class="infosContent_Info">Phone</span>
+                            <span id="infosContent_Phone"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div id="addContactScreen" class="popUpScreen" style="display:none;" onclick="closeAddContact()">
+    </div>
+
+    <!-- Add contact form -->
+    <div id="addLayer">
+        <div id="addContainer" style="display: none;">
+            <div class="popUpForm">
+
+                <div class="header">
+                    <img src="assets/img/Capa_2_light.png" class="headerLogo">
+                    <div id="headerAdd">
+                        <span class="headerTitle">Add contact</span>
+                        <span class="headerSlogan">Tasks are better with a team!</span>
+                        <img src="assets/img/Vector 5.png">
+                    </div>
+                    <div class="close_Responsive">
+                        <img src="assets/img/close.png" onclick="closeAddContact()">
+                    </div>
+                </div>
+                <div class="formContent">
+                    <div class="formContent_Icon">
+                        <img src="assets/img/contact_person.png">
+                    </div>
+                    <div class="values">
+                        <div class="close_Desktop">
+                            <img src="assets/img/close.png" onclick="closeAddContact()">
+                        </div>
+
+                        <form onsubmit="createContact(); return false;" id="addContactForm">
+                            <div class="inputContainer">
+                                <input contenteditable="true" class="icon-name" id="first-name" placeholder="First name"
+                                    type="text" value="" required>
+                            </div>
+                            <div class="inputContainer">
+                                <input contenteditable="true" class="icon-name" id="last-name" placeholder="Last name"
+                                    type="text" required>
+                            </div>
+                            <div class="inputContainer">
+                                <input contenteditable="true" class="icon-email" id="email" placeholder="Email"
+                                    type="email" required>
+                            </div>
+                            <div class="inputContainer">
+                                <input type="text" onkeypress="isInputNumber(event)" contenteditable="true"
+                                    class="icon-phone" id="telephoneNumber" placeholder="Phone" required>
+                            </div>
+                            <div class="form-buttons">
+                                <button class="delete-button" onclick="closeAddContact()" type="button"> Delete
+                                    <img src="assets/img/close.png">
+                                </button>
+                                <button class="safe-button" type="submit"> Safe
+                                    <img src="assets/img/check.png">
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div id="editContactScreen" class="popUpScreen" style="display:none;" onclick="closeEditContactForm()">
+    </div>
+
+    <!-- Edit contact form -->
+    <div id="editLayer">
+        <div id="editContainer" style="display:none;">
+            <div class="popUpForm">
+
+                <div class="header">
+                    <img src="assets/img/Capa_2_light.png" class="headerLogo">
+                    <div id="headerEdit">
+                        <span class="headerTitle">Edit contact</span>
+                        <img src="assets/img/Vector 5.png">
+                    </div>
+                    <div class="close_Responsive">
+                        <img src="assets/img/close.png" onclick="closeEditContactForm()">
+                    </div>
+                </div>
+                <div class="formContent">
+                    <div id="contactIconEdit" class="formContent_Icon">
+                    </div>
+                    <div class="values">
+                        <div class="close_Desktop">
+                            <img src="assets/img/close.png" onclick="closeEditContactForm()">
+                        </div>
+
+                        <form onsubmit="saveChanges(); return false;">
+                            <div class="inputContainer">
+                                <input contenteditable="true" class="icon-name" id="edit-fist-name"
+                                    placeholder="First name" type="text" value="" required>
+                            </div>
+                            <div class="inputContainer">
+                                <input contenteditable="true" class="icon-name" id="edit-last-name"
+                                    placeholder="Last name" type="text" required>
+                            </div>
+                            <div class="inputContainer">
+                                <input contenteditable="true" class="icon-email" id="edit-email" placeholder="Email"
+                                    type="email" required>
+                            </div>
+                            <div class="inputContainer">
+                                <input type="text" onkeypress="isInputNumber(event)" contenteditable="true"
+                                    class="icon-phone" id="edit-number" placeholder="Phone" required>
+                            </div>
+                            <div class="form-buttons">
+                                <button class="delete-button" onclick="deleteContact()" type="button"> Delete
+                                    <img src="assets/img/close.png">
+                                </button>
+                                <button id="safe-button" class="safe-button" type="submit"> Safe
+                                    <img src="assets/img/check.png">
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

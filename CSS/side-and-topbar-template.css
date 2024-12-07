@@ -1,0 +1,142 @@
+.side-topbar-template {
+    height: max-content;
+}
+
+.topbar {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+    width: 100%;
+    height: 10%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.topbar_title {
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 19%;
+}
+
+.topbar_icons {
+    display: flex;
+    align-items: center;
+    margin-right: 3%;
+}
+
+.helpIcon {
+    margin-right: 16px;
+    cursor: pointer;
+}
+
+.helpIcon:hover {
+    scale: 1.1;
+}
+
+.loginIcon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #29ABE2;
+    border: 2px solid black;
+    border-radius: 100px;
+    width: 35px;
+    height: 35px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+#userChars {
+    font-weight: 500;
+}
+
+#log_out_container {
+    position: fixed;
+    top: 10%;
+    right: 20px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+#log_out {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 400;
+    background: #2A3647;
+    border-radius: 20px;
+    border-top-right-radius: 0px;
+    width: fit-content;
+    height: 138px;
+    padding: 10px;
+}
+
+#log_out a {
+    padding: 8px 16px;
+    color: #CDCDCD;
+}
+
+.sidebar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+    width: 15%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.sidebar-categories {
+    font-size: 16px;
+    font-weight: 400;
+    width: 100%;
+}
+
+.sidebar-categories a {
+    display: flex;
+    align-items: center;
+    color: #CDCDCD;
+    margin-bottom: 16px;
+    padding: 8px 56px;
+    cursor: pointer;
+}
+
+.sidebar-categories a:hover,
+#log-out>a:hover {
+    background-color: rgb(39, 58, 88);
+}
+
+.nav-icon {
+    margin-right: 10%;
+}
+
+.sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+}
+
+.sidebar-bottom div {
+    padding: 8px;
+}
+
+.sidebar-bottom>div>a {
+   font-size: 16px;
+   font-weight: 400;
+   color: #2472d1;
+}
+
+.sidebar-bottom>div>a:hover {
+    color: #29ABE2;
+}

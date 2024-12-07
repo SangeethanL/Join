@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/login.js"></script>
+    <script src="js/summary.js"></script>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/side-and-topbar-template.css">
+    <link rel="stylesheet" href="/CSS/responsive_sheets/side-and-topbar-template_responsive.css">
+    <link rel="stylesheet" href="/CSS/fonts_inter.css">
+</head>
+
+<body>
+
+    <div class="side-topbar-template">
+        <!-- Top bar -->
+        <div class="topbar">
+            <span class="topbar_title">Kanban Project Management Tool</span>
+            <div class="topbar_icons">
+                <img src="assets/img/help.png" onclick="goToHelp()" class="helpIcon">
+                <div onclick=" open_close_LogoutMenu()" class="loginIcon">
+                    <span id="userChars"></span>
+                </div>
+            </div>
+        </div>
+        <!-- Logout menu -->
+        <div id="log_out_container" class="d-none">
+            <div id="log_out">
+                <a href="legal_notice.html">Legal Notice</a>
+                <a href="privacy_policy.html">Privacy Policy</a>
+                <a onclick="logOut()"><string>Log out</string></a>
+            </div>
+        </div>
+
+        <!-- Side bar -->
+        <div class="sidebar">
+            <img id="sidebar-logo" src="assets/img/Capa_2_light.png">
+
+            <div class="sidebar-categories">
+                <a href="summary.html">
+                    <img class="nav-icon" src="assets/img/summary.png">
+                    <span class="nav-category">Summary</span>
+                </a>
+                <a href="add_task.html">
+                    <img class="nav-icon" src="assets/img/add_task.png">
+                    <span class="nav-category">Add Task</span>
+                </a>
+                <a href="board.html">
+                    <img class="nav-icon" src="assets/img/board.png">
+                    <span class="nav-category">Board</span>
+                </a>
+                <a href="contacts.html">
+                    <img class="nav-icon" src="assets/img/contacts.png">
+                    <span class="nav-category">Contacts</span>
+                </a>
+            </div>
+
+            <!-- Go to Privacy Policy or Legal Notice -->
+            <div class="sidebar-bottom">
+                <div>
+                    <a href="privacy_policy.html">Privacy Policy</a>
+                </div>
+                <div>
+                    <a href="legal_notice.html">Legal Notice</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

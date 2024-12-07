@@ -1,0 +1,181 @@
+@media (max-width: 500px) {
+
+    .showTask {
+        width: 65vw;
+    }
+
+    .show_showTaskFrom {
+        transform: translateX(17.5vw);
+    }
+
+    .showTitle {
+        font-size: 30px;
+    }
+
+    /*------------------------------------Edit Task Form------------------------------------*/
+
+    .showTaskContainer input {
+        padding: 4px;
+    }
+
+    /*--------------------------------------Head Bereich--------------------------------------*/
+
+    .header h1 {
+        font-size: 44px;
+    }
+
+    .headerContent {
+        width: 68%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 450px) {
+    .showTask {
+        width: 75vw;
+    }
+
+    .show_showTaskFrom {
+        transform: translateX(12.5vw);
+    }
+
+    /*--------------------------------------Head Bereich--------------------------------------*/
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .header h1 {
+        font-size: 44px;
+        margin-bottom: unset;
+    }
+
+    .headerContent {
+        width: 75%;
+    }
+}
+
+
+
+
+
+
+
+
+@media (max-width: 400px) {
+
+    /*------------------------------------Edit Task Form------------------------------------*/
+
+    #showPriority button {
+        width: fit-content;
+    }
+
+    /*--------------------------------------Head Bereich--------------------------------------*/
+
+    .header {
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+
+    .header h1 {
+        font-size: 40px;
+    }
+
+    .headerContent {
+        width: 80%;
+    }
+
+    /*------------------------------------Bord Responsive------------------------------------*/
+
+    .taskBox {
+        min-width: 145px;
+        max-width: 145px;
+    }
+
+    .box_category {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .box_title {
+        font-size: 13px;
+    }
+
+    .box_description {
+        font-size: 13px;
+    }
+
+    .box_totalSubtasks {
+        font-size: 11px;
+    }
+
+    .box_contacts_priority {
+        margin-top: 7px;
+        margin-bottom: 1px;
+    }
+
+    .box_contacts_priority img {
+        width: 18px;
+        height: 14px;
+    }
+
+    .contactIcon {
+        padding: 3px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 360px) {
+
+    .showTaskContent {
+        overflow-x: auto;
+    }
+
+    /*------------------------------------Edit Task Form------------------------------------*/
+
+    #destinationButtons button {
+        font-size: 9px;
+        margin: 0px;
+    }
+
+    #showPriority button {
+        width: fit-content;
+    }
+
+    /*--------------------------------------Head Bereich--------------------------------------*/
+
+    .header h1 {
+        font-size: 37px;
+    }
+
+    .headerContent {
+        width: 90%;
+    }
+}

@@ -1,0 +1,473 @@
+@media (max-width: 850px) {
+
+    .greetSummary {
+        display: none;
+    }
+
+    .mainArea {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100vw;
+        height: 78vh;
+        top: unset;
+        left: unset;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .webpageArea {
+        position: relative;
+        top: 15vh;
+        left: 2vw;
+        width: 98vw;
+    }
+
+    .topicArea {
+        display: none;
+    }
+
+    .topicContainer_responsive {
+        display: unset;
+    }
+
+    .topicTitle_responsive {
+        font-size: 61px;
+    }
+
+    .topicSlogan_responsive {
+        font-size: 34px;
+    }
+
+    .summaryContent {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 75px;
+    }
+
+    .summaryContent div {
+        width: 90%;
+    }
+
+    .content_line_1 {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 65px;
+    }
+
+    .to_do_container {
+        width: 206px !important;
+        height: 72px;
+        padding: 30px 15px;
+    }
+
+    .done_container {
+        width: 208px !important;
+        height: 72px;
+        padding: 30px 15px;
+    }
+
+    /**********************************/
+    .urgent_container {
+        width: 85% !important;
+        height: 72px;
+        margin-bottom: 65px;
+        padding: 30px 15px;
+    }
+
+    /**********************************/
+
+    .content_line_2 {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 45px;
+    }
+
+    .bottomBox {
+        width: 170px !important;
+        height: 72px;
+        padding: 20px 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 650px) {
+
+    .topicTitle_responsive {
+        font-size: 51px;
+    }
+
+    .topicSlogan_responsive {
+        font-size: 24px;
+    }
+
+    .summaryContent {
+        margin-top: unset;
+    }
+
+    .content_line_1 {
+        margin-bottom: 35px;
+    }
+
+    .summary_icon svg {
+        width: 55px;
+        height: 55px;
+    }
+
+    .to_do_container {
+        width: 188px !important;
+        height: 62px;
+        padding: 30px 10px;
+    }
+
+    .done_container {
+        width: 188px !important;
+        height: 62px;
+        padding: 30px 10px;
+    }
+
+    /**********************************/
+    .urgent_container {
+        width: 85% !important;
+        height: 62px;
+        margin-bottom: 35px;
+        padding: 30px 10px;
+    }
+
+    .urgent_image img {
+        width: 55px;
+        height: 55px;
+    }
+
+    /**********************************/
+
+    .content_line_2 {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 25px;
+    }
+
+    .bottomBox {
+        width: 130px !important;
+        height: 62px;
+        padding: 20px 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 500px) {
+
+    .webpageArea {
+        top: 20vh;
+    }
+
+    .topicTitle_responsive {
+        font-size: 45px;
+    }
+
+    .topicSlogan_responsive {
+        font-size: 20px;
+    }
+
+    .content_line_1 {
+        margin-bottom: 25px;
+    }
+
+    .summary_icon svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    .to_do_container {
+        width: 168px !important;
+        height: 52px;
+        padding: 30px 10px;
+    }
+
+    .done_container {
+        width: 168px !important;
+        height: 52px;
+        padding: 30px 10px;
+    }
+
+    /**********************************/
+    .urgent_container {
+        width: 85% !important;
+        height: 52px;
+        margin-bottom: 25px;
+        padding: 30px 10px;
+    }
+
+    .urgent_image img {
+        width: 50px;
+        height: 50px;
+    }
+
+    /**********************************/
+
+    .bottomBox {
+        width: 105px !important;
+        height: 52px;
+        padding: 20px 0;
+    }
+
+    #to_dos, #dones, #urgents,
+    #total_tasks, #in_progress,
+    #await_feedback {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    #urgentDate {
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 450px) {
+
+    .webpageArea {
+        top: 10vh;
+    }
+
+    .content_line_1 {
+        margin-bottom: 35px;
+    }
+
+    .summary_icon svg {
+        width: 45px;
+        height: 45px;
+    }
+
+    /**********************************/
+    .urgent_container {
+        width: 85% !important;
+        height: 52px;
+        margin-bottom: 35px;
+        padding: 30px 10px;
+    }
+
+    .urgent_image img {
+        width: 45px;
+        height: 45px;
+    }
+
+    /**********************************/
+
+    .content_line_2 {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 35px;
+    }
+
+    .bottomBox {
+        width: 85px !important;
+        height: 52px;
+        padding: 20px 0;
+    }
+
+    .summary_infos, .urgent_infos, .urgent_deadline, .bottomBox {
+        font-size: 15px;
+    }
+
+    #to_dos, #dones, #urgents,
+    #total_tasks, #in_progress,
+    #await_feedback {
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    #urgentDate {
+        font-size: 18px;
+        font-weight: bold;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 400px) {
+
+    .topicTitle_responsive {
+        font-size: 40px;
+    }
+
+    .topicSlogan_responsive {
+        font-size: 17px;
+    }
+
+    .summary_icon svg {
+        width: 42px;
+        height: 42px;
+    }
+
+    .to_do_container {
+        width: 158px !important;
+        height: 42px;
+        padding: 30px 10px;
+    }
+
+    .done_container {
+        width: 158px !important;
+        height: 42px;
+        padding: 30px 10px;
+    }
+
+    /**********************************/
+    .urgent_container {
+        width: 85% !important;
+        height: 42px;
+        margin-bottom: 35px;
+        padding: 30px 10px;
+    }
+
+    .urgent_image img {
+        width: 42px;
+        height: 42px;
+    }
+
+    /**********************************/
+
+    .content_line_2 {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 35px;
+    }
+
+    .bottomBox {
+        width: 85px !important;
+        height: 42px;
+        padding: 20px 0;
+    }
+    .summary_infos, .urgent_infos, .urgent_deadline, .bottomBox {
+        font-size: 13px;
+    }
+
+    #urgentDate {
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 360px) {
+
+    .urgent_image img {
+        width: 32px;
+        height: 32px;
+    }
+
+    /**********************************/
+
+    .bottomBox {
+        width: 75px !important;
+        height: 42px;
+        padding: 20px 0;
+    }
+    .summary_infos, .urgent_infos, .urgent_deadline, .bottomBox {
+        font-size: 12px;
+    }
+
+    #to_dos, #dones, #urgents,
+    #total_tasks, #in_progress,
+    #await_feedback {
+        font-size: 25px;
+        font-weight: bold;
+    }
+}

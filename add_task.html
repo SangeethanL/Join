@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add task</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/side-and-topbar-template.css">
+    <link rel="stylesheet" href="CSS/responsive_sheets/side-and-topbar-template_responsive.css">
+    <link rel="stylesheet" href="CSS/add-task.css">
+    <link rel="stylesheet" href="CSS/responsive_sheets/add-task_responsive.css">
+    <script src="firebase/firebase.js" type="module"></script>
+    <script src="js/board/arrays_tasks-contacts.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/contacts.js"></script>
+    <script src="js/board/form-add-task.js"></script>
+    <script src="js/add_task.js"></script>
+</head>
+
+<body onload="init();loadContacts();">
+    <div w3-include-html="assets/templates/side-and-topbar-template.html"></div>
+
+
+    <div class="mainArea">
+
+        <form id="taskForm" onsubmit="createTask(); return false">
+            <div class="addTaskContainer">
+                <h1>Add Task</h1>
+                <div class="addTaskForm">
+                    <div class="left-side">
+                        <div class="input-section">
+                            <div class="input-type">Title<string>*</string>
+                            </div>
+                            <input id="newTitle" placeholder="Enter a title" type="text" required>
+                        </div>
+                        <div class="input-section">
+                            <span class="input-type">Description</span>
+                            <textarea id="newDescription" placeholder="Enter a Description"
+                                class="description-input"></textarea>
+                        </div>
+                        <div class="input-section">
+                            <span class="input-type">Assigned to</span>
+                            <select id="newContacts" onchange="saveContact(this.value)">
+                            </select>
+                            <div id="showNewContacts"></div>
+                        </div>
+
+                    </div>
+                    <div class="middle-line">
+                    </div>
+                    <div class="right-side">
+                        <div class="input-section">
+                            <div class="input-type">Due date<string>*</string>
+                            </div>
+                            <input id="newDate" type="date" required>
+                        </div>
+                        <div class="input-section">
+                            <span class="input-type">Prio</span>
+                            <div class="newPrioContainer">
+                                <button onclick="urgent_prio()" id="urgent" type="button" class="prio">
+                                    <span>Urgent</span>
+                                    <img id="urgent-black" src="assets/img/Prio_alta.png">
+                                    <img id="urgent-white" class="d-none" src="assets/img/Prio_alta_white.png">
+                                </button>
+                                <button onclick="medium_prio()" id="medium" type="button" class="prio">
+                                    <span>Medium</span>
+                                    <img id="medium-black" src="assets/img/Prio_media.png">
+                                    <img id="medium-white" class="d-none" src="assets/img/Prio_media_white.png">
+                                </button>
+                                <button onclick="low_prio()" id="low" type="button" class="prio">
+                                    <span>Low</span>
+                                    <img id="low-black" src="assets/img/Prio_baja.png">
+                                    <img id="low-white" class="d-none" src="assets/img/Prio_baja_white.png">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="input-section">
+                            <div class="input-type">Category <string>*</string>
+                            </div>
+                            <select id="newCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="technical_task">Technical Task</option>
+                                <option value="user_story">User Story</option>
+                            </select>
+                        </div>
+
+                        <div class="input-section" id="newSubtask_Container">
+                            <span class="input-type">Subtasks</span>
+                            <div class="subtasks-input">
+                                <input id="newSubtask" oninput="enableButtons('1')" placeholder="Add new subtask">
+                                <div id="newSubtaskButtons" class="newSubtaskButtons">
+                                    <string onclick="submitSubtask('1')">&#10003</string>
+                                    <string onclick="cleanInputField('1')">&#x1F5D1</string>
+                                </div>
+                            </div>
+                            <div id="showNewSubtasks">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bottom-section">
+                    <div class="input-type">
+                        <string>*</string>
+                        <div>this field is required</div>
+                    </div>
+                    <div class="bottom-buttons">
+                        <button class="clear-button" type="button" onclick="resetAddTaskBoard()"> Clear
+                            <img src="assets/img/clear-x.png"></button>
+                        <button class="create-button" type="submit">
+                            <string>Create Task</string> <img src="assets/img/create-task-check.png">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+
+
+</body>
+
+</html>

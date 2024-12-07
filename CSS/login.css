@@ -1,0 +1,251 @@
+
+
+.login_animation_container {
+    position: fixed;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #2A3647;
+    transition: background-color 2s;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    z-index: 1;
+}
+
+.animation_logo {
+    position: absolute;
+    font-size: 10vw;
+    transition: color 2s, transform 1s, opacity 2s;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+#animation_logo_white {
+    z-index: 2;
+}
+
+#animation_logo_blue {
+    z-index: 1;
+}
+
+.mainArea {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header img {
+    width: 0px;
+}
+
+.sign-up-info {
+    padding: 67px;
+}
+
+.sign-up-info span {
+    font-size: 20px;
+    margin-right: 35px;
+}
+
+.sign-up-info button {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    background: #2A3647;
+    border: unset;
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+}
+
+.login_container {
+    display: flex;
+    justify-content: center;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+    padding: 48px 115px;
+    margin: 80px;
+}
+
+.login_signUp_title {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+}
+
+.login_signUp_title span {
+    font-size: 61px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.login-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Inter';
+    border: 1px solid  #D1D1D1;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    width: 422px;
+    margin-bottom: 32px;
+    padding: 12px 21px;
+    cursor: pointer;
+}
+
+.login-input input {
+    font-size: 20px;
+    font-weight: 400;
+    background-size: 24px;
+    background-position-x: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.wrong_login_signUp {
+    display: flex;
+    justify-content: center;
+    color: red;
+    margin-bottom: 8px;
+}
+
+.checkbox_container {
+    display: flex;
+    margin-bottom: 32px;
+    margin-left: 10%;
+}
+
+.checkbox_container div {
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 10px;
+}
+
+.bottom_buttons {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+
+.login_signUp_button {
+    font-size: 21px;
+    font-weight: 700;
+    color: white;
+    background: #2A3647;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 24px;
+    cursor: pointer;
+}
+
+.login_signUp_button:hover {
+    background-color: #29abe2;
+    box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+.guest_login_button {
+    font-size: 21px;
+    font-weight: 700;
+    border: 2px solid #2A3647;
+    border-radius: 8px;
+    color: #2A3647;
+    background: white;
+    padding: 15px 24px;
+    cursor: pointer;
+}
+
+.guest_login_button:hover {
+    border: 2px solid #29abe2;
+    box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+.signUp_container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.signUp {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+    padding: 48px 115px;
+    margin: 80px;
+}
+
+.icon_name {
+    background-image: url('../assets/img/person.png');
+    background-repeat: no-repeat;
+}
+
+.icon_email {
+    background-image: url('../assets/img/mail.png');
+    background-repeat: no-repeat;
+}
+
+.icon_password {
+    background-image: url('../assets/img/lock.png');
+    background-repeat: no-repeat;
+}
+
+.color-light-blue {
+    color: #29ABE2;
+    cursor: pointer;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+}
+
+footer a {
+    color: #A8A8A8;
+    padding: 8px;
+    cursor: pointer;
+}
+
+footer a:hover {
+    color: #29ABE2;
+}
+
+
+
+
+
+
+
+
+
+
+
+.arrow-back {
+    position: absolute;
+    top: 62px;
+    left: 48px;
+    cursor: pointer;
+}
+
+.d-none {
+    display: none !important;
+}

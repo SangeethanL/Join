@@ -1,0 +1,6 @@
+# Diese Datei darf NICHT gelöscht werden. 
+# Sie sorgt dafür, dass deine Projekte nicht bei Google gefunden werden. 
+# Wenn du diese Datei löschst oder veränderst, wird diese Datei automatisch wieder hergestellt.
+
+User-agent: *
+Disallow: /

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join - Board</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon-32x32.png">
+
+    <link rel="stylesheet" href="CSS/fonts_inter.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/side-and-topbar-template.css">
+    <link rel="stylesheet" href="CSS/responsive_sheets/side-and-topbar-template_responsive.css">
+    <link rel="stylesheet" href="CSS/board.css">
+    <link rel="stylesheet" href="CSS/add-task-form.css">
+    <link rel="stylesheet" href="CSS/show-task-form.css">
+    <link rel="stylesheet" href="CSS/responsive_sheets/board_responsive_part1.css">
+    <link rel="stylesheet" href="CSS/responsive_sheets/board_responsive_part2.css">
+    <link rel="stylesheet" href="CSS/responsive_sheets/board_responsive_part3.css">
+    <script src="firebase/firebase.js" type="module"></script>
+    <script src="js/login.js"></script>
+    <script src="js/board/arrays_tasks-contacts.js"></script>
+    <script src="js/add_task.js"></script>
+    <script src="js/board/board.js"></script>
+    <script src="js/board/form-add-task.js"></script>
+    <script src="js/board/show-edit-task.js"></script>
+</head>
+
+<body onload="init();" id="body_board">
+    <div w3-include-html="assets/templates/side-and-topbar-template.html"></div>
+
+    <!-- -----------------------------------------------Add Task Fenster----------------------------------------------- -->
+
+    <div id="addTaskScreen" class="popUpScreen" style="display:none;" onclick="closeTaskForm()">
+    </div>
+    <div id="addTask" class="addTask">
+        <form id="addTaskForm" onsubmit="createTask(); return false">
+            <div class="addTaskContainer">
+                <div class="addTaskHeader">
+                    <h1>Add Task</h1>
+                    <button onclick="closeTaskForm()"><img src="assets/img/close.png"></button>
+                </div>
+                <div class="addTaskForm">
+                    <div class="left-side">
+                        <div class="input-section">
+                            <div class="input-type">Title<string>*</string>
+                            </div>
+                            <input id="newTitle" placeholder="Enter a title" type="text" required>
+                        </div>
+                        <div class="input-section">
+                            <span class="input-type">Description</span>
+                            <textarea id="newDescription" placeholder="Enter a Description"
+                                class="description-input"></textarea>
+                        </div>
+                        <div class="input-section">
+                            <span class="input-type">Assigned to</span>
+                            <select id="newContacts" onchange="saveContact(this.value)">
+                            </select>
+                            <div id="showNewContacts"></div>
+                        </div>
+
+                    </div>
+                    <div class="middle-line">
+                    </div>
+                    <div class="right-side">
+                        <div class="input-section">
+                            <div class="input-type">Due date<string>*</string>
+                            </div>
+                            <input id="newDate" type="date" required>
+                        </div>
+                        <div class="input-section">
+                            <span class="input-type">Prio</span>
+                            <div class="newPrioContainer">
+                                <button onclick="urgent_prio()" id="urgent" type="button" class="prio">
+                                    <span>Urgent</span>
+                                    <img id="urgent-black" src="assets/img/Prio_alta.png">
+                                    <img id="urgent-white" class="d-none" src="assets/img/Prio_alta_white.png">
+                                </button>
+                                <button onclick="medium_prio()" id="medium" type="button" class="prio">
+                                    <span>Medium</span>
+                                    <img id="medium-black" src="assets/img/Prio_media.png">
+                                    <img id="medium-white" class="d-none" src="assets/img/Prio_media_white.png">
+                                </button>
+                                <button onclick="low_prio()" id="low" type="button" class="prio">
+                                    <span>Low</span>
+                                    <img id="low-black" src="assets/img/Prio_baja.png">
+                                    <img id="low-white" class="d-none" src="assets/img/Prio_baja_white.png">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="input-section">
+                            <div class="input-type">Category <string>*</string>
+                            </div>
+                            <select id="newCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="technical_task">Technical Task</option>
+                                <option value="user_story">User Story</option>
+                            </select>
+                        </div>
+
+                        <div class="input-section">
+                            <span class="input-type">Subtasks</span>
+                            <div class="subtasks-input">
+                                <input id="newSubtask" oninput="enableButtons('1')" placeholder="Add new subtask">
+                                <div id="newSubtaskButtons" class="newSubtaskButtons">
+                                    <string onclick="submitSubtask('1')">&#10003</string>
+                                    <string onclick="cleanInputField('1')">&#x1F5D1</string>
+                                </div>
+                            </div>
+                            <div id="showNewSubtasks">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bottom-section">
+                    <div class="input-type">
+                        <string>*</string>
+                        <div>this field is required</div>
+                    </div>
+                    <div class="bottom-buttons">
+                        <button class="clear-button" type="button" onclick="resetAddTaskBoard()"> Clear
+                            <img src="assets/img/clear-x.png"></button>
+                        <button class="create-button" type="submit">
+                            <string>Create Task</string> <img src="assets/img/create-task-check.png">
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+
+
+
+    <!-- ----------------------------------------------Show Task Fenster---------------------------------------------- -->
+
+    <div id="showTaskScreen" class="popUpScreen" style="display:none;" onclick="closeShowTask()">
+    </div>
+    <div id="showTask" class="showTask">
+        <div class="showTaskContainer">
+            <div class="showTaskContent">
+                <div class="showTaskHead">
+                    <string id="showTaskPlaceholder"></string>
+                    <button onclick="closeShowTask()"><img src="assets/img/close.png"></button>
+                </div>
+                <div id="showTitleContainer" class="showTitle"></div>
+                <div id="showDescriptionContainer"></div>
+                <div id="showDateContainer" class="show_Date_Priority_Container">
+                    <string class="titleColor">Due Date:</string>
+                    <div id="showDate"></div>
+                </div>
+                <div id="showPriorityContainer" class="show_Date_Priority_Container">
+                    <string class="titleColor">Priority:</string>
+                    <div id="showPriority"></div>
+                </div>
+                <div id="showContactsContainer">
+                    <string class="titleColor">Assigned To:</string>
+                    <div id="showContacts"></div>
+                </div>
+                <div id="showSubtasksContainer">
+                </div>
+                <div class="showTaskBottom">
+                    <div id="edit_delete_Buttons" class="edit_delete_Buttons">
+                        <img src="assets/img/edit contacts.png" onclick="editTask()">
+                        <span>|</span>
+                        <img src="assets/img/Delete contact.png" onclick="deleteTask()">
+                    </div>
+                    <div id="save_Button">
+                        <string onclick="saveEditedTask()" cursor="pointer">Save</string>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- -----------------------------------Titel, Search Field und Add Task Button----------------------------------- -->
+
+    <div class="mainArea">
+
+        <div class="header">
+            <h1>Board</h1>
+            <div class="headerContent">
+                <div class="searchContainer">
+                    <input id="search" placeholder="Find task" oninput="searchTask()">
+                    <img src="assets/img/search.png" id="searchIcon" onclick="searchTask()">
+                    <img src="assets/img/Refresh_icon.png" id="resetIcon" class="display-none" onclick="resetSearch()">
+                </div>
+                <button onclick="addTaskForm('TODO')"><img src="assets/img/Secondary-plus.png"></button>
+            </div>
+        </div>
+
+        <!-- ----------------------------------------------------Board---------------------------------------------------- -->
+        <table id="board">
+            <tr>
+                <th>
+                    <string>To do</string>
+                    <button onclick="addTaskForm('TODO')"><img src="assets/img/plus button.png"></button>
+                </th>
+                <th>
+                    <string>In progress</string>
+                    <button onclick="addTaskForm('INPROGRESS')"><img src="assets/img/plus button.png"></button>
+                </th>
+                <th>
+                    <string>Await feedback</string>
+                    <button onclick="addTaskForm('AWAITFEEDBACK')"><img src="assets/img/plus button.png"></button>
+                </th>
+                <th>
+                    <string>Done</string>
+                </th>
+            </tr>
+            <tr>
+                <td id="TODO" ondrop="moveTo('TODO')" ondragover="allowDrop(event, 'TODO')"></td>
+                <td id="INPROGRESS" ondrop="moveTo('INPROGRESS')" ondragover="allowDrop(event, 'INPROGRESS')"></td>
+                <td id="AWAITFEEDBACK" ondrop="moveTo('AWAITFEEDBACK')" ondragover="allowDrop(event, 'AWAITFEEDBACK')"></td>
+                <td id="DONE" ondrop="moveTo('DONE')" ondragover="allowDrop(event, 'DONE')"></td>
+            </tr>
+        </table>
+
+
+        <!-- ----------------------------------------------Board Responsive---------------------------------------------- -->
+
+        <table id="boardResponsive">
+            <tr>
+                <th>
+                    <string>To do</string><button onclick="switchToAddTask()"><img src="assets/img/plus button.png"
+                            style="cursor: pointer;"></button>
+                </th>
+                <td id="TODOresponsive" ondrop="moveTo('TODO')" ondragstart="allowDrop(event)"></td>
+            </tr>
+            <tr>
+                <th>
+                    <string>In progress</string><button onclick="switchToAddTask()"><img
+                            src="assets/img/plus button.png" style="cursor: pointer;"></button>
+                </th>
+                <td id="INPROGRESSresponsive" ondrop="moveTo('INPROGRESS')" ondragstart="allowDrop(event)"></td>
+            </tr>
+            <tr>
+                <th>
+                    <string>Await feedback</string><button onclick="switchToAddTask()"><img
+                            src="assets/img/plus button.png" style="cursor: pointer;"></button>
+                </th>
+                <td id="AWAITFEEDBACKresponsive" ondrop="moveTo('AWAITFEEDBACK')" ondragstart="allowDrop(event)">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <string>Done</string>
+                </th>
+                <td id="DONEresponsive" ondrop="moveTo('DONE')" ondragstart="allowDrop(event)"></td>
+            </tr>
+        </table>
+
+
+
+        <div id="results">
+
+        </div>
+
+        <div id="resultsResponsive">
+            
+        </div>
+
+    </div>
+</body>
+
+</html>

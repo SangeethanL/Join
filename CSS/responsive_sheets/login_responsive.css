@@ -1,0 +1,245 @@
+@media (max-width: 850px) {
+    .animation_logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .arrow-back {
+        top: 15px;
+        left: 25px;
+    }
+
+    .mainArea {
+        height: 100vh;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .sign-up-info {
+        padding: 35px;
+    }
+
+    .sign-up-info span {
+        font-size: 15px;
+        margin-right: 15px;
+    }
+
+    .sign-up-info button {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .login_container {
+        display: flex;
+        align-items: center;
+        height: 85%;
+    }
+
+    .login {
+        padding: 18px 85px;
+        margin: 0px;
+    }
+
+    .login-input {
+        width: unset;
+    }
+
+    .login_signUp_button {
+        font-size: 15px;
+        height: fit-content;
+        padding: 8px 15px;
+    }
+
+    .guest_login_button {
+        font-size: 15px;
+        height: fit-content;
+        padding: 8px 15px;
+    }
+
+    .signUp_container {
+        display: flex;
+        align-items: center;
+        height: 85%;
+    }
+
+    .signUp {
+        padding: 18px 85px;
+        margin: 0px;
+    }
+
+    .checkbox_container div, .checkbox_container span {
+        font-size: 15px;
+    }
+
+    footer {
+        font-size: 15px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 500px) {
+    .animation_logo {
+        width: 55px;
+        height: 60px;
+    }
+
+    .sign-up-info {
+        padding: 25px;
+    }
+
+    .login_signUp_title span {
+        font-size: 40px;
+    }
+
+    .login {
+        padding: 25px 75px;
+    }
+
+    .login-input input {
+        font-size: 18px;
+    }
+
+    .signUp {
+        padding: 18px 55px;
+    }
+
+    .checkbox_container div, .checkbox_container span {
+        font-size: 15px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @media (max-width: 440px) {
+        .arrow-back {
+            width: 30px;
+            height: 30px;
+        }
+
+        .login_signUp_title span {
+            font-size: 35px;
+        }
+
+        .login {
+            padding: 25px 55px;
+        }
+
+        .login-input input {
+            font-size: 16px;
+        }
+
+        .signUp {
+            padding: 18px 55px;
+        }
+
+        .checkbox_container div, .checkbox_container span {
+            font-size: 14px;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+    @media (max-width: 370px) {
+        .animation_logo {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .arrow-back {
+            width: 25px;
+            height: 25px;
+        }
+
+        .login_signUp_title span {
+            font-size: 33px;
+        }
+
+        .login {
+            padding: 25px 50px;
+        }
+
+        .login-input input {
+            font-size: 15px;
+        }
+
+        .signUp {
+            padding: 18px 50px;
+        }
+
+        .checkbox_container div, .checkbox_container span {
+            font-size: 13px;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+    @media (max-width: 330px) {
+       
+        .login_signUp_title span {
+            font-size: 30px;
+        }
+
+        .login {
+            padding: 20px 35px;
+        }
+
+        .login-input input {
+            font-size: 14px;
+        }
+
+        .signUp {
+            padding: 15px 35px;
+        }
+
+        .checkbox_container div, .checkbox_container span {
+            font-size: 13px;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+.mainArea {
+    position: absolute;
+    font-size: 20px;
+    top: 80px;
+    left: 328px;
+    bottom: 0;
+    right: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-size: 2.5rem;
+    line-height: 50px;
+    font-weight: 700;
+    margin-right: 20px;
+}
+
+.spacing-bottom {
+    padding-bottom: 128px;
+}
